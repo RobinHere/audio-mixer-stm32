@@ -60,6 +60,13 @@ const osThreadAttr_t GUI_Task_attributes = {
   .priority = (osPriority_t) osPriorityNormal,
   .stack_size = 8192 * 4
 };
+/* Definitions for AUDIO_TASK */
+osThreadId_t AUDIO_TASKHandle;
+const osThreadAttr_t AUDIO_TASK_attributes = {
+  .name = "AUDIO_TASK",
+  .priority = (osPriority_t) osPriorityLow,
+  .stack_size = 512 * 4
+};
 
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN FunctionPrototypes */
@@ -68,6 +75,7 @@ extern portBASE_TYPE IdleTaskHook(void* p);
 
 void StartDefaultTask(void *argument);
 extern void TouchGFX_Task(void *argument);
+void AudioTask(void *argument);
 
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
 
@@ -121,6 +129,9 @@ void MX_FREERTOS_Init(void) {
   /* creation of GUI_Task */
   GUI_TaskHandle = osThreadNew(TouchGFX_Task, NULL, &GUI_Task_attributes);
 
+  /* creation of AUDIO_TASK */
+  AUDIO_TASKHandle = osThreadNew(AudioTask, NULL, &AUDIO_TASK_attributes);
+
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
   /* USER CODE END RTOS_THREADS */
@@ -146,6 +157,24 @@ void StartDefaultTask(void *argument)
     osDelay(1);
   }
   /* USER CODE END defaultTask */
+}
+
+/* USER CODE BEGIN Header_AudioTask */
+/**
+* @brief Function implementing the AUDIO_TASK thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_AudioTask */
+void AudioTask(void *argument)
+{
+  /* USER CODE BEGIN AUDIO_TASK */
+  /* Infinite loop */
+  for(;;)
+  {
+    osDelay(1);
+  }
+  /* USER CODE END AUDIO_TASK */
 }
 
 /* Private application code --------------------------------------------------*/

@@ -540,3 +540,4 @@ board=custom
 rtos.0.ip=STMicroelectronics.X-CUBE-FREERTOS.1.0.1
 rtos.0.tasks.0=allocationType,Dynamic;bufferName,NULL;codeGen,Default;controlBlockName,NULL;entry,StartDefaultTask;name,defaultTask;parameter,NULL;priority,osPriorityNormal;stackSize,128
 rtos.0.tasks.1=allocationType,Dynamic;bufferName,NULL;codeGen,As external;controlBlockName,NULL;entry,TouchGFX_Task;name,GUI_Task;parameter,NULL;priority,osPriorityNormal;stackSize,8192
+rtos.0.tasks.2=allocationType,Dynamic;bufferName,NULL;codeGen,Default;controlBlockName,NULL;entry,AudioTask;name,AUDIO_TASK;parameter,NULL;priority,osPriorityLow;stackSize,512
