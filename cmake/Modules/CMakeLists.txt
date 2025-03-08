@@ -18,6 +18,7 @@ target_include_directories(Modules INTERFACE
 
 target_sources(Modules INTERFACE
     ../../Modules/Src/w25q64.c
+    ../../Modules/Src/audio_module.c
 )
 
 target_link_directories(Modules INTERFACE
