@@ -50,7 +50,7 @@
 osThreadId_t defaultTaskHandle;
 const osThreadAttr_t defaultTask_attributes = {
   .name = "defaultTask",
-  .priority = (osPriority_t) osPriorityNormal,
+  .priority = (osPriority_t) osPriorityLow,
   .stack_size = 128 * 4
 };
 /* Definitions for GUI_Task */
@@ -64,7 +64,7 @@ const osThreadAttr_t GUI_Task_attributes = {
 osThreadId_t AUDIO_TASKHandle;
 const osThreadAttr_t AUDIO_TASK_attributes = {
   .name = "AUDIO_TASK",
-  .priority = (osPriority_t) osPriorityLow,
+  .priority = (osPriority_t) osPriorityNormal,
   .stack_size = 512 * 4
 };
 
