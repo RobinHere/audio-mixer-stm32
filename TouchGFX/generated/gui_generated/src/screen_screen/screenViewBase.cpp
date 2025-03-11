@@ -3,6 +3,7 @@
 /*********************************************************************************/
 #include <gui_generated/screen_screen/screenViewBase.hpp>
 #include <touchgfx/Color.hpp>
+#include <images/BitmapDatabase.hpp>
 
 screenViewBase::screenViewBase()
 {
@@ -13,6 +14,13 @@ screenViewBase::screenViewBase()
     box1.setPosition(0, 0, 480, 320);
     box1.setColor(touchgfx::Color::getColorFromRGB(129, 167, 230));
     add(box1);
+
+    slider1.setXY(74, 27);
+    slider1.setBitmaps(touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_SLIDER_HORIZONTAL_THICK_TRACK_MEDIUM_ID), touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_SLIDER_HORIZONTAL_THICK_FILLER_MEDIUM_ID), touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_SLIDER_HORIZONTAL_THICK_ROUNDED_DARK_ID));
+    slider1.setupHorizontalSlider(16, 11, 0, 0, 300);
+    slider1.setValueRange(0, 100);
+    slider1.setValue(0);
+    add(slider1);
 }
 
 screenViewBase::~screenViewBase()

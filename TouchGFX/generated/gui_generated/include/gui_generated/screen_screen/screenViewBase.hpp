@@ -8,6 +8,7 @@
 #include <mvp/View.hpp>
 #include <gui/screen_screen/screenPresenter.hpp>
 #include <touchgfx/widgets/Box.hpp>
+#include <touchgfx/containers/Slider.hpp>
 
 class screenViewBase : public touchgfx::View<screenPresenter>
 {
@@ -26,6 +27,7 @@ protected:
      */
     touchgfx::Box __background;
     touchgfx::Box box1;
+    touchgfx::Slider slider1;
 
 private:
 
