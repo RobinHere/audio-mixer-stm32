@@ -141,14 +141,14 @@ void HAL_SAI_MspInit(SAI_HandleTypeDef* saiHandle)
     SAI1_client ++;
 
     /**SAI1_A_Block_A GPIO Configuration
-    PE6     ------> SAI1_SD_A
+    PD6     ------> SAI1_SD_A
     */
     GPIO_InitStruct.Pin = GPIO_PIN_6;
     GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
     GPIO_InitStruct.Alternate = GPIO_AF6_SAI1;
-    HAL_GPIO_Init(GPIOE, &GPIO_InitStruct);
+    HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);
 
     /* Peripheral DMA init*/
 
@@ -386,9 +386,9 @@ void HAL_SAI_MspDeInit(SAI_HandleTypeDef* saiHandle)
       }
 
     /**SAI1_A_Block_A GPIO Configuration
-    PE6     ------> SAI1_SD_A
+    PD6     ------> SAI1_SD_A
     */
-    HAL_GPIO_DeInit(GPIOE, GPIO_PIN_6);
+    HAL_GPIO_DeInit(GPIOD, GPIO_PIN_6);
 
     HAL_DMA_DeInit(saiHandle->hdmarx);
     }
