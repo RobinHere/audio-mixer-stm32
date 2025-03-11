@@ -24,7 +24,7 @@
 #include "cmsis_os2.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "audio_module.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -172,7 +172,7 @@ void AudioTask(void *argument)
   /* Infinite loop */
   for(;;)
   {
-    osDelay(1);
+    AudioHandling();
   }
   /* USER CODE END AUDIO_TASK */
 }
