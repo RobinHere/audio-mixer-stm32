@@ -20,9 +20,6 @@ static volatile int16_t entryBufferADC1[BUFFER_SIZE];
 static volatile int16_t exitBuffer[BUFFER_SIZE];
 static volatile uint8_t entryBufferState = BUFFER_OFFSET_NONE; 
 
-static void CopySamplesBuffer(volatile int16_t* sourceBuffer, volatile int16_t* destinationBuffer, uint16_t bufferSize);
-static void StartAudioRxTransmission(SAI_HandleTypeDef* saiBlock, volatile int16_t* entryBuffer, uint16_t bufferSize);
-static void StartAudioTxTransmission(SAI_HandleTypeDef* saiBlock, volatile int16_t* exitBuffer, uint16_t bufferSize);
 void AudioInit();
 void AudioHandling();
 
