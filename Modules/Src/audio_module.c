@@ -1,5 +1,10 @@
 #include "audio_module.h"
 
+static volatile int16_t entryBufferADC1[BUFFER_SIZE];
+static volatile int16_t entryBufferADC2[BUFFER_SIZE];
+static volatile int16_t exitBuffer[BUFFER_SIZE];
+static volatile uint8_t entryBufferState = BUFFER_OFFSET_NONE;
+
 static void CopySamplesBuffer(volatile int16_t* sourceBuffer, volatile int16_t* destinationBuffer, uint16_t bufferSize) {
     for(uint16_t i = 0; i < bufferSize; i++) {
         destinationBuffer[i] = sourceBuffer[i];

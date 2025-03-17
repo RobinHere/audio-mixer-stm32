@@ -16,10 +16,6 @@ typedef enum {
     BUFFER_OFFSET_FULL = 2,
 } bufferState;
 
-static volatile int16_t entryBufferADC1[BUFFER_SIZE];
-static volatile int16_t exitBuffer[BUFFER_SIZE];
-static volatile uint8_t entryBufferState = BUFFER_OFFSET_NONE; 
-
 void AudioInit();
 void AudioHandling();
 
