@@ -9,6 +9,7 @@
 #endif
 
 #define BUFFER_SIZE 512
+#define VOLUME_DEFAULT_LEVEL 100 //in percent
 
 typedef enum {
     BUFFER_OFFSET_NONE = 0,
