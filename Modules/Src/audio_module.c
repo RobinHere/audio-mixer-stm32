@@ -1,9 +1,10 @@
 #include "audio_module.h"
 
-volatile uint8_t RightInput1VolumeMultiplier = VOLUME_DEFAULT_LEVEL;
-volatile uint8_t LeftInput1VolumeMultiplier = VOLUME_DEFAULT_LEVEL;
-volatile uint8_t RightInput2VolumeMultiplier = VOLUME_DEFAULT_LEVEL;
-volatile uint8_t LeftInput2VolumeMultiplier = VOLUME_DEFAULT_LEVEL;
+static volatile int8_t RightInput1GainDb = VOLUME_DEFAULT_GAIN;
+static volatile int8_t LeftInput1GainDb = VOLUME_DEFAULT_GAIN;
+static volatile int8_t RightInput2GainDb = VOLUME_DEFAULT_GAIN;
+static volatile int8_t LeftInput2GainDb = VOLUME_DEFAULT_GAIN;
+static volatile int8_t OutputGainDb = VOLUME_DEFAULT_GAIN;
 
 static volatile int16_t entryBufferADC1[BUFFER_SIZE];
 static volatile int16_t entryBufferADC2[BUFFER_SIZE];
@@ -16,23 +17,39 @@ static void CopySamplesBuffer(volatile int16_t* sourceBuffer, volatile int16_t* 
     }
 }
 
-static uint16_t AdjustSampleVolume(int16_t sample, uint8_t volumeMultiplier) {
-    return (int16_t)((float)sample * ((float)volumeMultiplier / (float)VOLUME_DEFAULT_LEVEL));
+static float decibelToAmplitudeMultiplier(int8_t gainDb) {
+    return powf(10.f, gainDb / 20.f);
 }
 
-static void NaiveMix(volatile int16_t* sourceBuffer1, volatile int16_t* sourceBuffer2,
-    volatile int16_t* destinationBuffer, uint16_t bufferSize) {
+static float AdjustSampleGain(float sample, int8_t gainDb) {
+    return sample * decibelToAmplitudeMultiplier(gainDb);
+}
+
+static void BasicMix(volatile int16_t* sourceBuffer1, volatile int16_t* sourceBuffer2,
+                     volatile int16_t* destinationBuffer, uint16_t bufferSize) {
+    float floatMixedSample = 0.0f;
+    float sample1Norm = 0.0f;
+    float sample2Norm = 0.0f;
     //Mix Left Channel
-    for(uint16_t i = 0; i < bufferSize; i+=2) {
-        sourceBuffer1[i] = AdjustSampleVolume(sourceBuffer1[i], LeftInput1VolumeMultiplier);
-        sourceBuffer2[i] = AdjustSampleVolume(sourceBuffer2[i], LeftInput2VolumeMultiplier);
-        destinationBuffer[i] = (int16_t)(sourceBuffer1[i] + sourceBuffer2[i] / 2);
-    }
-    //Mix Right Channel
-    for(uint16_t i = 1; i < bufferSize; i+=2) {
-        sourceBuffer1[i] = AdjustSampleVolume(sourceBuffer1[i], RightInput1VolumeMultiplier);
-        sourceBuffer2[i] = AdjustSampleVolume(sourceBuffer2[i], RightInput2VolumeMultiplier);
-        destinationBuffer[i] = (int16_t)(sourceBuffer1[i] + sourceBuffer2[i] / 2);
+    for(uint16_t i = 0; i < bufferSize; i++) {
+        sample1Norm = ((float)sourceBuffer1[i] / INT_16_MAX_VALUE);
+        sample2Norm = ((float)sourceBuffer2[i] / INT_16_MAX_VALUE);
+        if (i % 2 == 0) {
+            sample1Norm = AdjustSampleGain(sample1Norm, LeftInput1GainDb);
+            sample2Norm = AdjustSampleGain(sample2Norm, LeftInput2GainDb);
+        } else {
+            sample1Norm = AdjustSampleGain(sample1Norm, RightInput1GainDb);
+            sample2Norm = AdjustSampleGain(sample2Norm, RightInput2GainDb);
+        }
+        floatMixedSample = sample1Norm + sample2Norm;
+        floatMixedSample = AdjustSampleGain(floatMixedSample, OutputGainDb);
+        if (floatMixedSample > 1.0f) {
+            floatMixedSample = 1.0f;
+        } 
+        if (floatMixedSample < -1.0f) {
+            floatMixedSample = -1.0f;
+        }
+        destinationBuffer[i] = (int16_t)(floatMixedSample * INT_16_MAX_VALUE);
     }
 }
 
@@ -53,12 +70,12 @@ void AudioInit() {
 void AudioHandling() {
     if (entryBufferState != BUFFER_OFFSET_NONE) {
         if (entryBufferState == BUFFER_OFFSET_HALF) {
-            NaiveMix(&entryBufferADC1[0], 
+            BasicMix(&entryBufferADC1[0], 
                      &entryBufferADC2[0], 
                      &exitBuffer[0], 
                      BUFFER_SIZE / 2);
         } else {
-            NaiveMix(&entryBufferADC1[BUFFER_SIZE / 2], 
+            BasicMix(&entryBufferADC1[BUFFER_SIZE / 2], 
                      &entryBufferADC2[BUFFER_SIZE / 2], 
                      &exitBuffer[BUFFER_SIZE / 2], 
                      BUFFER_SIZE / 2);

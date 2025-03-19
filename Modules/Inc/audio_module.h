@@ -2,6 +2,7 @@
 #define __AUDIO_MODULE_H_
 
 #include <stdint.h>
+#include <math.h>
 #include "sai.h"
 
 #ifdef __cplusplus
@@ -9,13 +10,14 @@
 #endif
 
 #define BUFFER_SIZE 512
-#define VOLUME_DEFAULT_LEVEL 100 //in percent
+#define VOLUME_DEFAULT_GAIN 0
+#define INT_16_MAX_VALUE 32767.0f
 
 typedef enum {
-    BUFFER_OFFSET_NONE = 0,
-    BUFFER_OFFSET_HALF = 1,
-    BUFFER_OFFSET_FULL = 2,
-} bufferState;
+    BUFFER_OFFSET_NONE,
+    BUFFER_OFFSET_HALF,
+    BUFFER_OFFSET_FULL,
+} BufferState;
 
 void AudioInit();
 void AudioHandling();
