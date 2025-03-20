@@ -61,6 +61,28 @@ static void StartAudioTxTransmission(SAI_HandleTypeDef* saiBlock, volatile int16
     HAL_SAI_Transmit_DMA(saiBlock, (uint8_t*)exitBuffer, bufferSize);
 }
 
+void UpdateGainFromSlider(GainType channel, int8_t DbGain) {
+    switch(channel) {
+        case GAIN_OUTPUT:
+            OutputGainDb = DbGain;
+            break;
+        case GAIN_CH1L:
+            LeftInput1GainDb = DbGain;
+            break;
+        case GAIN_CH1R:
+            RightInput1GainDb = DbGain;
+            break;
+        case GAIN_CH2L:
+            LeftInput2GainDb = DbGain;
+            break;
+        case GAIN_CH2R:
+            RightInput2GainDb = DbGain;
+            break;
+        default:
+            break;
+    }
+}
+
 void AudioInit() {
     StartAudioRxTransmission(&hsai_BlockA1, entryBufferADC1, BUFFER_SIZE);
     StartAudioRxTransmission(&hsai_BlockB2, entryBufferADC2, BUFFER_SIZE);

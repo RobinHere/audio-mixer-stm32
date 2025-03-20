@@ -9,6 +9,8 @@
 #include <gui/screen_screen/screenPresenter.hpp>
 #include <touchgfx/widgets/Box.hpp>
 #include <touchgfx/containers/Slider.hpp>
+#include <touchgfx/widgets/TextArea.hpp>
+#include <audio_module.h>
 
 class screenViewBase : public touchgfx::View<screenPresenter>
 {
@@ -27,9 +29,38 @@ protected:
      */
     touchgfx::Box __background;
     touchgfx::Box box1;
-    touchgfx::Slider slider1;
+    touchgfx::Slider output_slider;
+    touchgfx::Slider in_l1_slider;
+    touchgfx::Slider in_r1_slider;
+    touchgfx::Slider in_l2_slider;
+    touchgfx::Slider in_r2_slider;
+    touchgfx::TextArea dB1;
+    touchgfx::TextArea dB2;
+    touchgfx::TextArea dB3;
+    touchgfx::TextArea dB4;
+    touchgfx::TextArea dB5;
+    touchgfx::TextArea dB6;
+    touchgfx::TextArea dB7;
+    touchgfx::TextArea dB8;
+    touchgfx::TextArea db10;
+    touchgfx::TextArea dB11;
+    touchgfx::TextArea out_gain;
+    touchgfx::TextArea ch1_gain;
+    touchgfx::TextArea ch2_gain;
+    touchgfx::TextArea ch3_gain;
+    touchgfx::TextArea ch4_gain;
 
 private:
+
+    /*
+     * Callback Declarations
+     */
+    touchgfx::Callback<screenViewBase, const touchgfx::Slider&, int> sliderValueChangedCallback;
+
+    /*
+     * Callback Handler Declarations
+     */
+    void sliderValueChangedCallbackHandler(const touchgfx::Slider& src, int value);
 
 };
 

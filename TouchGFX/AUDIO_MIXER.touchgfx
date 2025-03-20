@@ -10,30 +10,395 @@
             "Width": 480,
             "Height": 320,
             "Color": {
-              "Red": 129,
-              "Green": 167,
-              "Blue": 230
+              "Red": 48,
+              "Green": 73,
+              "Blue": 112
             }
           },
           {
             "Type": "Slider",
-            "Name": "slider1",
-            "X": 74,
-            "Y": 27,
-            "Width": 332,
-            "Height": 32,
-            "IsHorizontalSlider": true,
-            "BackgroundUnselected": "__generated\\alternate_theme_images_widgets_slider_horizontal_thick_track_medium.png",
-            "BackgroundSelected": "__generated\\alternate_theme_images_widgets_slider_horizontal_thick_filler_medium.png",
-            "Indicator": "__generated\\alternate_theme_images_widgets_slider_horizontal_thick_rounded_dark.png",
-            "BackgroundX": 16,
-            "BackgroundY": 11,
-            "IndicatorMax": 300,
-            "ValueMax": 100,
-            "Preset": "alternate_theme\\presets\\slider\\horizontal\\thick\\medium_rounded_dark.json"
+            "Name": "output_slider",
+            "X": 40,
+            "Y": 44,
+            "Width": 32,
+            "Height": 232,
+            "BackgroundUnselected": "__generated\\alternate_theme_images_widgets_slider_vertical_thick_track_small.png",
+            "BackgroundSelected": "__generated\\alternate_theme_images_widgets_slider_vertical_thick_filler_small.png",
+            "Indicator": "__generated\\alternate_theme_images_widgets_slider_vertical_thick_rounded_dark.png",
+            "BackgroundX": 11,
+            "BackgroundY": 16,
+            "IndicatorMax": 200,
+            "ValueMax": 20,
+            "ValueMin": -20,
+            "Preset": "alternate_theme\\presets\\slider\\vertical\\thick\\small_rounded_dark.json"
+          },
+          {
+            "Type": "Slider",
+            "Name": "in_l1_slider",
+            "X": 120,
+            "Y": 44,
+            "Width": 32,
+            "Height": 232,
+            "BackgroundUnselected": "__generated\\alternate_theme_images_widgets_slider_vertical_thick_track_small.png",
+            "BackgroundSelected": "__generated\\alternate_theme_images_widgets_slider_vertical_thick_filler_small.png",
+            "Indicator": "__generated\\alternate_theme_images_widgets_slider_vertical_thick_rounded_dark.png",
+            "BackgroundX": 11,
+            "BackgroundY": 16,
+            "IndicatorMax": 200,
+            "ValueMax": 20,
+            "ValueMin": -20,
+            "Preset": "alternate_theme\\presets\\slider\\vertical\\thick\\small_rounded_dark.json"
+          },
+          {
+            "Type": "Slider",
+            "Name": "in_r1_slider",
+            "X": 200,
+            "Y": 44,
+            "Width": 32,
+            "Height": 232,
+            "BackgroundUnselected": "__generated\\alternate_theme_images_widgets_slider_vertical_thick_track_small.png",
+            "BackgroundSelected": "__generated\\alternate_theme_images_widgets_slider_vertical_thick_filler_small.png",
+            "Indicator": "__generated\\alternate_theme_images_widgets_slider_vertical_thick_rounded_dark.png",
+            "BackgroundX": 11,
+            "BackgroundY": 16,
+            "IndicatorMax": 200,
+            "ValueMax": 20,
+            "ValueMin": -20,
+            "Preset": "alternate_theme\\presets\\slider\\vertical\\thick\\small_rounded_dark.json"
+          },
+          {
+            "Type": "Slider",
+            "Name": "in_l2_slider",
+            "X": 280,
+            "Y": 44,
+            "Width": 32,
+            "Height": 232,
+            "BackgroundUnselected": "__generated\\alternate_theme_images_widgets_slider_vertical_thick_track_small.png",
+            "BackgroundSelected": "__generated\\alternate_theme_images_widgets_slider_vertical_thick_filler_small.png",
+            "Indicator": "__generated\\alternate_theme_images_widgets_slider_vertical_thick_rounded_dark.png",
+            "BackgroundX": 11,
+            "BackgroundY": 16,
+            "IndicatorMax": 200,
+            "ValueMax": 20,
+            "ValueMin": -20,
+            "Preset": "alternate_theme\\presets\\slider\\vertical\\thick\\small_rounded_dark.json"
+          },
+          {
+            "Type": "Slider",
+            "Name": "in_r2_slider",
+            "X": 360,
+            "Y": 44,
+            "Width": 32,
+            "Height": 232,
+            "BackgroundUnselected": "__generated\\alternate_theme_images_widgets_slider_vertical_thick_track_small.png",
+            "BackgroundSelected": "__generated\\alternate_theme_images_widgets_slider_vertical_thick_filler_small.png",
+            "Indicator": "__generated\\alternate_theme_images_widgets_slider_vertical_thick_rounded_dark.png",
+            "BackgroundX": 11,
+            "BackgroundY": 16,
+            "IndicatorMax": 200,
+            "ValueMax": 20,
+            "ValueMin": -20,
+            "Preset": "alternate_theme\\presets\\slider\\vertical\\thick\\small_rounded_dark.json"
+          },
+          {
+            "Type": "TextArea",
+            "Name": "dB1",
+            "X": 30,
+            "Y": 24,
+            "Width": 52,
+            "Height": 20,
+            "TextId": "__SingleUse_QQQB",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 2,
+              "Green": 146,
+              "Blue": 230
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "dB2",
+            "X": 110,
+            "Y": 24,
+            "Width": 52,
+            "Height": 20,
+            "TextId": "__SingleUse_QZCV",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 2,
+              "Green": 146,
+              "Blue": 230
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "dB3",
+            "X": 190,
+            "Y": 24,
+            "Width": 52,
+            "Height": 20,
+            "TextId": "__SingleUse_WZZN",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 2,
+              "Green": 146,
+              "Blue": 230
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "dB4",
+            "X": 270,
+            "Y": 24,
+            "Width": 52,
+            "Height": 20,
+            "TextId": "__SingleUse_R650",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 2,
+              "Green": 146,
+              "Blue": 230
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "dB5",
+            "X": 350,
+            "Y": 24,
+            "Width": 52,
+            "Height": 20,
+            "TextId": "__SingleUse_JXEU",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 2,
+              "Green": 146,
+              "Blue": 230
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "dB6",
+            "X": 26,
+            "Y": 276,
+            "Width": 61,
+            "Height": 20,
+            "TextId": "__SingleUse_Q9MG",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 2,
+              "Green": 146,
+              "Blue": 230
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "dB7",
+            "X": 106,
+            "Y": 276,
+            "Width": 61,
+            "Height": 20,
+            "TextId": "__SingleUse_4FYJ",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 2,
+              "Green": 146,
+              "Blue": 230
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "dB8",
+            "X": 181,
+            "Y": 276,
+            "Width": 61,
+            "Height": 20,
+            "TextId": "__SingleUse_DN7T",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 2,
+              "Green": 146,
+              "Blue": 230
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "db10",
+            "X": 266,
+            "Y": 276,
+            "Width": 61,
+            "Height": 20,
+            "TextId": "__SingleUse_O4EA",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 2,
+              "Green": 146,
+              "Blue": 230
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "dB11",
+            "X": 346,
+            "Y": 276,
+            "Width": 61,
+            "Height": 20,
+            "TextId": "__SingleUse_JZIM",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 2,
+              "Green": 146,
+              "Blue": 230
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "out_gain",
+            "X": 10,
+            "Y": 115,
+            "Width": 20,
+            "Height": 90,
+            "TextId": "__SingleUse_4Q4T",
+            "TextRotation": "270",
+            "Color": {
+              "Red": 2,
+              "Green": 146,
+              "Blue": 230
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "ch1_gain",
+            "X": 90,
+            "Y": 83,
+            "Width": 20,
+            "Height": 155,
+            "TextId": "__SingleUse_7G36",
+            "TextRotation": "270",
+            "Color": {
+              "Red": 2,
+              "Green": 146,
+              "Blue": 230
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "ch2_gain",
+            "X": 170,
+            "Y": 83,
+            "Width": 20,
+            "Height": 155,
+            "TextId": "__SingleUse_FR58",
+            "TextRotation": "270",
+            "Color": {
+              "Red": 2,
+              "Green": 146,
+              "Blue": 230
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "ch3_gain",
+            "X": 250,
+            "Y": 83,
+            "Width": 20,
+            "Height": 155,
+            "TextId": "__SingleUse_9I2K",
+            "TextRotation": "270",
+            "Color": {
+              "Red": 2,
+              "Green": 146,
+              "Blue": 230
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "ch4_gain",
+            "X": 330,
+            "Y": 83,
+            "Width": 20,
+            "Height": 155,
+            "TextId": "__SingleUse_IOGG",
+            "TextRotation": "270",
+            "Color": {
+              "Red": 2,
+              "Green": 146,
+              "Blue": 230
+            },
+            "AutoSize": true
           }
         ],
-        "Interactions": []
+        "Interactions": [
+          {
+            "InteractionName": "AdjustOutGain",
+            "Trigger": {
+              "Type": "TriggerSliderValueChanged",
+              "TriggerComponent": "output_slider"
+            },
+            "Action": {
+              "Type": "ActionExecuteCode",
+              "Includes": "#include <audio_module.h>",
+              "Code": "UpdateGainFromSlider(GAIN_OUTPUT, (int8_t)value);"
+            }
+          },
+          {
+            "InteractionName": "AdjustChannel1LeftGain",
+            "Trigger": {
+              "Type": "TriggerSliderValueChanged",
+              "TriggerComponent": "in_l1_slider"
+            },
+            "Action": {
+              "Type": "ActionExecuteCode",
+              "Code": "UpdateGainFromSlider(GAIN_CH1L, (int8_t)value);"
+            }
+          },
+          {
+            "InteractionName": "AdjustChannel1RightGain",
+            "Trigger": {
+              "Type": "TriggerSliderValueChanged",
+              "TriggerComponent": "in_r1_slider"
+            },
+            "Action": {
+              "Type": "ActionExecuteCode",
+              "Code": "UpdateGainFromSlider(GAIN_CH1R, (int8_t)value);"
+            }
+          },
+          {
+            "InteractionName": "AdjustChannel2LeftGain",
+            "Trigger": {
+              "Type": "TriggerSliderValueChanged",
+              "TriggerComponent": "in_l2_slider"
+            },
+            "Action": {
+              "Type": "ActionExecuteCode",
+              "Code": "UpdateGainFromSlider(GAIN_CH2L, (int8_t)value);"
+            }
+          },
+          {
+            "InteractionName": "AdjustChannel2RightGain",
+            "Trigger": {
+              "Type": "TriggerSliderValueChanged",
+              "TriggerComponent": "in_r2_slider"
+            },
+            "Action": {
+              "Type": "ActionExecuteCode",
+              "Code": "UpdateGainFromSlider(GAIN_CH2R, (int8_t)value);"
+            }
+          }
+        ]
       }
     ],
     "CustomContainerDefinitions": [],

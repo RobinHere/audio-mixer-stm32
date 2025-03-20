@@ -19,8 +19,17 @@ typedef enum {
     BUFFER_OFFSET_FULL,
 } BufferState;
 
+typedef enum {
+    GAIN_OUTPUT,
+    GAIN_CH1L,
+    GAIN_CH1R,
+    GAIN_CH2L,
+    GAIN_CH2R,
+} GainType;
+
 void AudioInit();
 void AudioHandling();
+void UpdateGainFromSlider(GainType channel, int8_t DbGain);
 
 #ifdef __cplusplus
 }
