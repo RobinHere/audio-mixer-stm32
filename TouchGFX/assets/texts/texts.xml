@@ -6,55 +6,55 @@
   <Texts>
     <TextGroup Id="Group1" />
     <TextGroup Id="Unsorted">
-      <Text Id="__SingleUse_IOGG" Alignment="Left" TypographyId="Default">
+      <Text Id="__SingleUse_I3EC" Alignment="Left" TypographyId="Default">
         <Translation Language="GB">Channel 4 Gain</Translation>
       </Text>
-      <Text Id="__SingleUse_9I2K" Alignment="Left" TypographyId="Default">
+      <Text Id="__SingleUse_L74J" Alignment="Left" TypographyId="Default">
         <Translation Language="GB">Channel 3 Gain</Translation>
       </Text>
-      <Text Id="__SingleUse_FR58" Alignment="Left" TypographyId="Default">
+      <Text Id="__SingleUse_JVVL" Alignment="Left" TypographyId="Default">
         <Translation Language="GB">Channel 2 Gain</Translation>
       </Text>
-      <Text Id="__SingleUse_JZIM" Alignment="Left" TypographyId="Default">
-        <Translation Language="GB">-10dB</Translation>
-      </Text>
-      <Text Id="__SingleUse_O4EA" Alignment="Left" TypographyId="Default">
-        <Translation Language="GB">-10dB</Translation>
-      </Text>
-      <Text Id="__SingleUse_DN7T" Alignment="Left" TypographyId="Default">
-        <Translation Language="GB">-10dB</Translation>
-      </Text>
-      <Text Id="__SingleUse_JXEU" Alignment="Left" TypographyId="Default">
-        <Translation Language="GB">10dB</Translation>
-      </Text>
-      <Text Id="__SingleUse_R650" Alignment="Left" TypographyId="Default">
-        <Translation Language="GB">10dB</Translation>
-      </Text>
-      <Text Id="__SingleUse_WZZN" Alignment="Left" TypographyId="Default">
-        <Translation Language="GB">10dB</Translation>
-      </Text>
-      <Text Id="__SingleUse_4FYJ" Alignment="Left" TypographyId="Default">
-        <Translation Language="GB">-10dB</Translation>
-      </Text>
-      <Text Id="__SingleUse_QZCV" Alignment="Left" TypographyId="Default">
-        <Translation Language="GB">10dB</Translation>
-      </Text>
-      <Text Id="__SingleUse_7G36" Alignment="Left" TypographyId="Default">
+      <Text Id="__SingleUse_TOSE" Alignment="Left" TypographyId="Default">
         <Translation Language="GB">Channel 1 Gain</Translation>
       </Text>
-      <Text Id="__SingleUse_4Q4T" Alignment="Left" TypographyId="Default">
+      <Text Id="__SingleUse_58ZM" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">+20dB</Translation>
+      </Text>
+      <Text Id="__SingleUse_T16R" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">+20dB</Translation>
+      </Text>
+      <Text Id="__SingleUse_U0ES" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">+20dB</Translation>
+      </Text>
+      <Text Id="__SingleUse_928V" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">-20dB</Translation>
+      </Text>
+      <Text Id="__SingleUse_KDPP" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">-20dB</Translation>
+      </Text>
+      <Text Id="__SingleUse_YMZU" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">-20dB</Translation>
+      </Text>
+      <Text Id="__SingleUse_99Z1" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">-20dB</Translation>
+      </Text>
+      <Text Id="__SingleUse_YLR0" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">+20dB</Translation>
+      </Text>
+      <Text Id="__SingleUse_RCIE" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">-20dB</Translation>
+      </Text>
+      <Text Id="__SingleUse_QL88" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">+20dB</Translation>
+      </Text>
+      <Text Id="__SingleUse_7XPN" Alignment="Left" TypographyId="Default">
         <Translation Language="GB">Out Gain</Translation>
-      </Text>
-      <Text Id="__SingleUse_Q9MG" Alignment="Left" TypographyId="Default">
-        <Translation Language="GB">-10dB</Translation>
-      </Text>
-      <Text Id="__SingleUse_QQQB" Alignment="Left" TypographyId="Default">
-        <Translation Language="GB">10dB</Translation>
       </Text>
     </TextGroup>
   </Texts>
   <Typographies>
-    <Typography Id="Default" Font="verdana.ttf" Size="20" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
+    <Typography Id="Default" Font="verdana.ttf" Size="15" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
     <Typography Id="Large" Font="verdana.ttf" Size="40" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
     <Typography Id="Small" Font="verdana.ttf" Size="10" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
   </Typographies>
