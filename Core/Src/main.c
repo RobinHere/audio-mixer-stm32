@@ -110,12 +110,12 @@ int main(void)
   MX_GPIO_Init();
   MX_GPDMA1_Init();
   MX_GPDMA2_Init();
+  MX_OCTOSPI1_Init();
   MX_FMC_Init();
   MX_ICACHE_Init();
   MX_CRC_Init();
   MX_TIM7_Init();
   MX_I2C2_Init();
-  MX_OCTOSPI1_Init();
   MX_DCACHE1_Init();
   MX_SAI1_Init();
   MX_SAI2_Init();

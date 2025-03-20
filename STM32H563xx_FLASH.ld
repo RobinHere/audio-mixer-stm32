@@ -203,5 +203,5 @@ SECTIONS
     *(FontFlashSection FontFlashSection.*)
     *(.gnu.linkonce.r.*)
     . = ALIGN(0x4);
-  } >EXTFLASH
+  } >RAM
 }
