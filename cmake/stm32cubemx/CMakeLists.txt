@@ -8,8 +8,10 @@ set(MX_Defines_Syms
     $<$<CONFIG:Debug>:DEBUG>
 )
 
+# Touch GFX root directory
 set(root_tgfx_dir ../../TouchGFX)
 
+# Touch GFX includes 
 set(touchgfx_include_DIRS
     ${root_tgfx_dir}/gui/include
     ${root_tgfx_dir}/generated/gui_generated/include
@@ -26,6 +28,7 @@ set(touchgfx_include_DIRS
     ${root_tgfx_dir}/Target/generated
 )
 
+# Touch GFX sources
 file(GLOB_RECURSE graphics_core_generated_SRCS
     ${root_tgfx_dir}/generated/*.cpp
     ${root_tgfx_dir}/gui/*.cpp
@@ -39,6 +42,19 @@ set(graphics_core_generated_SRCS ${graphics_core_generated_SRCS})
 
 list(FILTER graphics_core_generated_SRCS EXCLUDE REGEX ".*/simulator/.*")
 list(FILTER touchgfx_include_DIRS EXCLUDE REGEX ".*/simulator/.*")
+
+# Modules 
+set(ROOT_MODULES_DIR ../../Modules)
+
+set(MODULES_INCLUDE_DIRS
+    ${ROOT_MODULES_DIR}/Inc
+)
+
+file(GLOB_RECURSE MODULES_SRCS
+    ${ROOT_MODULES_DIR}/Src/*.c
+)
+
+set(MODULES_SRCS ${MODULES_SRCS})
 
 # STM32CubeMX generated include paths
 set(MX_Include_Dirs
@@ -142,6 +158,7 @@ add_library(stm32cubemx INTERFACE)
 target_include_directories(stm32cubemx INTERFACE
         ${MX_Include_Dirs} 
         ${touchgfx_include_DIRS}
+        ${MODULES_INCLUDE_DIRS}
 )
 
 target_compile_definitions(stm32cubemx INTERFACE ${MX_Defines_Syms})
@@ -151,6 +168,7 @@ add_library(STM32_Drivers OBJECT)
 target_sources(STM32_Drivers PRIVATE 
     ${STM32_Drivers_Src} 
     ${graphics_core_generated_SRCS}
+    ${MODULES_SRCS}
 )
 
 add_library(touchgfx INTERFACE)
