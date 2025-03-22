@@ -4,6 +4,7 @@
 #include <stdint.h>
 #include <math.h>
 #include "sai.h"
+#include "delay_fx.h"
 
 #ifdef __cplusplus
  extern "C" {

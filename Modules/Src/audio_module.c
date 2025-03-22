@@ -9,32 +9,48 @@ static volatile float OutputGainAmp = VOLUME_DEFAULT_GAIN;
 static volatile int16_t entryBufferADC1[BUFFER_SIZE];
 static volatile int16_t entryBufferADC2[BUFFER_SIZE];
 static volatile int16_t exitBuffer[BUFFER_SIZE];
+static volatile float normalizedBufferADC1[BUFFER_SIZE];
+static volatile float normalizedBufferADC2[BUFFER_SIZE];
+static volatile float normalizedExitBuffer[BUFFER_SIZE];
+
 static volatile uint8_t entryBufferState = BUFFER_OFFSET_NONE;
 
-void BasicMix(volatile int16_t* sourceBuffer1, volatile int16_t* sourceBuffer2,
-                     volatile int16_t* destinationBuffer, uint16_t bufferSize) {
-    float floatMixedSample = 0.0f;
-    float sample1Norm = 0.0f;
-    float sample2Norm = 0.0f;
+static void NormalizeEntryBuffers(volatile int16_t* sourceBuffer1, 
+                                  volatile int16_t* sourceBuffer2, 
+                                  volatile float* normalizedBuffer1,
+                                  volatile float* normalizedBuffer2,
+                                  uint16_t bufferSize) {
     for(uint16_t i = 0; i < bufferSize; i++) {
-        sample1Norm = ((float)sourceBuffer1[i] / INT_16_MAX_VALUE);
-        sample2Norm = ((float)sourceBuffer2[i] / INT_16_MAX_VALUE);
+        normalizedBuffer1[i] = ((float)sourceBuffer1[i] / INT_16_MAX_VALUE);
+        normalizedBuffer2[i] = ((float)sourceBuffer2[i] / INT_16_MAX_VALUE);
+    }
+}
+
+static void DenormalizeBuffer(volatile int16_t* destinationBuffer, volatile float* normalizedBuffer,
+                              uint16_t bufferSize) {
+    for(uint16_t i = 0; i < bufferSize; i++) {
+        normalizedBuffer[i] *= OutputGainAmp;
+        destinationBuffer[i] = (int16_t)(normalizedBuffer[i] * INT_16_MAX_VALUE);
+    }
+}
+
+static void BasicMix(volatile float* sourceBuffer1, volatile float* sourceBuffer2,
+                     volatile float* destinationBuffer, uint16_t bufferSize) {
+    for (uint16_t i = 0; i < bufferSize; i++) {
         if (i % 2 == 0) {
-            sample1Norm *= LeftInput1GainAmp;
-            sample2Norm *= LeftInput2GainAmp;
+            sourceBuffer1[i] *= LeftInput1GainAmp;
+            sourceBuffer2[i] *= LeftInput2GainAmp;
         } else {
-            sample1Norm *= RightInput1GainAmp;
-            sample2Norm *= RightInput2GainAmp;
+            sourceBuffer1[i] *= RightInput1GainAmp;
+            sourceBuffer2[i] *= RightInput2GainAmp;
         }
-        floatMixedSample = sample1Norm + sample2Norm;
-        floatMixedSample *= OutputGainAmp;
-        if (floatMixedSample > 1.0f) {
-            floatMixedSample = 1.0f;
+        destinationBuffer[i] = sourceBuffer1[i] + sourceBuffer2[i];
+        if (destinationBuffer[i] > 1.0f) {
+            destinationBuffer[i] = 1.0f;
         } 
-        if (floatMixedSample < -1.0f) {
-            floatMixedSample = -1.0f;
+        if (destinationBuffer[i] < -1.0f) {
+            destinationBuffer[i] = -1.0f;
         }
-        destinationBuffer[i] = (int16_t)(floatMixedSample * INT_16_MAX_VALUE);
     }
 }
 
@@ -69,6 +85,7 @@ void UpdateGainFromSlider(GainType channel, float GainAmp) {
 }
 
 void AudioInit() {
+    DelayFxInit(0.5f, 0.5f, 0.55f);
     StartAudioRxTransmission(&hsai_BlockA1, entryBufferADC1, BUFFER_SIZE);
     StartAudioRxTransmission(&hsai_BlockB2, entryBufferADC2, BUFFER_SIZE);
     StartAudioTxTransmission(&hsai_BlockB1, exitBuffer, BUFFER_SIZE);
@@ -77,15 +94,33 @@ void AudioInit() {
 void AudioHandling() {
     if (entryBufferState != BUFFER_OFFSET_NONE) {
         if (entryBufferState == BUFFER_OFFSET_HALF) {
-            BasicMix(&entryBufferADC1[0], 
-                     &entryBufferADC2[0], 
-                     &exitBuffer[0], 
+            NormalizeEntryBuffers(&entryBufferADC1[0],
+                                  &entryBufferADC2[0],
+                                  &normalizedBufferADC1[0],
+                                  &normalizedBufferADC2[0],
+                                  BUFFER_SIZE / 2);
+            BasicMix(&normalizedBufferADC1[0],
+                     &normalizedBufferADC2[0],
+                     &normalizedExitBuffer[0],
                      BUFFER_SIZE / 2);
+            DelayFxProcess(&normalizedExitBuffer[0],  BUFFER_SIZE / 2);
+            DenormalizeBuffer(&exitBuffer[0], 
+                              &normalizedExitBuffer[0],
+                              BUFFER_SIZE / 2);
         } else {
-            BasicMix(&entryBufferADC1[BUFFER_SIZE / 2], 
-                     &entryBufferADC2[BUFFER_SIZE / 2], 
-                     &exitBuffer[BUFFER_SIZE / 2], 
+            NormalizeEntryBuffers(&entryBufferADC1[BUFFER_SIZE / 2],
+                                  &entryBufferADC2[BUFFER_SIZE / 2],
+                                  &normalizedBufferADC1[BUFFER_SIZE / 2],
+                                  &normalizedBufferADC2[BUFFER_SIZE / 2],
+                                  BUFFER_SIZE / 2);
+            BasicMix(&normalizedBufferADC1[BUFFER_SIZE / 2],
+                     &normalizedBufferADC2[BUFFER_SIZE / 2],
+                     &normalizedExitBuffer[BUFFER_SIZE / 2],
                      BUFFER_SIZE / 2);
+            DelayFxProcess(&normalizedExitBuffer[BUFFER_SIZE / 2],  BUFFER_SIZE / 2);
+            DenormalizeBuffer(&exitBuffer[BUFFER_SIZE / 2],
+                            &normalizedExitBuffer[BUFFER_SIZE / 2],
+                            BUFFER_SIZE / 2);
         }
         entryBufferState = BUFFER_OFFSET_NONE;
     }
