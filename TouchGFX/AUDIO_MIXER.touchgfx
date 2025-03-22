@@ -351,7 +351,7 @@
             "Action": {
               "Type": "ActionExecuteCode",
               "Includes": "#include <audio_module.h>",
-              "Code": "UpdateGainFromSlider(GAIN_OUTPUT, (int8_t)value);"
+              "Code": "//Convert Db Gain multlplier into amplitude gain mulitplier and update it\r\nUpdateGainFromSlider(GAIN_OUTPUT, std::pow(10.f, (float)value / 20.f));"
             }
           },
           {
@@ -363,7 +363,7 @@
             "Action": {
               "Type": "ActionExecuteCode",
               "Includes": "#include <audio_module.h>",
-              "Code": "UpdateGainFromSlider(GAIN_CH1L, (int8_t)value);"
+              "Code": "UpdateGainFromSlider(GAIN_CH1L, std::pow(10.f, (float)value / 20.f));"
             }
           },
           {
@@ -375,7 +375,7 @@
             "Action": {
               "Type": "ActionExecuteCode",
               "Includes": "#include <audio_module.h>",
-              "Code": "UpdateGainFromSlider(GAIN_CH1R, (int8_t)value);"
+              "Code": "UpdateGainFromSlider(GAIN_CH1R, std::pow(10.f, (float)value / 20.f));"
             }
           },
           {
@@ -387,7 +387,7 @@
             "Action": {
               "Type": "ActionExecuteCode",
               "Includes": "#include <audio_module.h>",
-              "Code": "UpdateGainFromSlider(GAIN_CH2L, (int8_t)value);"
+              "Code": "UpdateGainFromSlider(GAIN_CH2L, std::pow(10.f, (float)value / 20.f));"
             }
           },
           {
@@ -399,7 +399,7 @@
             "Action": {
               "Type": "ActionExecuteCode",
               "Includes": "#include <audio_module.h>",
-              "Code": "UpdateGainFromSlider(GAIN_CH2R, (int8_t)value);"
+              "Code": "UpdateGainFromSlider(GAIN_CH2R, std::pow(10.f, (float)value / 20.f));"
             }
           }
         ]

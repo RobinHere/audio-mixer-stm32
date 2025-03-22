@@ -1,10 +1,10 @@
 #include "audio_module.h"
 
-static volatile int8_t RightInput1GainDb = VOLUME_DEFAULT_GAIN;
-static volatile int8_t LeftInput1GainDb = VOLUME_DEFAULT_GAIN;
-static volatile int8_t RightInput2GainDb = VOLUME_DEFAULT_GAIN;
-static volatile int8_t LeftInput2GainDb = VOLUME_DEFAULT_GAIN;
-static volatile int8_t OutputGainDb = VOLUME_DEFAULT_GAIN;
+static volatile float RightInput1GainAmp = VOLUME_DEFAULT_GAIN;
+static volatile float LeftInput1GainAmp = VOLUME_DEFAULT_GAIN;
+static volatile float RightInput2GainAmp = VOLUME_DEFAULT_GAIN;
+static volatile float LeftInput2GainAmp = VOLUME_DEFAULT_GAIN;
+static volatile float OutputGainAmp = VOLUME_DEFAULT_GAIN;
 
 static volatile int16_t entryBufferADC1[BUFFER_SIZE];
 static volatile int16_t entryBufferADC2[BUFFER_SIZE];
@@ -17,32 +17,23 @@ static void CopySamplesBuffer(volatile int16_t* sourceBuffer, volatile int16_t* 
     }
 }
 
-static float decibelToAmplitudeMultiplier(int8_t gainDb) {
-    return powf(10.f, gainDb / 20.f);
-}
-
-static float AdjustSampleGain(float sample, int8_t gainDb) {
-    return sample * decibelToAmplitudeMultiplier(gainDb);
-}
-
-static void BasicMix(volatile int16_t* sourceBuffer1, volatile int16_t* sourceBuffer2,
+void BasicMix(volatile int16_t* sourceBuffer1, volatile int16_t* sourceBuffer2,
                      volatile int16_t* destinationBuffer, uint16_t bufferSize) {
     float floatMixedSample = 0.0f;
     float sample1Norm = 0.0f;
     float sample2Norm = 0.0f;
-    //Mix Left Channel
     for(uint16_t i = 0; i < bufferSize; i++) {
         sample1Norm = ((float)sourceBuffer1[i] / INT_16_MAX_VALUE);
         sample2Norm = ((float)sourceBuffer2[i] / INT_16_MAX_VALUE);
         if (i % 2 == 0) {
-            sample1Norm = AdjustSampleGain(sample1Norm, LeftInput1GainDb);
-            sample2Norm = AdjustSampleGain(sample2Norm, LeftInput2GainDb);
+            sample1Norm *= LeftInput1GainAmp;
+            sample2Norm *= LeftInput2GainAmp;
         } else {
-            sample1Norm = AdjustSampleGain(sample1Norm, RightInput1GainDb);
-            sample2Norm = AdjustSampleGain(sample2Norm, RightInput2GainDb);
+            sample1Norm *= RightInput1GainAmp;
+            sample2Norm *= RightInput2GainAmp;
         }
         floatMixedSample = sample1Norm + sample2Norm;
-        floatMixedSample = AdjustSampleGain(floatMixedSample, OutputGainDb);
+        floatMixedSample *= OutputGainAmp;
         if (floatMixedSample > 1.0f) {
             floatMixedSample = 1.0f;
         } 
@@ -61,22 +52,22 @@ static void StartAudioTxTransmission(SAI_HandleTypeDef* saiBlock, volatile int16
     HAL_SAI_Transmit_DMA(saiBlock, (uint8_t*)exitBuffer, bufferSize);
 }
 
-void UpdateGainFromSlider(GainType channel, int8_t DbGain) {
+void UpdateGainFromSlider(GainType channel, float GainAmp) {
     switch(channel) {
         case GAIN_OUTPUT:
-            OutputGainDb = DbGain;
+            OutputGainAmp = GainAmp;
             break;
         case GAIN_CH1L:
-            LeftInput1GainDb = DbGain;
+            LeftInput1GainAmp = GainAmp;
             break;
         case GAIN_CH1R:
-            RightInput1GainDb = DbGain;
+            RightInput1GainAmp = GainAmp;
             break;
         case GAIN_CH2L:
-            LeftInput2GainDb = DbGain;
+            LeftInput2GainAmp = GainAmp;
             break;
         case GAIN_CH2R:
-            RightInput2GainDb = DbGain;
+            RightInput2GainAmp = GainAmp;
             break;
         default:
             break;

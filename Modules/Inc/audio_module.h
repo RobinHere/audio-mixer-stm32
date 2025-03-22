@@ -10,7 +10,7 @@
 #endif
 
 #define BUFFER_SIZE 512
-#define VOLUME_DEFAULT_GAIN 0
+#define VOLUME_DEFAULT_GAIN 1.0f
 #define INT_16_MAX_VALUE 32767.0f
 
 typedef enum {
@@ -29,7 +29,7 @@ typedef enum {
 
 void AudioInit();
 void AudioHandling();
-void UpdateGainFromSlider(GainType channel, int8_t DbGain);
+void UpdateGainFromSlider(GainType channel, float DbGain);
 
 #ifdef __cplusplus
 }

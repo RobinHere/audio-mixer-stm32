@@ -170,34 +170,35 @@ void Screen1ViewBase::sliderValueChangedCallbackHandler(const touchgfx::Slider& 
         //AdjustOutputGainVariable
         //When outputSlider value changed execute C++ code
         //Execute C++ code
-        UpdateGainFromSlider(GAIN_OUTPUT, (int8_t)value);
+        //Convert Db Gain multlplier into amplitude gain mulitplier and update it
+        UpdateGainFromSlider(GAIN_OUTPUT, std::pow(10.f, (float)value / 20.f));
     }
     if (&src == &inL1Slider)
     {
         //AdjustInL1GainVariable
         //When inL1Slider value changed execute C++ code
         //Execute C++ code
-        UpdateGainFromSlider(GAIN_CH1L, (int8_t)value);
+        UpdateGainFromSlider(GAIN_CH1L, std::pow(10.f, (float)value / 20.f));
     }
     if (&src == &inR1Slider)
     {
         //AdjustInR1GainVariable
         //When inR1Slider value changed execute C++ code
         //Execute C++ code
-        UpdateGainFromSlider(GAIN_CH1R, (int8_t)value);
+        UpdateGainFromSlider(GAIN_CH1R, std::pow(10.f, (float)value / 20.f));
     }
     if (&src == &inL2Slider)
     {
         //AdjustInL2GainVariable
         //When inL2Slider value changed execute C++ code
         //Execute C++ code
-        UpdateGainFromSlider(GAIN_CH2L, (int8_t)value);
+        UpdateGainFromSlider(GAIN_CH2L, std::pow(10.f, (float)value / 20.f));
     }
     if (&src == &inR2Slider)
     {
         //AdjustInR2GainVariable
         //When inR2Slider value changed execute C++ code
         //Execute C++ code
-        UpdateGainFromSlider(GAIN_CH2R, (int8_t)value);
+        UpdateGainFromSlider(GAIN_CH2R, std::pow(10.f, (float)value / 20.f));
     }
 }
