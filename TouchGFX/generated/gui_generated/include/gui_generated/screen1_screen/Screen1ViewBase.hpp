@@ -8,8 +8,10 @@
 #include <mvp/View.hpp>
 #include <gui/screen1_screen/Screen1Presenter.hpp>
 #include <touchgfx/widgets/Box.hpp>
+#include <touchgfx/widgets/ScalableImage.hpp>
 #include <touchgfx/containers/Slider.hpp>
 #include <touchgfx/widgets/TextArea.hpp>
+#include <touchgfx/containers/buttons/Buttons.hpp>
 #include <audio_module.h>
 
 class Screen1ViewBase : public touchgfx::View<Screen1Presenter>
@@ -28,7 +30,7 @@ protected:
      * Member Declarations
      */
     touchgfx::Box __background;
-    touchgfx::Box box1;
+    touchgfx::ScalableImage scalableImage1;
     touchgfx::Slider outputSlider;
     touchgfx::Slider inL1Slider;
     touchgfx::Slider inR1Slider;
@@ -39,6 +41,7 @@ protected:
     touchgfx::TextArea inR1GainText;
     touchgfx::TextArea inL2GainText;
     touchgfx::TextArea inR2GainText;
+    touchgfx::TextArea nextScreenText;
     touchgfx::TextArea dbText1;
     touchgfx::TextArea dbText2;
     touchgfx::TextArea dbText3;
@@ -49,6 +52,7 @@ protected:
     touchgfx::TextArea dbText8;
     touchgfx::TextArea dbText9;
     touchgfx::TextArea dbText10;
+    touchgfx::IconButtonStyle< touchgfx::ClickButtonTrigger >  nextScreenButton;
 
 private:
 
@@ -56,11 +60,13 @@ private:
      * Callback Declarations
      */
     touchgfx::Callback<Screen1ViewBase, const touchgfx::Slider&, int> sliderValueChangedCallback;
+    touchgfx::Callback<Screen1ViewBase, const touchgfx::AbstractButtonContainer&> flexButtonCallback;
 
     /*
      * Callback Handler Declarations
      */
     void sliderValueChangedCallbackHandler(const touchgfx::Slider& src, int value);
+    void flexButtonCallbackHandler(const touchgfx::AbstractButtonContainer& src);
 
 };
 

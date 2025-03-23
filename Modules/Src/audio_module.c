@@ -85,7 +85,7 @@ void UpdateGainFromSlider(GainType channel, float GainAmp) {
 }
 
 void AudioInit() {
-    DelayFxInit(0.5f, 0.5f, 0.55f);
+    DelayFxInit(0.5f, 0.5f, 0.5f);
     StartAudioRxTransmission(&hsai_BlockA1, entryBufferADC1, BUFFER_SIZE);
     StartAudioRxTransmission(&hsai_BlockB2, entryBufferADC2, BUFFER_SIZE);
     StartAudioTxTransmission(&hsai_BlockB1, exitBuffer, BUFFER_SIZE);

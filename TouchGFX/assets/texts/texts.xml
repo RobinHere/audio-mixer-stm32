@@ -6,6 +6,27 @@
   <Texts>
     <TextGroup Id="Group1" />
     <TextGroup Id="Unsorted">
+      <Text Id="__SingleUse_AZSF" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">Gain Control</Translation>
+      </Text>
+      <Text Id="__SingleUse_G25F" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">Delay On/Off</Translation>
+      </Text>
+      <Text Id="__SingleUse_R0AL" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">Delay Time</Translation>
+      </Text>
+      <Text Id="__SingleUse_OIBR" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">Wetness</Translation>
+      </Text>
+      <Text Id="__SingleUse_61JQ" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">Feedback</Translation>
+      </Text>
+      <Text Id="__SingleUse_246B" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">Audio Effects</Translation>
+      </Text>
+      <Text Id="__SingleUse_X33N" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">+20dB</Translation>
+      </Text>
       <Text Id="__SingleUse_I3EC" Alignment="Left" TypographyId="Default">
         <Translation Language="GB">Channel 4 Gain</Translation>
       </Text>
@@ -17,9 +38,6 @@
       </Text>
       <Text Id="__SingleUse_TOSE" Alignment="Left" TypographyId="Default">
         <Translation Language="GB">Channel 1 Gain</Translation>
-      </Text>
-      <Text Id="__SingleUse_58ZM" Alignment="Left" TypographyId="Default">
-        <Translation Language="GB">+20dB</Translation>
       </Text>
       <Text Id="__SingleUse_T16R" Alignment="Left" TypographyId="Default">
         <Translation Language="GB">+20dB</Translation>
@@ -49,7 +67,7 @@
         <Translation Language="GB">+20dB</Translation>
       </Text>
       <Text Id="__SingleUse_7XPN" Alignment="Left" TypographyId="Default">
-        <Translation Language="GB">Out Gain</Translation>
+        <Translation Language="GB">Out Gain </Translation>
       </Text>
     </TextGroup>
   </Texts>

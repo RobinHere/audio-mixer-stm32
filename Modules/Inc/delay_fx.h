@@ -24,7 +24,7 @@ typedef struct {
     volatile float delayBuffer[MAX_DELAY_BUFFER_SIZE];
     volatile uint32_t realSizeDelayBuffer;
     volatile uint32_t delayBufferIndex;
-    volatile uint8_t delayFxStatus;
+    volatile DelayFxStatus delayFxStatus;
 } DelayFx;
 
 void DelayFxInit(float delayTimeSeconds, float wetness, float feedback);
@@ -32,6 +32,8 @@ void DelayFxProcess(volatile float* audioBuffer, uint16_t bufferSize);
 void DelayFxUpdateDelayTime(float delayTimeSeconds);
 void DelayFxUpdateFeedback(float feedback);
 void DelayFxUpdateWetness(float wetness);
+void DelayFxToggleOnOff(DelayFxStatus status);
+DelayFxStatus GetDelayStatus();
 
 #ifdef __cplusplus
 }

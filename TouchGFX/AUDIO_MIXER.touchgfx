@@ -5,15 +5,13 @@
         "Name": "Screen1",
         "Components": [
           {
-            "Type": "Box",
-            "Name": "box1",
-            "Width": 480,
+            "Type": "ScalableImage",
+            "Name": "scalableImage1",
+            "X": -42,
+            "Width": 522,
             "Height": 320,
-            "Color": {
-              "Red": 48,
-              "Green": 73,
-              "Blue": 112
-            }
+            "Filename": "__generated\\glass_theme_images_backgrounds_480x480_floating_rings.png",
+            "ScalingAlgorithm": "Bilinear Interpolation"
           },
           {
             "Type": "Slider",
@@ -22,15 +20,14 @@
             "Y": 48,
             "Width": 24,
             "Height": 224,
-            "BackgroundUnselected": "__generated\\alternate_theme_images_widgets_slider_vertical_thin_track_small.png",
-            "BackgroundSelected": "__generated\\alternate_theme_images_widgets_slider_vertical_thin_filler_small.png",
-            "Indicator": "__generated\\alternate_theme_images_widgets_slider_vertical_thin_rounded_dark.png",
+            "BackgroundUnselected": "__generated\\glass_theme_images_widgets_slider_vertical_thin_track_small.png",
+            "BackgroundSelected": "__generated\\light_theme_images_widgets_lineprogress_fillers_plain_thin_small_action_90.png",
+            "Indicator": "__generated\\clay_theme_images_widgets_slider_horizontal_thin_rounded_active.png",
             "BackgroundX": 9,
             "BackgroundY": 12,
             "IndicatorMax": 200,
             "ValueMax": 20,
-            "ValueMin": -20,
-            "Preset": "alternate_theme\\presets\\slider\\vertical\\thin\\small_rounded_dark.json"
+            "ValueMin": -20
           },
           {
             "Type": "Slider",
@@ -39,15 +36,14 @@
             "Y": 48,
             "Width": 24,
             "Height": 224,
-            "BackgroundUnselected": "__generated\\alternate_theme_images_widgets_slider_vertical_thin_track_small.png",
-            "BackgroundSelected": "__generated\\alternate_theme_images_widgets_slider_vertical_thin_filler_small.png",
-            "Indicator": "__generated\\alternate_theme_images_widgets_slider_vertical_thin_rounded_dark.png",
+            "BackgroundUnselected": "__generated\\glass_theme_images_widgets_slider_vertical_thin_track_small.png",
+            "BackgroundSelected": "__generated\\light_theme_images_widgets_lineprogress_fillers_plain_thin_small_action_90.png",
+            "Indicator": "__generated\\clay_theme_images_widgets_slider_horizontal_thin_rounded_active.png",
             "BackgroundX": 9,
             "BackgroundY": 12,
             "IndicatorMax": 200,
             "ValueMax": 20,
-            "ValueMin": -20,
-            "Preset": "alternate_theme\\presets\\slider\\vertical\\thin\\small_rounded_dark.json"
+            "ValueMin": -20
           },
           {
             "Type": "Slider",
@@ -56,15 +52,14 @@
             "Y": 48,
             "Width": 24,
             "Height": 224,
-            "BackgroundUnselected": "__generated\\alternate_theme_images_widgets_slider_vertical_thin_track_small.png",
-            "BackgroundSelected": "__generated\\alternate_theme_images_widgets_slider_vertical_thin_filler_small.png",
-            "Indicator": "__generated\\alternate_theme_images_widgets_slider_vertical_thin_rounded_dark.png",
+            "BackgroundUnselected": "__generated\\glass_theme_images_widgets_slider_vertical_thin_track_small.png",
+            "BackgroundSelected": "__generated\\light_theme_images_widgets_lineprogress_fillers_plain_thin_small_action_90.png",
+            "Indicator": "__generated\\clay_theme_images_widgets_slider_vertical_thin_rounded_active.png",
             "BackgroundX": 9,
             "BackgroundY": 12,
             "IndicatorMax": 200,
             "ValueMax": 20,
-            "ValueMin": -20,
-            "Preset": "alternate_theme\\presets\\slider\\vertical\\thin\\small_rounded_dark.json"
+            "ValueMin": -20
           },
           {
             "Type": "Slider",
@@ -73,15 +68,14 @@
             "Y": 48,
             "Width": 24,
             "Height": 224,
-            "BackgroundUnselected": "__generated\\alternate_theme_images_widgets_slider_vertical_thin_track_small.png",
-            "BackgroundSelected": "__generated\\alternate_theme_images_widgets_slider_vertical_thin_filler_small.png",
-            "Indicator": "__generated\\alternate_theme_images_widgets_slider_vertical_thin_rounded_dark.png",
+            "BackgroundUnselected": "__generated\\glass_theme_images_widgets_slider_vertical_thin_track_small.png",
+            "BackgroundSelected": "__generated\\light_theme_images_widgets_lineprogress_fillers_plain_thin_small_action_90.png",
+            "Indicator": "__generated\\clay_theme_images_widgets_slider_vertical_thin_rounded_active.png",
             "BackgroundX": 9,
             "BackgroundY": 12,
             "IndicatorMax": 200,
             "ValueMax": 20,
-            "ValueMin": -20,
-            "Preset": "alternate_theme\\presets\\slider\\vertical\\thin\\small_rounded_dark.json"
+            "ValueMin": -20
           },
           {
             "Type": "Slider",
@@ -90,93 +84,108 @@
             "Y": 48,
             "Width": 24,
             "Height": 224,
-            "BackgroundUnselected": "__generated\\alternate_theme_images_widgets_slider_vertical_thin_track_small.png",
-            "BackgroundSelected": "__generated\\alternate_theme_images_widgets_slider_vertical_thin_filler_small.png",
-            "Indicator": "__generated\\alternate_theme_images_widgets_slider_vertical_thin_rounded_dark.png",
+            "BackgroundUnselected": "__generated\\glass_theme_images_widgets_slider_vertical_thin_track_small.png",
+            "BackgroundSelected": "__generated\\light_theme_images_widgets_lineprogress_fillers_plain_thin_small_action_90.png",
+            "Indicator": "__generated\\clay_theme_images_widgets_slider_vertical_thin_rounded_active.png",
             "BackgroundX": 9,
             "BackgroundY": 12,
             "IndicatorMax": 200,
             "ValueMax": 20,
-            "ValueMin": -20,
-            "Preset": "alternate_theme\\presets\\slider\\vertical\\thin\\small_rounded_dark.json"
+            "ValueMin": -20
           },
           {
             "Type": "TextArea",
             "Name": "outputGainText",
-            "X": 10,
-            "Y": 126,
-            "Width": 15,
-            "Height": 68,
+            "X": 7,
+            "Y": 124,
+            "Width": 18,
+            "Height": 73,
             "TextId": "__SingleUse_7XPN",
             "TextRotation": "270",
             "Color": {
-              "Red": 2,
-              "Green": 146,
-              "Blue": 230
+              "Red": 255,
+              "Green": 20,
+              "Blue": 220
             },
             "AutoSize": true
           },
           {
             "Type": "TextArea",
             "Name": "inL1GainText",
-            "X": 79,
+            "X": 76,
             "Y": 102,
-            "Width": 15,
+            "Width": 18,
             "Height": 117,
             "TextId": "__SingleUse_TOSE",
             "TextRotation": "270",
             "Color": {
-              "Red": 2,
-              "Green": 146,
-              "Blue": 230
+              "Red": 255,
+              "Green": 20,
+              "Blue": 220
             },
             "AutoSize": true
           },
           {
             "Type": "TextArea",
             "Name": "inR1GainText",
-            "X": 149,
+            "X": 146,
             "Y": 102,
-            "Width": 15,
+            "Width": 18,
             "Height": 117,
             "TextId": "__SingleUse_JVVL",
             "TextRotation": "270",
             "Color": {
-              "Red": 2,
-              "Green": 146,
-              "Blue": 230
+              "Red": 255,
+              "Green": 20,
+              "Blue": 220
             },
             "AutoSize": true
           },
           {
             "Type": "TextArea",
             "Name": "inL2GainText",
-            "X": 219,
+            "X": 216,
             "Y": 102,
-            "Width": 15,
+            "Width": 18,
             "Height": 117,
             "TextId": "__SingleUse_L74J",
             "TextRotation": "270",
             "Color": {
-              "Red": 2,
-              "Green": 146,
-              "Blue": 230
+              "Red": 255,
+              "Green": 20,
+              "Blue": 220
             },
             "AutoSize": true
           },
           {
             "Type": "TextArea",
             "Name": "inR2GainText",
-            "X": 289,
+            "X": 286,
             "Y": 102,
-            "Width": 15,
+            "Width": 18,
             "Height": 117,
             "TextId": "__SingleUse_I3EC",
             "TextRotation": "270",
             "Color": {
-              "Red": 2,
-              "Green": 146,
-              "Blue": 230
+              "Red": 255,
+              "Green": 20,
+              "Blue": 220
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "nextScreenText",
+            "X": 398,
+            "Y": 112,
+            "Width": 18,
+            "Height": 97,
+            "TextId": "__SingleUse_246B",
+            "TextRotation": "270",
+            "Color": {
+              "Red": 255,
+              "Green": 20,
+              "Blue": 220
             },
             "AutoSize": true
           },
@@ -184,15 +193,15 @@
             "Type": "TextArea",
             "Name": "dbText1",
             "X": 25,
-            "Y": 33,
+            "Y": 30,
             "Width": 51,
-            "Height": 15,
+            "Height": 18,
             "TextId": "__SingleUse_QL88",
             "TextRotation": "0",
             "Color": {
-              "Red": 2,
-              "Green": 146,
-              "Blue": 230
+              "Red": 255,
+              "Green": 20,
+              "Blue": 220
             },
             "AutoSize": true
           },
@@ -200,15 +209,15 @@
             "Type": "TextArea",
             "Name": "dbText2",
             "X": 94,
-            "Y": 33,
+            "Y": 30,
             "Width": 51,
-            "Height": 15,
+            "Height": 18,
             "TextId": "__SingleUse_YLR0",
             "TextRotation": "0",
             "Color": {
-              "Red": 2,
-              "Green": 146,
-              "Blue": 230
+              "Red": 255,
+              "Green": 20,
+              "Blue": 220
             },
             "AutoSize": true
           },
@@ -216,15 +225,15 @@
             "Type": "TextArea",
             "Name": "dbText3",
             "X": 164,
-            "Y": 33,
+            "Y": 30,
             "Width": 51,
-            "Height": 15,
+            "Height": 18,
             "TextId": "__SingleUse_U0ES",
             "TextRotation": "0",
             "Color": {
-              "Red": 2,
-              "Green": 146,
-              "Blue": 230
+              "Red": 255,
+              "Green": 20,
+              "Blue": 220
             },
             "AutoSize": true
           },
@@ -232,31 +241,31 @@
             "Type": "TextArea",
             "Name": "dbText4",
             "X": 234,
-            "Y": 33,
+            "Y": 30,
             "Width": 51,
-            "Height": 15,
+            "Height": 18,
             "TextId": "__SingleUse_T16R",
             "TextRotation": "0",
             "Color": {
-              "Red": 2,
-              "Green": 146,
-              "Blue": 230
+              "Red": 255,
+              "Green": 20,
+              "Blue": 220
             },
             "AutoSize": true
           },
           {
             "Type": "TextArea",
             "Name": "dbText5",
-            "X": 304,
-            "Y": 33,
+            "X": 302,
+            "Y": 30,
             "Width": 51,
-            "Height": 15,
-            "TextId": "__SingleUse_58ZM",
+            "Height": 18,
+            "TextId": "__SingleUse_X33N",
             "TextRotation": "0",
             "Color": {
-              "Red": 2,
-              "Green": 146,
-              "Blue": 230
+              "Red": 255,
+              "Green": 20,
+              "Blue": 220
             },
             "AutoSize": true
           },
@@ -266,13 +275,13 @@
             "X": 25,
             "Y": 272,
             "Width": 46,
-            "Height": 15,
+            "Height": 18,
             "TextId": "__SingleUse_RCIE",
             "TextRotation": "0",
             "Color": {
-              "Red": 2,
-              "Green": 146,
-              "Blue": 230
+              "Red": 255,
+              "Green": 20,
+              "Blue": 220
             },
             "AutoSize": true
           },
@@ -282,13 +291,13 @@
             "X": 94,
             "Y": 272,
             "Width": 46,
-            "Height": 15,
+            "Height": 18,
             "TextId": "__SingleUse_99Z1",
             "TextRotation": "0",
             "Color": {
-              "Red": 2,
-              "Green": 146,
-              "Blue": 230
+              "Red": 255,
+              "Green": 20,
+              "Blue": 220
             },
             "AutoSize": true
           },
@@ -298,13 +307,13 @@
             "X": 164,
             "Y": 272,
             "Width": 46,
-            "Height": 15,
+            "Height": 18,
             "TextId": "__SingleUse_YMZU",
             "TextRotation": "0",
             "Color": {
-              "Red": 2,
-              "Green": 146,
-              "Blue": 230
+              "Red": 255,
+              "Green": 20,
+              "Blue": 220
             },
             "AutoSize": true
           },
@@ -314,13 +323,13 @@
             "X": 234,
             "Y": 272,
             "Width": 46,
-            "Height": 15,
+            "Height": 18,
             "TextId": "__SingleUse_KDPP",
             "TextRotation": "0",
             "Color": {
-              "Red": 2,
-              "Green": 146,
-              "Blue": 230
+              "Red": 255,
+              "Green": 20,
+              "Blue": 220
             },
             "AutoSize": true
           },
@@ -330,15 +339,35 @@
             "X": 304,
             "Y": 272,
             "Width": 46,
-            "Height": 15,
+            "Height": 18,
             "TextId": "__SingleUse_928V",
             "TextRotation": "0",
             "Color": {
-              "Red": 2,
-              "Green": 146,
-              "Blue": 230
+              "Red": 255,
+              "Green": 20,
+              "Blue": 220
             },
             "AutoSize": true
+          },
+          {
+            "Type": "FlexButton",
+            "Name": "nextScreenButton",
+            "X": 416,
+            "Y": 112,
+            "Width": 64,
+            "Height": 97,
+            "ButtonTrigger": {
+              "Type": "ClickButtonTrigger"
+            },
+            "ButtonStyles": [
+              {
+                "Type": "IconButtonStyle",
+                "X": -1,
+                "Y": 24,
+                "IconReleased": "__generated\\icon_theme_images_navigation_arrow_forward_ios_50_50_FF14DC.svg.png",
+                "IconPressed": "__generated\\icon_theme_images_navigation_arrow_forward_ios_50_50_FF14DC.svg.png"
+              }
+            ]
           }
         ],
         "Interactions": [
@@ -400,6 +429,251 @@
               "Type": "ActionExecuteCode",
               "Includes": "#include <audio_module.h>",
               "Code": "UpdateGainFromSlider(GAIN_CH2R, std::pow(10.f, (float)value / 20.f));"
+            }
+          },
+          {
+            "InteractionName": "ChangeToScreen2",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "nextScreenButton"
+            },
+            "Action": {
+              "Type": "ActionGotoScreen",
+              "ScreenTransitionType": "ScreenTransitionWipe",
+              "ScreenTransitionDirection": "East",
+              "ActionComponent": "Screen2"
+            }
+          }
+        ]
+      },
+      {
+        "Name": "Screen2",
+        "Components": [
+          {
+            "Type": "ScalableImage",
+            "Name": "scalableImage1",
+            "X": -42,
+            "Width": 522,
+            "Height": 320,
+            "Filename": "__generated\\glass_theme_images_backgrounds_480x480_floating_rings.png",
+            "ScalingAlgorithm": "Bilinear Interpolation"
+          },
+          {
+            "Type": "TextArea",
+            "Name": "feedackText",
+            "X": 102,
+            "Y": 125,
+            "Width": 18,
+            "Height": 71,
+            "TextId": "__SingleUse_61JQ",
+            "TextRotation": "270",
+            "Color": {
+              "Red": 255,
+              "Green": 20,
+              "Blue": 220
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "wetnessText",
+            "X": 162,
+            "Y": 128,
+            "Width": 18,
+            "Height": 65,
+            "TextId": "__SingleUse_OIBR",
+            "TextRotation": "270",
+            "Color": {
+              "Red": 255,
+              "Green": 20,
+              "Blue": 220
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "dTimeText",
+            "X": 222,
+            "Y": 118,
+            "Width": 18,
+            "Height": 85,
+            "TextId": "__SingleUse_R0AL",
+            "TextRotation": "270",
+            "Color": {
+              "Red": 255,
+              "Green": 20,
+              "Blue": 220
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "onOffText",
+            "X": 275,
+            "Y": 111,
+            "Width": 18,
+            "Height": 99,
+            "TextId": "__SingleUse_G25F",
+            "TextRotation": "270",
+            "Color": {
+              "Red": 255,
+              "Green": 20,
+              "Blue": 220
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "Slider",
+            "Name": "feedbackSlider",
+            "X": 120,
+            "Y": 48,
+            "Width": 24,
+            "Height": 224,
+            "BackgroundUnselected": "__generated\\glass_theme_images_widgets_slider_vertical_thin_track_small.png",
+            "BackgroundSelected": "__generated\\light_theme_images_widgets_lineprogress_fillers_plain_thin_small_action_90.png",
+            "Indicator": "__generated\\clay_theme_images_widgets_slider_vertical_thin_rounded_active.png",
+            "BackgroundX": 9,
+            "BackgroundY": 12,
+            "IndicatorMax": 200,
+            "ValueMax": 100,
+            "InitValue": 50
+          },
+          {
+            "Type": "Slider",
+            "Name": "wetnessSlider",
+            "X": 180,
+            "Y": 48,
+            "Width": 24,
+            "Height": 224,
+            "BackgroundUnselected": "__generated\\glass_theme_images_widgets_slider_vertical_thin_track_small.png",
+            "BackgroundSelected": "__generated\\light_theme_images_widgets_lineprogress_fillers_plain_thin_small_action_90.png",
+            "Indicator": "__generated\\clay_theme_images_widgets_slider_vertical_thin_rounded_active.png",
+            "BackgroundX": 9,
+            "BackgroundY": 12,
+            "IndicatorMax": 200,
+            "ValueMax": 100,
+            "InitValue": 50
+          },
+          {
+            "Type": "Slider",
+            "Name": "dTimeSlider",
+            "X": 240,
+            "Y": 48,
+            "Width": 24,
+            "Height": 224,
+            "BackgroundUnselected": "__generated\\glass_theme_images_widgets_slider_vertical_thin_track_small.png",
+            "BackgroundSelected": "__generated\\light_theme_images_widgets_lineprogress_fillers_plain_thin_small_action_90.png",
+            "Indicator": "__generated\\clay_theme_images_widgets_slider_horizontal_thin_rounded_active.png",
+            "BackgroundX": 9,
+            "BackgroundY": 12,
+            "IndicatorMax": 200,
+            "ValueMax": 100,
+            "InitValue": 50
+          },
+          {
+            "Type": "TextArea",
+            "Name": "nextScreenText",
+            "X": 64,
+            "Y": 113,
+            "Width": 18,
+            "Height": 94,
+            "TextId": "__SingleUse_AZSF",
+            "TextRotation": "90",
+            "Color": {
+              "Red": 255,
+              "Green": 20,
+              "Blue": 220
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "FlexButton",
+            "Name": "nextScreenButton",
+            "Y": 112,
+            "Width": 64,
+            "Height": 97,
+            "ButtonTrigger": {
+              "Type": "ClickButtonTrigger"
+            },
+            "ButtonStyles": [
+              {
+                "Type": "IconButtonStyle",
+                "X": 17,
+                "Y": 24,
+                "IconReleased": "__generated\\icon_theme_images_navigation_arrow_back_ios_50_50_FF14DC.svg.png",
+                "IconPressed": "__generated\\icon_theme_images_navigation_arrow_back_ios_50_50_FF14DC.svg.png"
+              }
+            ]
+          },
+          {
+            "Type": "ToggleButton",
+            "Name": "toggleButton1",
+            "X": 293,
+            "Y": 143,
+            "Width": 62,
+            "Height": 34,
+            "Pressed": "__generated\\clay_theme_images_widgets_togglebutton_small_round_small_on_active.png",
+            "Released": "__generated\\clay_theme_images_widgets_togglebutton_small_round_small_off_light.png"
+          }
+        ],
+        "Interactions": [
+          {
+            "InteractionName": "ChangeToScreen1",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "nextScreenButton"
+            },
+            "Action": {
+              "Type": "ActionGotoScreen",
+              "ScreenTransitionType": "ScreenTransitionWipe",
+              "ScreenTransitionDirection": "West",
+              "ActionComponent": "Screen1"
+            }
+          },
+          {
+            "InteractionName": "ToggleDelay",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "toggleButton1"
+            },
+            "Action": {
+              "Type": "ActionExecuteCode",
+              "Includes": "#include \"delay_fx.h\"",
+              "Code": "static DelayFxStatus buttonOnOff = DELAY_OFF;\r\nif (buttonOnOff == DELAY_ON) {\r\n    buttonOnOff = DELAY_OFF;\r\n} else {\r\n    buttonOnOff = DELAY_ON;\r\n}\r\nDelayFxToggleOnOff(buttonOnOff);"
+            }
+          },
+          {
+            "InteractionName": "updateFeedback",
+            "Trigger": {
+              "Type": "TriggerSliderValueChanged",
+              "TriggerComponent": "feedbackSlider"
+            },
+            "Action": {
+              "Type": "ActionExecuteCode",
+              "Includes": "#include \"delay_fx.h\"",
+              "Code": "DelayFxUpdateFeedback((float)value / 100.0f);"
+            }
+          },
+          {
+            "InteractionName": "updateWetness",
+            "Trigger": {
+              "Type": "TriggerSliderValueChanged",
+              "TriggerComponent": "wetnessSlider"
+            },
+            "Action": {
+              "Type": "ActionExecuteCode",
+              "Code": "DelayFxUpdateWetness((float)value / 100.0f);\r\n"
+            }
+          },
+          {
+            "InteractionName": "updateDelayTime",
+            "Trigger": {
+              "Type": "TriggerSliderValueChanged",
+              "TriggerComponent": "dTimeSlider"
+            },
+            "Action": {
+              "Type": "ActionExecuteCode",
+              "Code": "DelayFxUpdateDelayTime((float)value / 100.0f);"
             }
           }
         ]

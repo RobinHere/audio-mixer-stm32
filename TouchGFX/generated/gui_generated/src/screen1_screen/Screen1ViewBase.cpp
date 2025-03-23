@@ -7,18 +7,20 @@
 #include <texts/TextKeysAndLanguages.hpp>
 
 Screen1ViewBase::Screen1ViewBase() :
-    sliderValueChangedCallback(this, &Screen1ViewBase::sliderValueChangedCallbackHandler)
+    sliderValueChangedCallback(this, &Screen1ViewBase::sliderValueChangedCallbackHandler),
+    flexButtonCallback(this, &Screen1ViewBase::flexButtonCallbackHandler)
 {
     __background.setPosition(0, 0, 480, 320);
     __background.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
     add(__background);
 
-    box1.setPosition(0, 0, 480, 320);
-    box1.setColor(touchgfx::Color::getColorFromRGB(48, 73, 112));
-    add(box1);
+    scalableImage1.setBitmap(touchgfx::Bitmap(BITMAP_GLASS_THEME_IMAGES_BACKGROUNDS_480X480_FLOATING_RINGS_ID));
+    scalableImage1.setPosition(-42, 0, 522, 320);
+    scalableImage1.setScalingAlgorithm(touchgfx::ScalableImage::BILINEAR_INTERPOLATION);
+    add(scalableImage1);
 
     outputSlider.setXY(35, 48);
-    outputSlider.setBitmaps(touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_SLIDER_VERTICAL_THIN_TRACK_SMALL_ID), touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_SLIDER_VERTICAL_THIN_FILLER_SMALL_ID), touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_SLIDER_VERTICAL_THIN_ROUNDED_DARK_ID));
+    outputSlider.setBitmaps(touchgfx::Bitmap(BITMAP_GLASS_THEME_IMAGES_WIDGETS_SLIDER_VERTICAL_THIN_TRACK_SMALL_ID), touchgfx::Bitmap(BITMAP_LIGHT_THEME_IMAGES_WIDGETS_LINEPROGRESS_FILLERS_PLAIN_THIN_SMALL_ACTION_90_ID), touchgfx::Bitmap(BITMAP_CLAY_THEME_IMAGES_WIDGETS_SLIDER_HORIZONTAL_THIN_ROUNDED_ACTIVE_ID));
     outputSlider.setupVerticalSlider(9, 12, 0, 0, 200);
     outputSlider.setValueRange(-20, 20);
     outputSlider.setValue(0);
@@ -26,7 +28,7 @@ Screen1ViewBase::Screen1ViewBase() :
     add(outputSlider);
 
     inL1Slider.setXY(105, 48);
-    inL1Slider.setBitmaps(touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_SLIDER_VERTICAL_THIN_TRACK_SMALL_ID), touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_SLIDER_VERTICAL_THIN_FILLER_SMALL_ID), touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_SLIDER_VERTICAL_THIN_ROUNDED_DARK_ID));
+    inL1Slider.setBitmaps(touchgfx::Bitmap(BITMAP_GLASS_THEME_IMAGES_WIDGETS_SLIDER_VERTICAL_THIN_TRACK_SMALL_ID), touchgfx::Bitmap(BITMAP_LIGHT_THEME_IMAGES_WIDGETS_LINEPROGRESS_FILLERS_PLAIN_THIN_SMALL_ACTION_90_ID), touchgfx::Bitmap(BITMAP_CLAY_THEME_IMAGES_WIDGETS_SLIDER_HORIZONTAL_THIN_ROUNDED_ACTIVE_ID));
     inL1Slider.setupVerticalSlider(9, 12, 0, 0, 200);
     inL1Slider.setValueRange(-20, 20);
     inL1Slider.setValue(0);
@@ -34,7 +36,7 @@ Screen1ViewBase::Screen1ViewBase() :
     add(inL1Slider);
 
     inR1Slider.setXY(175, 48);
-    inR1Slider.setBitmaps(touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_SLIDER_VERTICAL_THIN_TRACK_SMALL_ID), touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_SLIDER_VERTICAL_THIN_FILLER_SMALL_ID), touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_SLIDER_VERTICAL_THIN_ROUNDED_DARK_ID));
+    inR1Slider.setBitmaps(touchgfx::Bitmap(BITMAP_GLASS_THEME_IMAGES_WIDGETS_SLIDER_VERTICAL_THIN_TRACK_SMALL_ID), touchgfx::Bitmap(BITMAP_LIGHT_THEME_IMAGES_WIDGETS_LINEPROGRESS_FILLERS_PLAIN_THIN_SMALL_ACTION_90_ID), touchgfx::Bitmap(BITMAP_CLAY_THEME_IMAGES_WIDGETS_SLIDER_VERTICAL_THIN_ROUNDED_ACTIVE_ID));
     inR1Slider.setupVerticalSlider(9, 12, 0, 0, 200);
     inR1Slider.setValueRange(-20, 20);
     inR1Slider.setValue(0);
@@ -42,7 +44,7 @@ Screen1ViewBase::Screen1ViewBase() :
     add(inR1Slider);
 
     inL2Slider.setXY(245, 48);
-    inL2Slider.setBitmaps(touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_SLIDER_VERTICAL_THIN_TRACK_SMALL_ID), touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_SLIDER_VERTICAL_THIN_FILLER_SMALL_ID), touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_SLIDER_VERTICAL_THIN_ROUNDED_DARK_ID));
+    inL2Slider.setBitmaps(touchgfx::Bitmap(BITMAP_GLASS_THEME_IMAGES_WIDGETS_SLIDER_VERTICAL_THIN_TRACK_SMALL_ID), touchgfx::Bitmap(BITMAP_LIGHT_THEME_IMAGES_WIDGETS_LINEPROGRESS_FILLERS_PLAIN_THIN_SMALL_ACTION_90_ID), touchgfx::Bitmap(BITMAP_CLAY_THEME_IMAGES_WIDGETS_SLIDER_VERTICAL_THIN_ROUNDED_ACTIVE_ID));
     inL2Slider.setupVerticalSlider(9, 12, 0, 0, 200);
     inL2Slider.setValueRange(-20, 20);
     inL2Slider.setValue(0);
@@ -50,107 +52,120 @@ Screen1ViewBase::Screen1ViewBase() :
     add(inL2Slider);
 
     inR2Slider.setXY(315, 48);
-    inR2Slider.setBitmaps(touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_SLIDER_VERTICAL_THIN_TRACK_SMALL_ID), touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_SLIDER_VERTICAL_THIN_FILLER_SMALL_ID), touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_SLIDER_VERTICAL_THIN_ROUNDED_DARK_ID));
+    inR2Slider.setBitmaps(touchgfx::Bitmap(BITMAP_GLASS_THEME_IMAGES_WIDGETS_SLIDER_VERTICAL_THIN_TRACK_SMALL_ID), touchgfx::Bitmap(BITMAP_LIGHT_THEME_IMAGES_WIDGETS_LINEPROGRESS_FILLERS_PLAIN_THIN_SMALL_ACTION_90_ID), touchgfx::Bitmap(BITMAP_CLAY_THEME_IMAGES_WIDGETS_SLIDER_VERTICAL_THIN_ROUNDED_ACTIVE_ID));
     inR2Slider.setupVerticalSlider(9, 12, 0, 0, 200);
     inR2Slider.setValueRange(-20, 20);
     inR2Slider.setValue(0);
     inR2Slider.setNewValueCallback(sliderValueChangedCallback);
     add(inR2Slider);
 
-    outputGainText.setXY(10, 126);
-    outputGainText.setColor(touchgfx::Color::getColorFromRGB(2, 146, 230));
+    outputGainText.setXY(7, 124);
+    outputGainText.setColor(touchgfx::Color::getColorFromRGB(255, 20, 220));
     outputGainText.setLinespacing(0);
     outputGainText.setRotation(touchgfx::TEXT_ROTATE_270);
     outputGainText.setTypedText(touchgfx::TypedText(T___SINGLEUSE_7XPN));
     add(outputGainText);
 
-    inL1GainText.setXY(79, 102);
-    inL1GainText.setColor(touchgfx::Color::getColorFromRGB(2, 146, 230));
+    inL1GainText.setXY(76, 102);
+    inL1GainText.setColor(touchgfx::Color::getColorFromRGB(255, 20, 220));
     inL1GainText.setLinespacing(0);
     inL1GainText.setRotation(touchgfx::TEXT_ROTATE_270);
     inL1GainText.setTypedText(touchgfx::TypedText(T___SINGLEUSE_TOSE));
     add(inL1GainText);
 
-    inR1GainText.setXY(149, 102);
-    inR1GainText.setColor(touchgfx::Color::getColorFromRGB(2, 146, 230));
+    inR1GainText.setXY(146, 102);
+    inR1GainText.setColor(touchgfx::Color::getColorFromRGB(255, 20, 220));
     inR1GainText.setLinespacing(0);
     inR1GainText.setRotation(touchgfx::TEXT_ROTATE_270);
     inR1GainText.setTypedText(touchgfx::TypedText(T___SINGLEUSE_JVVL));
     add(inR1GainText);
 
-    inL2GainText.setXY(219, 102);
-    inL2GainText.setColor(touchgfx::Color::getColorFromRGB(2, 146, 230));
+    inL2GainText.setXY(216, 102);
+    inL2GainText.setColor(touchgfx::Color::getColorFromRGB(255, 20, 220));
     inL2GainText.setLinespacing(0);
     inL2GainText.setRotation(touchgfx::TEXT_ROTATE_270);
     inL2GainText.setTypedText(touchgfx::TypedText(T___SINGLEUSE_L74J));
     add(inL2GainText);
 
-    inR2GainText.setXY(289, 102);
-    inR2GainText.setColor(touchgfx::Color::getColorFromRGB(2, 146, 230));
+    inR2GainText.setXY(286, 102);
+    inR2GainText.setColor(touchgfx::Color::getColorFromRGB(255, 20, 220));
     inR2GainText.setLinespacing(0);
     inR2GainText.setRotation(touchgfx::TEXT_ROTATE_270);
     inR2GainText.setTypedText(touchgfx::TypedText(T___SINGLEUSE_I3EC));
     add(inR2GainText);
 
-    dbText1.setXY(25, 33);
-    dbText1.setColor(touchgfx::Color::getColorFromRGB(2, 146, 230));
+    nextScreenText.setXY(398, 112);
+    nextScreenText.setColor(touchgfx::Color::getColorFromRGB(255, 20, 220));
+    nextScreenText.setLinespacing(0);
+    nextScreenText.setRotation(touchgfx::TEXT_ROTATE_270);
+    nextScreenText.setTypedText(touchgfx::TypedText(T___SINGLEUSE_246B));
+    add(nextScreenText);
+
+    dbText1.setXY(25, 30);
+    dbText1.setColor(touchgfx::Color::getColorFromRGB(255, 20, 220));
     dbText1.setLinespacing(0);
     dbText1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_QL88));
     add(dbText1);
 
-    dbText2.setXY(94, 33);
-    dbText2.setColor(touchgfx::Color::getColorFromRGB(2, 146, 230));
+    dbText2.setXY(94, 30);
+    dbText2.setColor(touchgfx::Color::getColorFromRGB(255, 20, 220));
     dbText2.setLinespacing(0);
     dbText2.setTypedText(touchgfx::TypedText(T___SINGLEUSE_YLR0));
     add(dbText2);
 
-    dbText3.setXY(164, 33);
-    dbText3.setColor(touchgfx::Color::getColorFromRGB(2, 146, 230));
+    dbText3.setXY(164, 30);
+    dbText3.setColor(touchgfx::Color::getColorFromRGB(255, 20, 220));
     dbText3.setLinespacing(0);
     dbText3.setTypedText(touchgfx::TypedText(T___SINGLEUSE_U0ES));
     add(dbText3);
 
-    dbText4.setXY(234, 33);
-    dbText4.setColor(touchgfx::Color::getColorFromRGB(2, 146, 230));
+    dbText4.setXY(234, 30);
+    dbText4.setColor(touchgfx::Color::getColorFromRGB(255, 20, 220));
     dbText4.setLinespacing(0);
     dbText4.setTypedText(touchgfx::TypedText(T___SINGLEUSE_T16R));
     add(dbText4);
 
-    dbText5.setXY(304, 33);
-    dbText5.setColor(touchgfx::Color::getColorFromRGB(2, 146, 230));
+    dbText5.setXY(302, 30);
+    dbText5.setColor(touchgfx::Color::getColorFromRGB(255, 20, 220));
     dbText5.setLinespacing(0);
-    dbText5.setTypedText(touchgfx::TypedText(T___SINGLEUSE_58ZM));
+    dbText5.setTypedText(touchgfx::TypedText(T___SINGLEUSE_X33N));
     add(dbText5);
 
     dbText6.setXY(25, 272);
-    dbText6.setColor(touchgfx::Color::getColorFromRGB(2, 146, 230));
+    dbText6.setColor(touchgfx::Color::getColorFromRGB(255, 20, 220));
     dbText6.setLinespacing(0);
     dbText6.setTypedText(touchgfx::TypedText(T___SINGLEUSE_RCIE));
     add(dbText6);
 
     dbText7.setXY(94, 272);
-    dbText7.setColor(touchgfx::Color::getColorFromRGB(2, 146, 230));
+    dbText7.setColor(touchgfx::Color::getColorFromRGB(255, 20, 220));
     dbText7.setLinespacing(0);
     dbText7.setTypedText(touchgfx::TypedText(T___SINGLEUSE_99Z1));
     add(dbText7);
 
     dbText8.setXY(164, 272);
-    dbText8.setColor(touchgfx::Color::getColorFromRGB(2, 146, 230));
+    dbText8.setColor(touchgfx::Color::getColorFromRGB(255, 20, 220));
     dbText8.setLinespacing(0);
     dbText8.setTypedText(touchgfx::TypedText(T___SINGLEUSE_YMZU));
     add(dbText8);
 
     dbText9.setXY(234, 272);
-    dbText9.setColor(touchgfx::Color::getColorFromRGB(2, 146, 230));
+    dbText9.setColor(touchgfx::Color::getColorFromRGB(255, 20, 220));
     dbText9.setLinespacing(0);
     dbText9.setTypedText(touchgfx::TypedText(T___SINGLEUSE_KDPP));
     add(dbText9);
 
     dbText10.setXY(304, 272);
-    dbText10.setColor(touchgfx::Color::getColorFromRGB(2, 146, 230));
+    dbText10.setColor(touchgfx::Color::getColorFromRGB(255, 20, 220));
     dbText10.setLinespacing(0);
     dbText10.setTypedText(touchgfx::TypedText(T___SINGLEUSE_928V));
     add(dbText10);
+
+    nextScreenButton.setIconBitmaps(Bitmap(BITMAP_ICON_THEME_IMAGES_NAVIGATION_ARROW_FORWARD_IOS_50_50_FF14DC_SVG_ID), Bitmap(BITMAP_ICON_THEME_IMAGES_NAVIGATION_ARROW_FORWARD_IOS_50_50_FF14DC_SVG_ID));
+    nextScreenButton.setIconXY(-1, 24);
+    nextScreenButton.setAction(flexButtonCallback);
+    nextScreenButton.setPosition(416, 112, 64, 97);
+    add(nextScreenButton);
 }
 
 Screen1ViewBase::~Screen1ViewBase()
@@ -200,5 +215,16 @@ void Screen1ViewBase::sliderValueChangedCallbackHandler(const touchgfx::Slider& 
         //When inR2Slider value changed execute C++ code
         //Execute C++ code
         UpdateGainFromSlider(GAIN_CH2R, std::pow(10.f, (float)value / 20.f));
+    }
+}
+
+void Screen1ViewBase::flexButtonCallbackHandler(const touchgfx::AbstractButtonContainer& src)
+{
+    if (&src == &nextScreenButton)
+    {
+        //ChangeToScreen2
+        //When nextScreenButton clicked change screen to Screen2
+        //Go to Screen2 with screen transition towards East
+        application().gotoScreen2ScreenWipeTransitionEast();
     }
 }

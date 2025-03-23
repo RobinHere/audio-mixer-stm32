@@ -18,7 +18,7 @@ void DelayFxInit(float delayTimeSeconds, float wetness, float feedback) {
     }
     delayFx.realSizeDelayBuffer = (uint32_t)(SAMPLE_RATE_HZ * delayTimeSeconds);
     delayFx.delayBufferIndex = 0;
-    delayFx.delayFxStatus = DELAY_ON;
+    delayFx.delayFxStatus = DELAY_OFF;
 }
 
 void DelayFxProcess(volatile float* audioBuffer, uint16_t bufferSize) {
@@ -62,7 +62,16 @@ void DelayFxUpdateFeedback(float feedback) {
         delayFx.delayFeedback = 1.0f;
     }
 }
+
 void DelayFxUpdateWetness(float wetness) {
     delayFx.delayWetMix = wetness;
     delayFx.delayDryMix = 1.0f - wetness;
+}
+
+void DelayFxToggleOnOff(DelayFxStatus status) {
+    delayFx.delayFxStatus = status;
+}
+
+DelayFxStatus GetDelayStatus() {
+    return delayFx.delayFxStatus;
 }
