@@ -175,7 +175,11 @@ Screen1ViewBase::~Screen1ViewBase()
 
 void Screen1ViewBase::setupScreen()
 {
-
+    outputSlider.setValue(screen1State.getOutputSliderValue());
+    inL1Slider.setValue(screen1State.getInL1SliderValue());
+    inR1Slider.setValue(screen1State.getInR1SliderValue());
+    inL2Slider.setValue(screen1State.getInL2SliderValue());
+    inR2Slider.setValue(screen1State.getInR2SliderValue());
 }
 
 void Screen1ViewBase::sliderValueChangedCallbackHandler(const touchgfx::Slider& src, int value)
@@ -187,6 +191,7 @@ void Screen1ViewBase::sliderValueChangedCallbackHandler(const touchgfx::Slider& 
         //Execute C++ code
         //Convert Db Gain multlplier into amplitude gain mulitplier and update it
         UpdateGainFromSlider(GAIN_OUTPUT, std::pow(10.f, (float)value / 20.f));
+        screen1State.setOutputSliderValue(value);
     }
     if (&src == &inL1Slider)
     {
@@ -194,6 +199,7 @@ void Screen1ViewBase::sliderValueChangedCallbackHandler(const touchgfx::Slider& 
         //When inL1Slider value changed execute C++ code
         //Execute C++ code
         UpdateGainFromSlider(GAIN_CH1L, std::pow(10.f, (float)value / 20.f));
+        screen1State.setInL1SliderValue(value);
     }
     if (&src == &inR1Slider)
     {
@@ -201,6 +207,7 @@ void Screen1ViewBase::sliderValueChangedCallbackHandler(const touchgfx::Slider& 
         //When inR1Slider value changed execute C++ code
         //Execute C++ code
         UpdateGainFromSlider(GAIN_CH1R, std::pow(10.f, (float)value / 20.f));
+        screen1State.setInR1SliderValue(value);
     }
     if (&src == &inL2Slider)
     {
@@ -208,6 +215,7 @@ void Screen1ViewBase::sliderValueChangedCallbackHandler(const touchgfx::Slider& 
         //When inL2Slider value changed execute C++ code
         //Execute C++ code
         UpdateGainFromSlider(GAIN_CH2L, std::pow(10.f, (float)value / 20.f));
+        screen1State.setInL2SliderValue(value);
     }
     if (&src == &inR2Slider)
     {
@@ -215,6 +223,7 @@ void Screen1ViewBase::sliderValueChangedCallbackHandler(const touchgfx::Slider& 
         //When inR2Slider value changed execute C++ code
         //Execute C++ code
         UpdateGainFromSlider(GAIN_CH2R, std::pow(10.f, (float)value / 20.f));
+        screen1State.setInR2SliderValue(value);
     }
 }
 

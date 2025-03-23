@@ -7,12 +7,13 @@
 #include <gui/common/FrontendApplication.hpp>
 #include <mvp/View.hpp>
 #include <gui/screen1_screen/Screen1Presenter.hpp>
+#include "Screen1State.hpp"
+#include "audio_module.h"
 #include <touchgfx/widgets/Box.hpp>
 #include <touchgfx/widgets/ScalableImage.hpp>
 #include <touchgfx/containers/Slider.hpp>
 #include <touchgfx/widgets/TextArea.hpp>
 #include <touchgfx/containers/buttons/Buttons.hpp>
-#include <audio_module.h>
 
 class Screen1ViewBase : public touchgfx::View<Screen1Presenter>
 {
@@ -53,6 +54,7 @@ protected:
     touchgfx::TextArea dbText9;
     touchgfx::TextArea dbText10;
     touchgfx::IconButtonStyle< touchgfx::ClickButtonTrigger >  nextScreenButton;
+    Screen1State& screen1State = Screen1State::getInstance();
 
 private:
 

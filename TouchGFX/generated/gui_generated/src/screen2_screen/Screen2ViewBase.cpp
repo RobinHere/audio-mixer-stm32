@@ -98,7 +98,10 @@ Screen2ViewBase::~Screen2ViewBase()
 
 void Screen2ViewBase::setupScreen()
 {
-
+    toggleButton1.forceState(screen2State.getButtonState());
+    feedbackSlider.setValue(screen2State.getFeedbackSliderValue());
+    wetnessSlider.setValue(screen2State.getWetnessSliderValue());
+    dTimeSlider.setValue(screen2State.getDelayTimeSliderValue());
 }
 
 void Screen2ViewBase::flexButtonCallbackHandler(const touchgfx::AbstractButtonContainer& src)
@@ -126,6 +129,7 @@ void Screen2ViewBase::buttonCallbackHandler(const touchgfx::AbstractButton& src)
             buttonOnOff = DELAY_ON;
         }
         DelayFxToggleOnOff(buttonOnOff);
+        screen2State.setButtonState(buttonOnOff);
     }
 }
 
@@ -137,6 +141,7 @@ void Screen2ViewBase::sliderValueChangedCallbackHandler(const touchgfx::Slider& 
         //When feedbackSlider value changed execute C++ code
         //Execute C++ code
         DelayFxUpdateFeedback((float)value / 100.0f);
+        screen2State.setFeedbackSliderValue(value);
     }
     if (&src == &wetnessSlider)
     {
@@ -144,6 +149,7 @@ void Screen2ViewBase::sliderValueChangedCallbackHandler(const touchgfx::Slider& 
         //When wetnessSlider value changed execute C++ code
         //Execute C++ code
         DelayFxUpdateWetness((float)value / 100.0f);
+        screen2State.setWetnessSliderValue(value);
     }
     if (&src == &dTimeSlider)
     {
@@ -151,5 +157,6 @@ void Screen2ViewBase::sliderValueChangedCallbackHandler(const touchgfx::Slider& 
         //When dTimeSlider value changed execute C++ code
         //Execute C++ code
         DelayFxUpdateDelayTime((float)value / 100.0f);
+        screen2State.setDelayTimeSliderValue(value);
     }
 }

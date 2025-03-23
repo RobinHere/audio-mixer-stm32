@@ -3,6 +3,7 @@
     "Screens": [
       {
         "Name": "Screen1",
+        "Includes": "#include \"Screen1State.hpp\"\r\n#include \"audio_module.h\"",
         "Components": [
           {
             "Type": "ScalableImage",
@@ -379,8 +380,8 @@
             },
             "Action": {
               "Type": "ActionExecuteCode",
-              "Includes": "#include <audio_module.h>",
-              "Code": "//Convert Db Gain multlplier into amplitude gain mulitplier and update it\r\nUpdateGainFromSlider(GAIN_OUTPUT, std::pow(10.f, (float)value / 20.f));"
+              "Includes": "",
+              "Code": "//Convert Db Gain multlplier into amplitude gain mulitplier and update it\r\nUpdateGainFromSlider(GAIN_OUTPUT, std::pow(10.f, (float)value / 20.f));\r\nscreen1State.setOutputSliderValue(value);"
             }
           },
           {
@@ -391,8 +392,8 @@
             },
             "Action": {
               "Type": "ActionExecuteCode",
-              "Includes": "#include <audio_module.h>",
-              "Code": "UpdateGainFromSlider(GAIN_CH1L, std::pow(10.f, (float)value / 20.f));"
+              "Includes": "",
+              "Code": "UpdateGainFromSlider(GAIN_CH1L, std::pow(10.f, (float)value / 20.f));\r\nscreen1State.setInL1SliderValue(value);"
             }
           },
           {
@@ -403,8 +404,8 @@
             },
             "Action": {
               "Type": "ActionExecuteCode",
-              "Includes": "#include <audio_module.h>",
-              "Code": "UpdateGainFromSlider(GAIN_CH1R, std::pow(10.f, (float)value / 20.f));"
+              "Includes": "",
+              "Code": "UpdateGainFromSlider(GAIN_CH1R, std::pow(10.f, (float)value / 20.f));\r\nscreen1State.setInR1SliderValue(value);"
             }
           },
           {
@@ -415,8 +416,8 @@
             },
             "Action": {
               "Type": "ActionExecuteCode",
-              "Includes": "#include <audio_module.h>",
-              "Code": "UpdateGainFromSlider(GAIN_CH2L, std::pow(10.f, (float)value / 20.f));"
+              "Includes": "",
+              "Code": "UpdateGainFromSlider(GAIN_CH2L, std::pow(10.f, (float)value / 20.f));\r\nscreen1State.setInL2SliderValue(value);"
             }
           },
           {
@@ -427,8 +428,8 @@
             },
             "Action": {
               "Type": "ActionExecuteCode",
-              "Includes": "#include <audio_module.h>",
-              "Code": "UpdateGainFromSlider(GAIN_CH2R, std::pow(10.f, (float)value / 20.f));"
+              "Includes": "",
+              "Code": "UpdateGainFromSlider(GAIN_CH2R, std::pow(10.f, (float)value / 20.f));\r\nscreen1State.setInR2SliderValue(value);"
             }
           },
           {
@@ -448,6 +449,7 @@
       },
       {
         "Name": "Screen2",
+        "Includes": "#include \"Screen2State.hpp\"\r\n#include \"delay_fx.h\"",
         "Components": [
           {
             "Type": "ScalableImage",
@@ -638,8 +640,8 @@
             },
             "Action": {
               "Type": "ActionExecuteCode",
-              "Includes": "#include \"delay_fx.h\"",
-              "Code": "static DelayFxStatus buttonOnOff = DELAY_OFF;\r\nif (buttonOnOff == DELAY_ON) {\r\n    buttonOnOff = DELAY_OFF;\r\n} else {\r\n    buttonOnOff = DELAY_ON;\r\n}\r\nDelayFxToggleOnOff(buttonOnOff);"
+              "Includes": "",
+              "Code": "static DelayFxStatus buttonOnOff = DELAY_OFF;\r\nif (buttonOnOff == DELAY_ON) {\r\n    buttonOnOff = DELAY_OFF;\r\n} else {\r\n    buttonOnOff = DELAY_ON;\r\n}\r\nDelayFxToggleOnOff(buttonOnOff);\r\nscreen2State.setButtonState(buttonOnOff);"
             }
           },
           {
@@ -650,8 +652,8 @@
             },
             "Action": {
               "Type": "ActionExecuteCode",
-              "Includes": "#include \"delay_fx.h\"",
-              "Code": "DelayFxUpdateFeedback((float)value / 100.0f);"
+              "Includes": "",
+              "Code": "DelayFxUpdateFeedback((float)value / 100.0f);\r\nscreen2State.setFeedbackSliderValue(value);"
             }
           },
           {
@@ -662,7 +664,7 @@
             },
             "Action": {
               "Type": "ActionExecuteCode",
-              "Code": "DelayFxUpdateWetness((float)value / 100.0f);\r\n"
+              "Code": "DelayFxUpdateWetness((float)value / 100.0f);\r\nscreen2State.setWetnessSliderValue(value);"
             }
           },
           {
@@ -673,7 +675,7 @@
             },
             "Action": {
               "Type": "ActionExecuteCode",
-              "Code": "DelayFxUpdateDelayTime((float)value / 100.0f);"
+              "Code": "DelayFxUpdateDelayTime((float)value / 100.0f);\r\nscreen2State.setDelayTimeSliderValue(value);"
             }
           }
         ]

@@ -7,13 +7,14 @@
 #include <gui/common/FrontendApplication.hpp>
 #include <mvp/View.hpp>
 #include <gui/screen2_screen/Screen2Presenter.hpp>
+#include "Screen2State.hpp"
+#include "delay_fx.h"
 #include <touchgfx/widgets/Box.hpp>
 #include <touchgfx/widgets/ScalableImage.hpp>
 #include <touchgfx/widgets/TextArea.hpp>
 #include <touchgfx/containers/Slider.hpp>
 #include <touchgfx/containers/buttons/Buttons.hpp>
 #include <touchgfx/widgets/ToggleButton.hpp>
-#include "delay_fx.h"
 
 class Screen2ViewBase : public touchgfx::View<Screen2Presenter>
 {
@@ -42,6 +43,7 @@ protected:
     touchgfx::TextArea nextScreenText;
     touchgfx::IconButtonStyle< touchgfx::ClickButtonTrigger >  nextScreenButton;
     touchgfx::ToggleButton toggleButton1;
+    Screen2State& screen2State = Screen2State::getInstance();
 
 private:
 
