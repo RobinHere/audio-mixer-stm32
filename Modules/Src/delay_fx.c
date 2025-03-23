@@ -43,7 +43,7 @@ void DelayFxProcess(volatile float* audioBuffer, uint16_t bufferSize) {
             }
             
             delayFx.delayBufferIndex++;
-            if (delayFx.delayBufferIndex == MAX_DELAY_BUFFER_SIZE) delayFx.delayBufferIndex = 0;
+            if (delayFx.delayBufferIndex >= delayFx.realSizeDelayBuffer) delayFx.delayBufferIndex = 0;
         }
     }
 }
