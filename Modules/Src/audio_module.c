@@ -1,5 +1,7 @@
 #include "audio_module.h"
 
+EqualizerFX equalizerFX;
+
 static volatile float RightInput1GainAmp = VOLUME_DEFAULT_GAIN;
 static volatile float LeftInput1GainAmp = VOLUME_DEFAULT_GAIN;
 static volatile float RightInput2GainAmp = VOLUME_DEFAULT_GAIN;
@@ -86,6 +88,7 @@ void UpdateGainFromSlider(GainType channel, float GainAmp) {
 
 void AudioInit() {
     DelayFxInit(0.5f, 0.5f, 0.5f);
+    EqualizerInit(&equalizerFX);
     StartAudioRxTransmission(&hsai_BlockA1, entryBufferADC1, BUFFER_SIZE);
     StartAudioRxTransmission(&hsai_BlockB2, entryBufferADC2, BUFFER_SIZE);
     StartAudioTxTransmission(&hsai_BlockB1, exitBuffer, BUFFER_SIZE);
@@ -104,7 +107,8 @@ void AudioHandling() {
                      &normalizedExitBuffer[0],
                      BUFFER_SIZE / 2);
             DelayFxProcess(&normalizedExitBuffer[0],  BUFFER_SIZE / 2);
-            DenormalizeBuffer(&exitBuffer[0], 
+            EqualizerFxProcess(&equalizerFX, &normalizedExitBuffer[0],  BUFFER_SIZE / 2, 48000.0f);
+            DenormalizeBuffer(&exitBuffer[0],
                               &normalizedExitBuffer[0],
                               BUFFER_SIZE / 2);
         } else {
@@ -118,9 +122,10 @@ void AudioHandling() {
                      &normalizedExitBuffer[BUFFER_SIZE / 2],
                      BUFFER_SIZE / 2);
             DelayFxProcess(&normalizedExitBuffer[BUFFER_SIZE / 2],  BUFFER_SIZE / 2);
+            EqualizerFxProcess(&equalizerFX, &normalizedExitBuffer[BUFFER_SIZE / 2],  BUFFER_SIZE / 2, 48000.0f);
             DenormalizeBuffer(&exitBuffer[BUFFER_SIZE / 2],
-                            &normalizedExitBuffer[BUFFER_SIZE / 2],
-                            BUFFER_SIZE / 2);
+                              &normalizedExitBuffer[BUFFER_SIZE / 2],
+                              BUFFER_SIZE / 2);
         }
         entryBufferState = BUFFER_OFFSET_NONE;
     }

@@ -5,6 +5,7 @@
 #include <math.h>
 #include "sai.h"
 #include "delay_fx.h"
+#include "eq_fx.h"
 
 #ifdef __cplusplus
  extern "C" {
@@ -27,6 +28,8 @@ typedef enum {
     GAIN_CH2L,
     GAIN_CH2R,
 } GainType;
+
+extern EqualizerFX equalizerFX;
 
 void AudioInit();
 void AudioHandling();
