@@ -34,6 +34,13 @@ Screen2ViewBase::Screen2ViewBase() :
     wetnessText.setTypedText(touchgfx::TypedText(T___SINGLEUSE_OIBR));
     add(wetnessText);
 
+    equalizerText.setXY(398, 126);
+    equalizerText.setColor(touchgfx::Color::getColorFromRGB(255, 20, 220));
+    equalizerText.setLinespacing(0);
+    equalizerText.setRotation(touchgfx::TEXT_ROTATE_270);
+    equalizerText.setTypedText(touchgfx::TypedText(T___SINGLEUSE_HL1O));
+    add(equalizerText);
+
     dTimeText.setXY(222, 118);
     dTimeText.setColor(touchgfx::Color::getColorFromRGB(255, 20, 220));
     dTimeText.setLinespacing(0);
@@ -79,10 +86,16 @@ Screen2ViewBase::Screen2ViewBase() :
     nextScreenText.setTypedText(touchgfx::TypedText(T___SINGLEUSE_AZSF));
     add(nextScreenText);
 
-    nextScreenButton.setIconBitmaps(Bitmap(BITMAP_ICON_THEME_IMAGES_NAVIGATION_ARROW_BACK_IOS_50_50_FF14DC_SVG_ID), Bitmap(BITMAP_ICON_THEME_IMAGES_NAVIGATION_ARROW_BACK_IOS_50_50_FF14DC_SVG_ID));
-    nextScreenButton.setIconXY(17, 24);
+    previousScreenButton.setIconBitmaps(Bitmap(BITMAP_ICON_THEME_IMAGES_NAVIGATION_ARROW_BACK_IOS_50_50_FF14DC_SVG_ID), Bitmap(BITMAP_ICON_THEME_IMAGES_NAVIGATION_ARROW_BACK_IOS_50_50_FF14DC_SVG_ID));
+    previousScreenButton.setIconXY(17, 24);
+    previousScreenButton.setAction(flexButtonCallback);
+    previousScreenButton.setPosition(0, 112, 64, 97);
+    add(previousScreenButton);
+
+    nextScreenButton.setIconBitmaps(Bitmap(BITMAP_ICON_THEME_IMAGES_NAVIGATION_ARROW_FORWARD_IOS_50_50_FF14DC_SVG_ID), Bitmap(BITMAP_ICON_THEME_IMAGES_NAVIGATION_ARROW_FORWARD_IOS_50_50_FF14DC_SVG_ID));
+    nextScreenButton.setIconXY(-1, 24);
     nextScreenButton.setAction(flexButtonCallback);
-    nextScreenButton.setPosition(0, 112, 64, 97);
+    nextScreenButton.setPosition(416, 112, 64, 97);
     add(nextScreenButton);
 
     toggleButton1.setXY(293, 143);
@@ -106,12 +119,19 @@ void Screen2ViewBase::setupScreen()
 
 void Screen2ViewBase::flexButtonCallbackHandler(const touchgfx::AbstractButtonContainer& src)
 {
-    if (&src == &nextScreenButton)
+    if (&src == &previousScreenButton)
     {
         //ChangeToScreen1
-        //When nextScreenButton clicked change screen to Screen1
+        //When previousScreenButton clicked change screen to Screen1
         //Go to Screen1 with screen transition towards West
         application().gotoScreen1ScreenWipeTransitionWest();
+    }
+    if (&src == &nextScreenButton)
+    {
+        //ChangeToScreen3
+        //When nextScreenButton clicked change screen to Screen3
+        //Go to Screen3 with screen transition towards East
+        application().gotoScreen3ScreenWipeTransitionEast();
     }
 }
 

@@ -35,12 +35,14 @@ protected:
     touchgfx::ScalableImage scalableImage1;
     touchgfx::TextArea feedackText;
     touchgfx::TextArea wetnessText;
+    touchgfx::TextArea equalizerText;
     touchgfx::TextArea dTimeText;
     touchgfx::TextArea onOffText;
     touchgfx::Slider feedbackSlider;
     touchgfx::Slider wetnessSlider;
     touchgfx::Slider dTimeSlider;
     touchgfx::TextArea nextScreenText;
+    touchgfx::IconButtonStyle< touchgfx::ClickButtonTrigger >  previousScreenButton;
     touchgfx::IconButtonStyle< touchgfx::ClickButtonTrigger >  nextScreenButton;
     touchgfx::ToggleButton toggleButton1;
     Screen2State& screen2State = Screen2State::getInstance();

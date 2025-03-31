@@ -494,6 +494,22 @@
           },
           {
             "Type": "TextArea",
+            "Name": "equalizerText",
+            "X": 398,
+            "Y": 126,
+            "Width": 18,
+            "Height": 68,
+            "TextId": "__SingleUse_HL1O",
+            "TextRotation": "270",
+            "Color": {
+              "Red": 255,
+              "Green": 20,
+              "Blue": 220
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
             "Name": "dTimeText",
             "X": 222,
             "Y": 118,
@@ -590,7 +606,7 @@
           },
           {
             "Type": "FlexButton",
-            "Name": "nextScreenButton",
+            "Name": "previousScreenButton",
             "Y": 112,
             "Width": 64,
             "Height": 97,
@@ -604,6 +620,26 @@
                 "Y": 24,
                 "IconReleased": "__generated\\icon_theme_images_navigation_arrow_back_ios_50_50_FF14DC.svg.png",
                 "IconPressed": "__generated\\icon_theme_images_navigation_arrow_back_ios_50_50_FF14DC.svg.png"
+              }
+            ]
+          },
+          {
+            "Type": "FlexButton",
+            "Name": "nextScreenButton",
+            "X": 416,
+            "Y": 112,
+            "Width": 64,
+            "Height": 97,
+            "ButtonTrigger": {
+              "Type": "ClickButtonTrigger"
+            },
+            "ButtonStyles": [
+              {
+                "Type": "IconButtonStyle",
+                "X": -1,
+                "Y": 24,
+                "IconReleased": "__generated\\icon_theme_images_navigation_arrow_forward_ios_50_50_FF14DC.svg.png",
+                "IconPressed": "__generated\\icon_theme_images_navigation_arrow_forward_ios_50_50_FF14DC.svg.png"
               }
             ]
           },
@@ -623,7 +659,7 @@
             "InteractionName": "ChangeToScreen1",
             "Trigger": {
               "Type": "TriggerClicked",
-              "TriggerComponent": "nextScreenButton"
+              "TriggerComponent": "previousScreenButton"
             },
             "Action": {
               "Type": "ActionGotoScreen",
@@ -676,6 +712,309 @@
             "Action": {
               "Type": "ActionExecuteCode",
               "Code": "DelayFxUpdateDelayTime((float)value / 100.0f);\r\nscreen2State.setDelayTimeSliderValue(value);"
+            }
+          },
+          {
+            "InteractionName": "ChangeToScreen3",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "nextScreenButton"
+            },
+            "Action": {
+              "Type": "ActionGotoScreen",
+              "ScreenTransitionType": "ScreenTransitionWipe",
+              "ScreenTransitionDirection": "East",
+              "ActionComponent": "Screen3"
+            }
+          }
+        ]
+      },
+      {
+        "Name": "Screen3",
+        "Includes": "#include \"Screen3State.hpp\"\r\n#include \"audio_module.h\"",
+        "Components": [
+          {
+            "Type": "ScalableImage",
+            "Name": "scalableImage1",
+            "X": -42,
+            "Width": 522,
+            "Height": 320,
+            "Filename": "__generated\\glass_theme_images_backgrounds_480x480_floating_rings.png",
+            "ScalingAlgorithm": "Bilinear Interpolation"
+          },
+          {
+            "Type": "Slider",
+            "Name": "midSlider",
+            "X": 228,
+            "Y": 48,
+            "Width": 24,
+            "Height": 224,
+            "BackgroundUnselected": "__generated\\glass_theme_images_widgets_slider_vertical_thin_track_small.png",
+            "BackgroundSelected": "__generated\\light_theme_images_widgets_lineprogress_fillers_plain_thin_small_action_90.png",
+            "Indicator": "__generated\\clay_theme_images_widgets_slider_vertical_thin_rounded_active.png",
+            "BackgroundX": 9,
+            "BackgroundY": 12,
+            "IndicatorMax": 200,
+            "ValueMax": 12,
+            "ValueMin": -12
+          },
+          {
+            "Type": "Slider",
+            "Name": "lowSlider",
+            "X": 128,
+            "Y": 48,
+            "Width": 24,
+            "Height": 224,
+            "BackgroundUnselected": "__generated\\glass_theme_images_widgets_slider_vertical_thin_track_small.png",
+            "BackgroundSelected": "__generated\\light_theme_images_widgets_lineprogress_fillers_plain_thin_small_action_90.png",
+            "Indicator": "__generated\\clay_theme_images_widgets_slider_vertical_thin_rounded_active.png",
+            "BackgroundX": 9,
+            "BackgroundY": 12,
+            "IndicatorMax": 200,
+            "ValueMax": 12,
+            "ValueMin": -12
+          },
+          {
+            "Type": "Slider",
+            "Name": "highSlider",
+            "X": 328,
+            "Y": 48,
+            "Width": 24,
+            "Height": 224,
+            "BackgroundUnselected": "__generated\\glass_theme_images_widgets_slider_vertical_thin_track_small.png",
+            "BackgroundSelected": "__generated\\light_theme_images_widgets_lineprogress_fillers_plain_thin_small_action_90.png",
+            "Indicator": "__generated\\clay_theme_images_widgets_slider_vertical_thin_rounded_active.png",
+            "BackgroundX": 9,
+            "BackgroundY": 12,
+            "IndicatorMax": 200,
+            "ValueMax": 12,
+            "ValueMin": -12
+          },
+          {
+            "Type": "FlexButton",
+            "Name": "previousScreenButton",
+            "Y": 112,
+            "Width": 64,
+            "Height": 97,
+            "ButtonTrigger": {
+              "Type": "ClickButtonTrigger"
+            },
+            "ButtonStyles": [
+              {
+                "Type": "IconButtonStyle",
+                "X": 17,
+                "Y": 24,
+                "IconReleased": "__generated\\icon_theme_images_navigation_arrow_back_ios_50_50_FF14DC.svg.png",
+                "IconPressed": "__generated\\icon_theme_images_navigation_arrow_back_ios_50_50_FF14DC.svg.png"
+              }
+            ]
+          },
+          {
+            "Type": "TextArea",
+            "Name": "previousScreenText",
+            "X": 64,
+            "Y": 113,
+            "Width": 18,
+            "Height": 97,
+            "TextId": "__SingleUse_4X98",
+            "TextRotation": "90",
+            "Color": {
+              "Red": 255,
+              "Green": 20,
+              "Blue": 220
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "dTimeText",
+            "X": 201,
+            "Y": 148,
+            "Width": 18,
+            "Height": 26,
+            "TextId": "__SingleUse_CB86",
+            "TextRotation": "270",
+            "Color": {
+              "Red": 255,
+              "Green": 20,
+              "Blue": 220
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "dTimeText_2",
+            "X": 99,
+            "Y": 147,
+            "Width": 18,
+            "Height": 29,
+            "TextId": "__SingleUse_7GDA",
+            "TextRotation": "270",
+            "Color": {
+              "Red": 255,
+              "Green": 20,
+              "Blue": 220
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "dTimeText_1",
+            "X": 299,
+            "Y": 143,
+            "Width": 18,
+            "Height": 34,
+            "TextId": "__SingleUse_UZTL",
+            "TextRotation": "270",
+            "Color": {
+              "Red": 255,
+              "Green": 20,
+              "Blue": 220
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "dbText1",
+            "X": 117,
+            "Y": 30,
+            "Width": 51,
+            "Height": 18,
+            "TextId": "__SingleUse_UJA2",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 20,
+              "Blue": 220
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "dbText1_2",
+            "X": 219,
+            "Y": 30,
+            "Width": 51,
+            "Height": 18,
+            "TextId": "__SingleUse_J1RN",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 20,
+              "Blue": 220
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "dbText1_2_1",
+            "X": 317,
+            "Y": 30,
+            "Width": 51,
+            "Height": 18,
+            "TextId": "__SingleUse_MGJY",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 20,
+              "Blue": 220
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "dbText1_1",
+            "X": 117,
+            "Y": 272,
+            "Width": 46,
+            "Height": 18,
+            "TextId": "__SingleUse_NNLG",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 20,
+              "Blue": 220
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "dbText1_1_1",
+            "X": 217,
+            "Y": 272,
+            "Width": 46,
+            "Height": 18,
+            "TextId": "__SingleUse_6VBQ",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 20,
+              "Blue": 220
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "dbText1_1_1_1",
+            "X": 317,
+            "Y": 272,
+            "Width": 46,
+            "Height": 18,
+            "TextId": "__SingleUse_UHH8",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 20,
+              "Blue": 220
+            },
+            "AutoSize": true
+          }
+        ],
+        "Interactions": [
+          {
+            "InteractionName": "ChangeToScreen2",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "previousScreenButton"
+            },
+            "Action": {
+              "Type": "ActionGotoScreen",
+              "ScreenTransitionType": "ScreenTransitionWipe",
+              "ScreenTransitionDirection": "East",
+              "ActionComponent": "Screen2"
+            }
+          },
+          {
+            "InteractionName": "AdjustLowGain",
+            "Trigger": {
+              "Type": "TriggerSliderValueChanged",
+              "TriggerComponent": "lowSlider"
+            },
+            "Action": {
+              "Type": "ActionExecuteCode",
+              "Code": "updateGainLowShelf(&equalizerFX, std::pow(10.f, (float)value / 20.f));\r\nscreen3State.setLowSliderValue(value);"
+            }
+          },
+          {
+            "InteractionName": "AdjustMidGain",
+            "Trigger": {
+              "Type": "TriggerSliderValueChanged",
+              "TriggerComponent": "midSlider"
+            },
+            "Action": {
+              "Type": "ActionExecuteCode",
+              "Code": "updateGainPeaking(&equalizerFX, std::pow(10.f, (float)value / 20.f));\r\nscreen3State.setMidSliderValue(value);"
+            }
+          },
+          {
+            "InteractionName": "AdjustHighGain",
+            "Trigger": {
+              "Type": "TriggerSliderValueChanged",
+              "TriggerComponent": "highSlider"
+            },
+            "Action": {
+              "Type": "ActionExecuteCode",
+              "Code": "updateGainHighShelf(&equalizerFX, std::pow(10.f, (float)value / 20.f));\r\nscreen3State.setHighSliderValue(value);"
             }
           }
         ]
