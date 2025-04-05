@@ -25,7 +25,6 @@
 #include "i2c.h"
 #include "icache.h"
 #include "memorymap.h"
-#include "octospi.h"
 #include "sai.h"
 #include "tim.h"
 #include "gpio.h"
@@ -34,7 +33,6 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "w25q64.h"
 #include "audio_module.h"
 /* USER CODE END Includes */
 
@@ -110,7 +108,6 @@ int main(void)
   MX_GPIO_Init();
   MX_GPDMA1_Init();
   MX_GPDMA2_Init();
-  MX_OCTOSPI1_Init();
   MX_FMC_Init();
   MX_ICACHE_Init();
   MX_CRC_Init();
