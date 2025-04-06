@@ -6,6 +6,45 @@
   <Texts>
     <TextGroup Id="Group1" />
     <TextGroup Id="Unsorted">
+      <Text Id="__SingleUse_N826" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">L</Translation>
+      </Text>
+      <Text Id="__SingleUse_MANS" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">L</Translation>
+      </Text>
+      <Text Id="__SingleUse_6ND7" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">L</Translation>
+      </Text>
+      <Text Id="__SingleUse_LIZF" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">R</Translation>
+      </Text>
+      <Text Id="__SingleUse_Y3W5" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">R</Translation>
+      </Text>
+      <Text Id="__SingleUse_0FFR" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">R</Translation>
+      </Text>
+      <Text Id="__SingleUse_YH4I" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">L</Translation>
+      </Text>
+      <Text Id="__SingleUse_ZQGD" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">R</Translation>
+      </Text>
+      <Text Id="__SingleUse_ENUA" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">Pre Amp</Translation>
+      </Text>
+      <Text Id="__SingleUse_95HO" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">Channel 4 Pan</Translation>
+      </Text>
+      <Text Id="__SingleUse_GXKG" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">Channel 3 Pan</Translation>
+      </Text>
+      <Text Id="__SingleUse_JSOX" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">Channel 2 Pan</Translation>
+      </Text>
+      <Text Id="__SingleUse_YI1A" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">Channel 1 Pan</Translation>
+      </Text>
       <Text Id="__SingleUse_3QBY" Alignment="Left" TypographyId="Default">
         <Translation Language="GB">Pre Amp</Translation>
       </Text>

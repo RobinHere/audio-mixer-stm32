@@ -22,6 +22,8 @@
 #include <gui/screen3_screen/Screen3Presenter.hpp>
 #include <gui/screen4_screen/Screen4View.hpp>
 #include <gui/screen4_screen/Screen4Presenter.hpp>
+#include <gui/screen5_screen/Screen5View.hpp>
+#include <gui/screen5_screen/Screen5Presenter.hpp>
 
 
 /**
@@ -48,7 +50,8 @@ public:
             touchgfx::meta::TypeList< Screen2View,
             touchgfx::meta::TypeList< Screen3View,
             touchgfx::meta::TypeList< Screen4View,
-            touchgfx::meta::Nil > > >
+            touchgfx::meta::TypeList< Screen5View,
+            touchgfx::meta::Nil > > > >
             > GeneratedViewTypes;
 
     /**
@@ -64,7 +67,8 @@ public:
             touchgfx::meta::TypeList< Screen2Presenter,
             touchgfx::meta::TypeList< Screen3Presenter,
             touchgfx::meta::TypeList< Screen4Presenter,
-            touchgfx::meta::Nil > > >
+            touchgfx::meta::TypeList< Screen5Presenter,
+            touchgfx::meta::Nil > > > >
             > GeneratedPresenterTypes;
 
     /**

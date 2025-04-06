@@ -13,6 +13,7 @@
 
 #define BUFFER_SIZE 512
 #define VOLUME_DEFAULT_GAIN 1.0f
+#define DEFAULT_PAN 1.0f // MONO
 #define INT_16_MAX_VALUE 32767.0f
 
 typedef enum {
@@ -29,12 +30,20 @@ typedef enum {
     GAIN_CH2R,
 } GainType;
 
+typedef enum {
+    PAN_CH1L,
+    PAN_CH1R,
+    PAN_CH2L,
+    PAN_CH2R,
+} PanChannel;
+
 extern EqualizerFX equalizerFX;
 
 void AudioInit();
 void AudioHandling();
 void UpdatePreAmpGainFromSlider(GainType channel, float GainAmp);
 void UpdateFaderGainFromSlider(GainType channel, float DbGain);
+void UpdatePanFromSlider(PanChannel channel, float PanRatio);
 
 #ifdef __cplusplus
 }

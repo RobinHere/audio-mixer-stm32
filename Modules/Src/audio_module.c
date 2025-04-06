@@ -13,6 +13,11 @@ static volatile float LeftInput1GainPreAmp = VOLUME_DEFAULT_GAIN;
 static volatile float RightInput2GainPreAmp = VOLUME_DEFAULT_GAIN;
 static volatile float LeftInput2GainPreAmp = VOLUME_DEFAULT_GAIN;
 
+static volatile float LeftInput1Pan = DEFAULT_PAN;
+static volatile float RightInput1Pan = DEFAULT_PAN;
+static volatile float LeftInput2Pan = DEFAULT_PAN;
+static volatile float RightInput2Pan = DEFAULT_PAN;
+
 static volatile int16_t entryBufferADC1[BUFFER_SIZE];
 static volatile int16_t entryBufferADC2[BUFFER_SIZE];
 static volatile int16_t exitBuffer[BUFFER_SIZE];
@@ -56,21 +61,40 @@ static void PreAmpGain(volatile float* sourceBuffer1, volatile float* sourceBuff
 
 static void BasicMix(volatile float* sourceBuffer1, volatile float* sourceBuffer2,
                      volatile float* destinationBuffer, uint16_t bufferSize) {
-    for (uint16_t i = 0; i < bufferSize; i++) {
-        if (i % 2 == 0) {
-            sourceBuffer1[i] *= LeftInputFader1GainAmp;
-            sourceBuffer2[i] *= LeftInputFader2GainAmp;
-        } else {
-            sourceBuffer1[i] *= RightInputFader1GainAmp;
-            sourceBuffer2[i] *= RightInputFader2GainAmp;
-        }
-        destinationBuffer[i] = sourceBuffer1[i] + sourceBuffer2[i];
-        if (destinationBuffer[i] > 1.0f) {
-            destinationBuffer[i] = 1.0f;
-        } 
-        if (destinationBuffer[i] < -1.0f) {
-            destinationBuffer[i] = -1.0f;
-        }
+    uint16_t rightIndex = 0;
+    uint16_t leftIndex = 0;
+
+    float in1L = 0.0f, in1R = 0.0f, in2L = 0.0f, in2R = 0.0f;
+    float in1LtoL, in1LtoR, in1RtoL, in1RtoR;
+    float in2LtoL, in2LtoR, in2RtoL, in2RtoR;
+    float mixedL = 0.0f, mixedR = 0.0f;
+
+    for (uint16_t i = 0; i <= bufferSize; i += 2) {
+        leftIndex = i;
+        rightIndex = i + 1;
+
+        in1L = sourceBuffer1[leftIndex]  * LeftInputFader1GainAmp;
+        in1R = sourceBuffer1[rightIndex] * RightInputFader1GainAmp;
+        in2L = sourceBuffer2[leftIndex]  * LeftInputFader2GainAmp;
+        in2R = sourceBuffer2[rightIndex] * RightInputFader2GainAmp;
+
+        in1LtoL = in1L * (LeftInput1Pan <= 1.0f ? 1.0f : 2.0f - LeftInput1Pan);
+        in1LtoR = in1L * (LeftInput1Pan >= 1.0f ? 1.0f : LeftInput1Pan);
+
+        in1RtoL = in1R * (RightInput1Pan <= 1.0f ? 1.0f : 2.0f - RightInput1Pan);
+        in1RtoR = in1R * (RightInput1Pan >= 1.0f ? 1.0f : RightInput1Pan);
+
+        in2LtoL = in2L * (LeftInput2Pan <= 1.0f ? 1.0f : 2.0f - LeftInput2Pan);
+        in2LtoR = in2L * (LeftInput2Pan >= 1.0f ? 1.0f : LeftInput2Pan);
+
+        in2RtoL = in2R * (RightInput2Pan <= 1.0f ? 1.0f : 2.0f - RightInput2Pan);
+        in2RtoR = in2R * (RightInput2Pan >= 1.0f ? 1.0f : RightInput2Pan);
+
+        mixedL = in1LtoL + in1RtoL + in2LtoL + in2RtoL;
+        mixedR = in1LtoR + in1RtoR + in2LtoR + in2RtoR;
+
+        destinationBuffer[leftIndex] = fmaxf(-1.0f, fminf(1.0f, mixedL));
+        destinationBuffer[rightIndex] = fmaxf(-1.0f, fminf(1.0f, mixedR));
     }
 }
 
@@ -123,6 +147,25 @@ void UpdateFaderGainFromSlider(GainType channel, float GainAmp) {
     }
 }
 
+void UpdatePanFromSlider(PanChannel channel, float PanRatio) {
+    switch(channel) {
+        case PAN_CH1L:
+            LeftInput1Pan = PanRatio;
+            break;
+        case PAN_CH1R:
+            RightInput1Pan = PanRatio;
+            break;
+        case PAN_CH2L:
+            LeftInput2Pan  = PanRatio;
+            break;
+        case PAN_CH2R:
+            RightInput2Pan  = PanRatio;
+            break;
+        default:
+            break;
+    }
+}
+
 void AudioInit() {
     DelayFxInit(0.5f, 0.5f, 0.5f);
     EqualizerInit(&equalizerFX);
@@ -147,7 +190,10 @@ void AudioHandling() {
                      &normalizedExitBuffer[0],
                      BUFFER_SIZE / 2);
             DelayFxProcess(&normalizedExitBuffer[0],  BUFFER_SIZE / 2);
-            EqualizerFxProcess(&equalizerFX, &normalizedExitBuffer[0],  BUFFER_SIZE / 2, 48000.0f);
+            EqualizerFxProcess(&equalizerFX,
+                               &normalizedExitBuffer[0],
+                               BUFFER_SIZE / 2,
+                               48000.0f);
             DenormalizeBuffer(&exitBuffer[0],
                               &normalizedExitBuffer[0],
                               BUFFER_SIZE / 2);
@@ -165,7 +211,10 @@ void AudioHandling() {
                      &normalizedExitBuffer[BUFFER_SIZE / 2],
                      BUFFER_SIZE / 2);
             DelayFxProcess(&normalizedExitBuffer[BUFFER_SIZE / 2],  BUFFER_SIZE / 2);
-            EqualizerFxProcess(&equalizerFX, &normalizedExitBuffer[BUFFER_SIZE / 2],  BUFFER_SIZE / 2, 48000.0f);
+            EqualizerFxProcess(&equalizerFX,
+                               &normalizedExitBuffer[BUFFER_SIZE / 2],
+                               BUFFER_SIZE / 2,
+                               48000.0f);
             DenormalizeBuffer(&exitBuffer[BUFFER_SIZE / 2],
                               &normalizedExitBuffer[BUFFER_SIZE / 2],
                               BUFFER_SIZE / 2);

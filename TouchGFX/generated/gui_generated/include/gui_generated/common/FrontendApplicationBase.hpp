@@ -38,6 +38,11 @@ public:
     // Screen4
     void gotoScreen4ScreenWipeTransitionEast();
 
+    void gotoScreen4ScreenWipeTransitionWest();
+
+    // Screen5
+    void gotoScreen5ScreenWipeTransitionEast();
+
 protected:
     touchgfx::Callback<FrontendApplicationBase> transitionCallback;
     FrontendHeap& frontendHeap;
@@ -60,6 +65,11 @@ protected:
 
     // Screen4
     void gotoScreen4ScreenWipeTransitionEastImpl();
+
+    void gotoScreen4ScreenWipeTransitionWestImpl();
+
+    // Screen5
+    void gotoScreen5ScreenWipeTransitionEastImpl();
 };
 
 #endif // FRONTENDAPPLICATIONBASE_HPP

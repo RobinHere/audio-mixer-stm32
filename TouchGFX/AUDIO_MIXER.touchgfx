@@ -1464,7 +1464,7 @@
               "Type": "ActionGotoScreen",
               "ScreenTransitionType": "ScreenTransitionWipe",
               "ScreenTransitionDirection": "East",
-              "ActionComponent": "Screen4"
+              "ActionComponent": "Screen5"
             }
           },
           {
@@ -1478,6 +1478,375 @@
               "ScreenTransitionType": "ScreenTransitionWipe",
               "ScreenTransitionDirection": "West",
               "ActionComponent": "Screen3"
+            }
+          }
+        ]
+      },
+      {
+        "Name": "Screen5",
+        "Includes": "#include \"Screen5State.hpp\"\r\n#include \"audio_module.h\"",
+        "Components": [
+          {
+            "Type": "ScalableImage",
+            "Name": "scalableImage1",
+            "X": -42,
+            "Width": 522,
+            "Height": 320,
+            "Filename": "__generated\\glass_theme_images_backgrounds_480x480_floating_rings.png",
+            "ScalingAlgorithm": "Bilinear Interpolation"
+          },
+          {
+            "Type": "Slider",
+            "Name": "inL1Slider",
+            "X": 135,
+            "Y": 48,
+            "Width": 24,
+            "Height": 224,
+            "BackgroundUnselected": "__generated\\glass_theme_images_widgets_slider_vertical_thin_track_small.png",
+            "BackgroundSelected": "__generated\\light_theme_images_widgets_lineprogress_fillers_plain_thin_small_action_90.png",
+            "Indicator": "__generated\\clay_theme_images_widgets_slider_horizontal_thin_rounded_active.png",
+            "BackgroundX": 9,
+            "BackgroundY": 12,
+            "IndicatorMax": 200,
+            "ValueMax": 20,
+            "InitValue": 10
+          },
+          {
+            "Type": "Slider",
+            "Name": "inR1Slider",
+            "X": 205,
+            "Y": 48,
+            "Width": 24,
+            "Height": 224,
+            "BackgroundUnselected": "__generated\\glass_theme_images_widgets_slider_vertical_thin_track_small.png",
+            "BackgroundSelected": "__generated\\light_theme_images_widgets_lineprogress_fillers_plain_thin_small_action_90.png",
+            "Indicator": "__generated\\clay_theme_images_widgets_slider_vertical_thin_rounded_active.png",
+            "BackgroundX": 9,
+            "BackgroundY": 12,
+            "IndicatorMax": 200,
+            "ValueMax": 20,
+            "InitValue": 10
+          },
+          {
+            "Type": "Slider",
+            "Name": "inL2Slider",
+            "X": 275,
+            "Y": 48,
+            "Width": 24,
+            "Height": 224,
+            "BackgroundUnselected": "__generated\\glass_theme_images_widgets_slider_vertical_thin_track_small.png",
+            "BackgroundSelected": "__generated\\light_theme_images_widgets_lineprogress_fillers_plain_thin_small_action_90.png",
+            "Indicator": "__generated\\clay_theme_images_widgets_slider_vertical_thin_rounded_active.png",
+            "BackgroundX": 9,
+            "BackgroundY": 12,
+            "IndicatorMax": 200,
+            "ValueMax": 20,
+            "InitValue": 10
+          },
+          {
+            "Type": "Slider",
+            "Name": "inR2Slider",
+            "X": 345,
+            "Y": 48,
+            "Width": 24,
+            "Height": 224,
+            "BackgroundUnselected": "__generated\\glass_theme_images_widgets_slider_vertical_thin_track_small.png",
+            "BackgroundSelected": "__generated\\light_theme_images_widgets_lineprogress_fillers_plain_thin_small_action_90.png",
+            "Indicator": "__generated\\clay_theme_images_widgets_slider_vertical_thin_rounded_active.png",
+            "BackgroundX": 9,
+            "BackgroundY": 12,
+            "IndicatorMax": 200,
+            "ValueMax": 20,
+            "InitValue": 10
+          },
+          {
+            "Type": "TextArea",
+            "Name": "inL1GainText",
+            "X": 106,
+            "Y": 102,
+            "Width": 18,
+            "Height": 110,
+            "TextId": "__SingleUse_YI1A",
+            "TextRotation": "270",
+            "Color": {
+              "Red": 255,
+              "Green": 20,
+              "Blue": 220
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "inR1GainText",
+            "X": 176,
+            "Y": 102,
+            "Width": 18,
+            "Height": 110,
+            "TextId": "__SingleUse_JSOX",
+            "TextRotation": "270",
+            "Color": {
+              "Red": 255,
+              "Green": 20,
+              "Blue": 220
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "inL2GainText",
+            "X": 246,
+            "Y": 102,
+            "Width": 18,
+            "Height": 110,
+            "TextId": "__SingleUse_GXKG",
+            "TextRotation": "270",
+            "Color": {
+              "Red": 255,
+              "Green": 20,
+              "Blue": 220
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "inR2GainText",
+            "X": 316,
+            "Y": 102,
+            "Width": 18,
+            "Height": 110,
+            "TextId": "__SingleUse_95HO",
+            "TextRotation": "270",
+            "Color": {
+              "Red": 255,
+              "Green": 20,
+              "Blue": 220
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "previousScreenText",
+            "X": 64,
+            "Y": 126,
+            "Width": 18,
+            "Height": 63,
+            "TextId": "__SingleUse_ENUA",
+            "TextRotation": "90",
+            "Color": {
+              "Red": 255,
+              "Green": 20,
+              "Blue": 220
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "rightText",
+            "X": 352,
+            "Y": 30,
+            "Width": 10,
+            "Height": 18,
+            "TextId": "__SingleUse_ZQGD",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 20,
+              "Blue": 220
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "rightText_1",
+            "X": 282,
+            "Y": 30,
+            "Width": 10,
+            "Height": 18,
+            "TextId": "__SingleUse_0FFR",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 20,
+              "Blue": 220
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "rightText_1_1",
+            "X": 212,
+            "Y": 30,
+            "Width": 10,
+            "Height": 18,
+            "TextId": "__SingleUse_Y3W5",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 20,
+              "Blue": 220
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "rightText_1_1_1",
+            "X": 142,
+            "Y": 30,
+            "Width": 10,
+            "Height": 18,
+            "TextId": "__SingleUse_LIZF",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 20,
+              "Blue": 220
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "leftText",
+            "X": 353,
+            "Y": 272,
+            "Width": 8,
+            "Height": 18,
+            "TextId": "__SingleUse_YH4I",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 20,
+              "Blue": 220
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "leftText_1",
+            "X": 283,
+            "Y": 272,
+            "Width": 8,
+            "Height": 18,
+            "TextId": "__SingleUse_6ND7",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 20,
+              "Blue": 220
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "leftText_1_1",
+            "X": 213,
+            "Y": 272,
+            "Width": 8,
+            "Height": 18,
+            "TextId": "__SingleUse_MANS",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 20,
+              "Blue": 220
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "leftText_1_1_1",
+            "X": 143,
+            "Y": 272,
+            "Width": 8,
+            "Height": 18,
+            "TextId": "__SingleUse_N826",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 20,
+              "Blue": 220
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "FlexButton",
+            "Name": "previousScreenButton",
+            "Y": 112,
+            "Width": 64,
+            "Height": 97,
+            "ButtonTrigger": {
+              "Type": "ClickButtonTrigger"
+            },
+            "ButtonStyles": [
+              {
+                "Type": "IconButtonStyle",
+                "X": 17,
+                "Y": 24,
+                "IconReleased": "__generated\\icon_theme_images_navigation_arrow_back_ios_50_50_FF14DC.svg.png",
+                "IconPressed": "__generated\\icon_theme_images_navigation_arrow_back_ios_50_50_FF14DC.svg.png"
+              }
+            ]
+          }
+        ],
+        "Interactions": [
+          {
+            "InteractionName": "AdjustInL1PanVariable",
+            "Trigger": {
+              "Type": "TriggerSliderValueChanged",
+              "TriggerComponent": "inL1Slider"
+            },
+            "Action": {
+              "Type": "ActionExecuteCode",
+              "Includes": "",
+              "Code": "UpdatePanFromSlider(PAN_CH1L, (float)value / 10.0f);\r\nscreen5State.setInL1SliderValue(value);"
+            }
+          },
+          {
+            "InteractionName": "AdjustInR1PanVariable",
+            "Trigger": {
+              "Type": "TriggerSliderValueChanged",
+              "TriggerComponent": "inR1Slider"
+            },
+            "Action": {
+              "Type": "ActionExecuteCode",
+              "Includes": "",
+              "Code": "UpdatePanFromSlider(PAN_CH1R, (float)value / 10.0f);\r\nscreen5State.setInR1SliderValue(value);"
+            }
+          },
+          {
+            "InteractionName": "AdjustInL2PanVariable",
+            "Trigger": {
+              "Type": "TriggerSliderValueChanged",
+              "TriggerComponent": "inL2Slider"
+            },
+            "Action": {
+              "Type": "ActionExecuteCode",
+              "Includes": "",
+              "Code": "UpdatePanFromSlider(PAN_CH2L, (float)value / 10.0f);\r\nscreen5State.setInL2SliderValue(value);"
+            }
+          },
+          {
+            "InteractionName": "AdjustInR2PanVariable",
+            "Trigger": {
+              "Type": "TriggerSliderValueChanged",
+              "TriggerComponent": "inR2Slider"
+            },
+            "Action": {
+              "Type": "ActionExecuteCode",
+              "Includes": "",
+              "Code": "UpdatePanFromSlider(PAN_CH2R, (float)value / 10.0f);\r\nscreen5State.setInR2SliderValue(value);"
+            }
+          },
+          {
+            "InteractionName": "ChangeToScreen4",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "previousScreenButton"
+            },
+            "Action": {
+              "Type": "ActionGotoScreen",
+              "ScreenTransitionType": "ScreenTransitionWipe",
+              "ScreenTransitionDirection": "West",
+              "ActionComponent": "Screen4"
             }
           }
         ]

@@ -208,9 +208,9 @@ void Screen4ViewBase::flexButtonCallbackHandler(const touchgfx::AbstractButtonCo
     if (&src == &nextScreenButton)
     {
         //ChangeToScreen5
-        //When nextScreenButton clicked change screen to Screen4
-        //Go to Screen4 with screen transition towards East
-        application().gotoScreen4ScreenWipeTransitionEast();
+        //When nextScreenButton clicked change screen to Screen5
+        //Go to Screen5 with screen transition towards East
+        application().gotoScreen5ScreenWipeTransitionEast();
     }
     if (&src == &previousScreenButton)
     {
