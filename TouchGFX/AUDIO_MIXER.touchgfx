@@ -449,7 +449,7 @@
       },
       {
         "Name": "Screen2",
-        "Includes": "#include \"Screen2State.hpp\"\r\n#include \"delay_fx.h\"",
+        "Includes": "#include \"Screen2State.hpp\"\r\n#include \"audio_module.h\"",
         "Components": [
           {
             "Type": "ScalableImage",
@@ -677,7 +677,7 @@
             "Action": {
               "Type": "ActionExecuteCode",
               "Includes": "",
-              "Code": "static DelayFxStatus buttonOnOff = DELAY_OFF;\r\nif (buttonOnOff == DELAY_ON) {\r\n    buttonOnOff = DELAY_OFF;\r\n} else {\r\n    buttonOnOff = DELAY_ON;\r\n}\r\nDelayFxToggleOnOff(buttonOnOff);\r\nscreen2State.setButtonState(buttonOnOff);"
+              "Code": "static DelayFxStatus buttonOnOff = DELAY_OFF;\r\nif (buttonOnOff == DELAY_ON) {\r\n    buttonOnOff = DELAY_OFF;\r\n} else {\r\n    buttonOnOff = DELAY_ON;\r\n}\r\nDelayFxToggleOnOff(&delayFx, buttonOnOff);\r\nscreen2State.setButtonState(buttonOnOff);"
             }
           },
           {
@@ -689,7 +689,7 @@
             "Action": {
               "Type": "ActionExecuteCode",
               "Includes": "",
-              "Code": "DelayFxUpdateFeedback((float)value / 100.0f);\r\nscreen2State.setFeedbackSliderValue(value);"
+              "Code": "DelayFxUpdateFeedback(&delayFx, (float)value / 100.0f);\r\nscreen2State.setFeedbackSliderValue(value);"
             }
           },
           {
@@ -700,7 +700,7 @@
             },
             "Action": {
               "Type": "ActionExecuteCode",
-              "Code": "DelayFxUpdateWetness((float)value / 100.0f);\r\nscreen2State.setWetnessSliderValue(value);"
+              "Code": "DelayFxUpdateWetness(&delayFx, (float)value / 100.0f);\r\nscreen2State.setWetnessSliderValue(value);"
             }
           },
           {
@@ -711,7 +711,7 @@
             },
             "Action": {
               "Type": "ActionExecuteCode",
-              "Code": "DelayFxUpdateDelayTime((float)value / 100.0f);\r\nscreen2State.setDelayTimeSliderValue(value);"
+              "Code": "DelayFxUpdateDelayTime(&delayFx, (float)value / 100.0f);\r\nscreen2State.setDelayTimeSliderValue(value);"
             }
           },
           {

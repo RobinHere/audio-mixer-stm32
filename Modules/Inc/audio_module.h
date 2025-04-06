@@ -38,6 +38,7 @@ typedef enum {
 } PanChannel;
 
 extern EqualizerFX equalizerFX;
+extern DelayFx delayFx;
 
 void AudioInit();
 void AudioHandling();

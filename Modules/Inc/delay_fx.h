@@ -27,13 +27,12 @@ typedef struct {
     volatile DelayFxStatus delayFxStatus;
 } DelayFx;
 
-void DelayFxInit(float delayTimeSeconds, float wetness, float feedback);
-void DelayFxProcess(volatile float* audioBuffer, uint16_t bufferSize);
-void DelayFxUpdateDelayTime(float delayTimeSeconds);
-void DelayFxUpdateFeedback(float feedback);
-void DelayFxUpdateWetness(float wetness);
-void DelayFxToggleOnOff(DelayFxStatus status);
-DelayFxStatus GetDelayStatus();
+void DelayFxInit(DelayFx* delayFx, float delayTimeSeconds, float wetness, float feedback);
+void DelayFxProcess(DelayFx* delayFx, volatile float* audioBuffer, uint16_t bufferSize);
+void DelayFxUpdateDelayTime(DelayFx* delayFx, float delayTimeSeconds);
+void DelayFxUpdateFeedback(DelayFx* delayFx, float feedback);
+void DelayFxUpdateWetness(DelayFx* delayFx, float wetness);
+void DelayFxToggleOnOff(DelayFx* delayFx, DelayFxStatus status);
 
 #ifdef __cplusplus
 }

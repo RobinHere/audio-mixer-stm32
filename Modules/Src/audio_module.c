@@ -1,6 +1,7 @@
 #include "audio_module.h"
 
 EqualizerFX equalizerFX;
+DelayFx delayFx;
 
 static volatile float RightInputFader1GainAmp = VOLUME_DEFAULT_GAIN;
 static volatile float LeftInputFader1GainAmp = VOLUME_DEFAULT_GAIN;
@@ -167,7 +168,7 @@ void UpdatePanFromSlider(PanChannel channel, float PanRatio) {
 }
 
 void AudioInit() {
-    DelayFxInit(0.5f, 0.5f, 0.5f);
+    DelayFxInit(&delayFx, 0.5f, 0.5f, 0.5f);
     EqualizerInit(&equalizerFX);
     StartAudioRxTransmission(&hsai_BlockA1, entryBufferADC1, BUFFER_SIZE);
     StartAudioRxTransmission(&hsai_BlockB2, entryBufferADC2, BUFFER_SIZE);
@@ -189,7 +190,7 @@ void AudioHandling() {
                      &normalizedBufferADC2[0],
                      &normalizedExitBuffer[0],
                      BUFFER_SIZE / 2);
-            DelayFxProcess(&normalizedExitBuffer[0],  BUFFER_SIZE / 2);
+            DelayFxProcess(&delayFx, &normalizedExitBuffer[0],  BUFFER_SIZE / 2);
             EqualizerFxProcess(&equalizerFX,
                                &normalizedExitBuffer[0],
                                BUFFER_SIZE / 2,
@@ -210,7 +211,7 @@ void AudioHandling() {
                      &normalizedBufferADC2[BUFFER_SIZE / 2],
                      &normalizedExitBuffer[BUFFER_SIZE / 2],
                      BUFFER_SIZE / 2);
-            DelayFxProcess(&normalizedExitBuffer[BUFFER_SIZE / 2],  BUFFER_SIZE / 2);
+            DelayFxProcess(&delayFx, &normalizedExitBuffer[BUFFER_SIZE / 2],  BUFFER_SIZE / 2);
             EqualizerFxProcess(&equalizerFX,
                                &normalizedExitBuffer[BUFFER_SIZE / 2],
                                BUFFER_SIZE / 2,
