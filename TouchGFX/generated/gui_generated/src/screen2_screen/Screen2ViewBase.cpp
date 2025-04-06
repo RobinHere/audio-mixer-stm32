@@ -79,7 +79,7 @@ Screen2ViewBase::Screen2ViewBase() :
     dTimeSlider.setNewValueCallback(sliderValueChangedCallback);
     add(dTimeSlider);
 
-    nextScreenText.setXY(64, 113);
+    nextScreenText.setXY(64, 135);
     nextScreenText.setColor(touchgfx::Color::getColorFromRGB(255, 20, 220));
     nextScreenText.setLinespacing(0);
     nextScreenText.setRotation(touchgfx::TEXT_ROTATE_90);

@@ -27,8 +27,8 @@
             "BackgroundX": 9,
             "BackgroundY": 12,
             "IndicatorMax": 200,
-            "ValueMax": 20,
-            "ValueMin": -20
+            "ValueMax": 6,
+            "ValueMin": -41
           },
           {
             "Type": "Slider",
@@ -43,8 +43,8 @@
             "BackgroundX": 9,
             "BackgroundY": 12,
             "IndicatorMax": 200,
-            "ValueMax": 20,
-            "ValueMin": -20
+            "ValueMax": 6,
+            "ValueMin": -41
           },
           {
             "Type": "Slider",
@@ -59,8 +59,8 @@
             "BackgroundX": 9,
             "BackgroundY": 12,
             "IndicatorMax": 200,
-            "ValueMax": 20,
-            "ValueMin": -20
+            "ValueMax": 6,
+            "ValueMin": -41
           },
           {
             "Type": "Slider",
@@ -75,8 +75,8 @@
             "BackgroundX": 9,
             "BackgroundY": 12,
             "IndicatorMax": 200,
-            "ValueMax": 20,
-            "ValueMin": -20
+            "ValueMax": 6,
+            "ValueMin": -41
           },
           {
             "Type": "Slider",
@@ -91,8 +91,8 @@
             "BackgroundX": 9,
             "BackgroundY": 12,
             "IndicatorMax": 200,
-            "ValueMax": 20,
-            "ValueMin": -20
+            "ValueMax": 6,
+            "ValueMin": -41
           },
           {
             "Type": "TextArea",
@@ -195,7 +195,7 @@
             "Name": "dbText1",
             "X": 25,
             "Y": 30,
-            "Width": 51,
+            "Width": 41,
             "Height": 18,
             "TextId": "__SingleUse_QL88",
             "TextRotation": "0",
@@ -209,9 +209,9 @@
           {
             "Type": "TextArea",
             "Name": "dbText2",
-            "X": 94,
+            "X": 95,
             "Y": 30,
-            "Width": 51,
+            "Width": 41,
             "Height": 18,
             "TextId": "__SingleUse_YLR0",
             "TextRotation": "0",
@@ -227,7 +227,7 @@
             "Name": "dbText3",
             "X": 164,
             "Y": 30,
-            "Width": 51,
+            "Width": 41,
             "Height": 18,
             "TextId": "__SingleUse_U0ES",
             "TextRotation": "0",
@@ -243,7 +243,7 @@
             "Name": "dbText4",
             "X": 234,
             "Y": 30,
-            "Width": 51,
+            "Width": 41,
             "Height": 18,
             "TextId": "__SingleUse_T16R",
             "TextRotation": "0",
@@ -259,7 +259,7 @@
             "Name": "dbText5",
             "X": 302,
             "Y": 30,
-            "Width": 51,
+            "Width": 41,
             "Height": 18,
             "TextId": "__SingleUse_X33N",
             "TextRotation": "0",
@@ -275,7 +275,7 @@
             "Name": "dbText6",
             "X": 25,
             "Y": 272,
-            "Width": 46,
+            "Width": 41,
             "Height": 18,
             "TextId": "__SingleUse_RCIE",
             "TextRotation": "0",
@@ -291,7 +291,7 @@
             "Name": "dbText7",
             "X": 94,
             "Y": 272,
-            "Width": 46,
+            "Width": 41,
             "Height": 18,
             "TextId": "__SingleUse_99Z1",
             "TextRotation": "0",
@@ -307,7 +307,7 @@
             "Name": "dbText8",
             "X": 164,
             "Y": 272,
-            "Width": 46,
+            "Width": 41,
             "Height": 18,
             "TextId": "__SingleUse_YMZU",
             "TextRotation": "0",
@@ -323,7 +323,7 @@
             "Name": "dbText9",
             "X": 234,
             "Y": 272,
-            "Width": 46,
+            "Width": 41,
             "Height": 18,
             "TextId": "__SingleUse_KDPP",
             "TextRotation": "0",
@@ -339,7 +339,7 @@
             "Name": "dbText10",
             "X": 304,
             "Y": 272,
-            "Width": 46,
+            "Width": 41,
             "Height": 18,
             "TextId": "__SingleUse_928V",
             "TextRotation": "0",
@@ -381,7 +381,7 @@
             "Action": {
               "Type": "ActionExecuteCode",
               "Includes": "",
-              "Code": "//Convert Db Gain multlplier into amplitude gain mulitplier and update it\r\nUpdateGainFromSlider(GAIN_OUTPUT, std::pow(10.f, (float)value / 20.f));\r\nscreen1State.setOutputSliderValue(value);"
+              "Code": "//Convert Db Gain multlplier into amplitude gain mulitplier and update it\r\nif (value == -41) {\r\n    UpdateFaderGainFromSlider(GAIN_OUTPUT, 0.0f);\r\n} else {\r\n    UpdateFaderGainFromSlider(GAIN_OUTPUT, std::pow(10.0f, (float)value / 20.0f));\r\n}\r\nscreen1State.setOutputSliderValue(value);"
             }
           },
           {
@@ -393,7 +393,7 @@
             "Action": {
               "Type": "ActionExecuteCode",
               "Includes": "",
-              "Code": "UpdateGainFromSlider(GAIN_CH1L, std::pow(10.f, (float)value / 20.f));\r\nscreen1State.setInL1SliderValue(value);"
+              "Code": "if (value == -41) {\r\n    UpdateFaderGainFromSlider(GAIN_CH1L, 0.0f);\r\n} else {\r\n    UpdateFaderGainFromSlider(GAIN_CH1L, std::pow(10.0f, (float)value / 20.0f));\r\n}\r\nscreen1State.setInL1SliderValue(value);"
             }
           },
           {
@@ -405,7 +405,7 @@
             "Action": {
               "Type": "ActionExecuteCode",
               "Includes": "",
-              "Code": "UpdateGainFromSlider(GAIN_CH1R, std::pow(10.f, (float)value / 20.f));\r\nscreen1State.setInR1SliderValue(value);"
+              "Code": "if (value == -41) {\r\n    UpdateFaderGainFromSlider(GAIN_CH1R, 0.0f);\r\n} else {\r\n    UpdateFaderGainFromSlider(GAIN_CH1R, std::pow(10.0f, (float)value / 20.0f));\r\n}\r\nscreen1State.setInR1SliderValue(value);"
             }
           },
           {
@@ -417,7 +417,7 @@
             "Action": {
               "Type": "ActionExecuteCode",
               "Includes": "",
-              "Code": "UpdateGainFromSlider(GAIN_CH2L, std::pow(10.f, (float)value / 20.f));\r\nscreen1State.setInL2SliderValue(value);"
+              "Code": "if (value == -41) {\r\n    UpdateFaderGainFromSlider(GAIN_CH2L, 0.0f);\r\n} else {\r\n    UpdateFaderGainFromSlider(GAIN_CH2L, std::pow(10.0f, (float)value / 20.0f));\r\n}\r\nscreen1State.setInL2SliderValue(value);"
             }
           },
           {
@@ -429,7 +429,7 @@
             "Action": {
               "Type": "ActionExecuteCode",
               "Includes": "",
-              "Code": "UpdateGainFromSlider(GAIN_CH2R, std::pow(10.f, (float)value / 20.f));\r\nscreen1State.setInR2SliderValue(value);"
+              "Code": "if (value == -41) {\r\n    UpdateFaderGainFromSlider(GAIN_CH2R, 0.0f);\r\n} else {\r\n    UpdateFaderGainFromSlider(GAIN_CH2R, std::pow(10.0f, (float)value / 20.0f));\r\n}\r\nscreen1State.setInR2SliderValue(value);"
             }
           },
           {
@@ -592,9 +592,9 @@
             "Type": "TextArea",
             "Name": "nextScreenText",
             "X": 64,
-            "Y": 113,
+            "Y": 135,
             "Width": 18,
-            "Height": 94,
+            "Height": 50,
             "TextId": "__SingleUse_AZSF",
             "TextRotation": "90",
             "Color": {
@@ -1075,9 +1075,9 @@
     "DisplayOrientation": "Landscape",
     "Family": "STM32H5",
     "SubFamily": "STM32H563/H573",
-    "Toolchain": "STM32CubeIDE",
+    "Toolchain": "CMake",
     "Platform": "m33",
-    "ProjectFile": "../STM32H563ZI_NUCLEO_RVA35HI.ioc",
+    "ProjectFile": "../AUDIO_MIXER.ioc",
     "OptionalComponentsRoot": "../Middlewares/ST/touchgfx_components",
     "OptionalComponents": [],
     "AdditionalFeatures": [

@@ -2,11 +2,16 @@
 
 EqualizerFX equalizerFX;
 
-static volatile float RightInput1GainAmp = VOLUME_DEFAULT_GAIN;
-static volatile float LeftInput1GainAmp = VOLUME_DEFAULT_GAIN;
-static volatile float RightInput2GainAmp = VOLUME_DEFAULT_GAIN;
-static volatile float LeftInput2GainAmp = VOLUME_DEFAULT_GAIN;
-static volatile float OutputGainAmp = VOLUME_DEFAULT_GAIN;
+static volatile float RightInputFader1GainAmp = VOLUME_DEFAULT_GAIN;
+static volatile float LeftInputFader1GainAmp = VOLUME_DEFAULT_GAIN;
+static volatile float RightInputFader2GainAmp = VOLUME_DEFAULT_GAIN;
+static volatile float LeftInputFader2GainAmp = VOLUME_DEFAULT_GAIN;
+static volatile float OutputFaderGainAmp = VOLUME_DEFAULT_GAIN;
+
+static volatile float RightInput1GainPreAmp = VOLUME_DEFAULT_GAIN;
+static volatile float LeftInput1GainPreAmp = VOLUME_DEFAULT_GAIN;
+static volatile float RightInput2GainPreAmp = VOLUME_DEFAULT_GAIN;
+static volatile float LeftInput2GainPreAmp = VOLUME_DEFAULT_GAIN;
 
 static volatile int16_t entryBufferADC1[BUFFER_SIZE];
 static volatile int16_t entryBufferADC2[BUFFER_SIZE];
@@ -31,8 +36,21 @@ static void NormalizeEntryBuffers(volatile int16_t* sourceBuffer1,
 static void DenormalizeBuffer(volatile int16_t* destinationBuffer, volatile float* normalizedBuffer,
                               uint16_t bufferSize) {
     for(uint16_t i = 0; i < bufferSize; i++) {
-        normalizedBuffer[i] *= OutputGainAmp;
+        normalizedBuffer[i] *= OutputFaderGainAmp;
         destinationBuffer[i] = (int16_t)(normalizedBuffer[i] * INT_16_MAX_VALUE);
+    }
+}
+
+static void PreAmpGain(volatile float* sourceBuffer1, volatile float* sourceBuffer2,
+                       uint16_t bufferSize) {
+    for (uint16_t i = 0; i < bufferSize; i++) {
+        if (i % 2 == 0) {
+            sourceBuffer1[i] *= LeftInput1GainPreAmp;
+            sourceBuffer2[i] *= LeftInput2GainPreAmp;
+        } else {
+            sourceBuffer1[i] *= RightInput2GainPreAmp;
+            sourceBuffer2[i] *= RightInput2GainPreAmp;
+        }
     }
 }
 
@@ -40,11 +58,11 @@ static void BasicMix(volatile float* sourceBuffer1, volatile float* sourceBuffer
                      volatile float* destinationBuffer, uint16_t bufferSize) {
     for (uint16_t i = 0; i < bufferSize; i++) {
         if (i % 2 == 0) {
-            sourceBuffer1[i] *= LeftInput1GainAmp;
-            sourceBuffer2[i] *= LeftInput2GainAmp;
+            sourceBuffer1[i] *= LeftInputFader1GainAmp;
+            sourceBuffer2[i] *= LeftInputFader2GainAmp;
         } else {
-            sourceBuffer1[i] *= RightInput1GainAmp;
-            sourceBuffer2[i] *= RightInput2GainAmp;
+            sourceBuffer1[i] *= RightInputFader1GainAmp;
+            sourceBuffer2[i] *= RightInputFader2GainAmp;
         }
         destinationBuffer[i] = sourceBuffer1[i] + sourceBuffer2[i];
         if (destinationBuffer[i] > 1.0f) {
@@ -64,22 +82,41 @@ static void StartAudioTxTransmission(SAI_HandleTypeDef* saiBlock, volatile int16
     HAL_SAI_Transmit_DMA(saiBlock, (uint8_t*)exitBuffer, bufferSize);
 }
 
-void UpdateGainFromSlider(GainType channel, float GainAmp) {
+void UpdatePreAmpGainFromSlider(GainType channel, float GainAmp) {
     switch(channel) {
-        case GAIN_OUTPUT:
-            OutputGainAmp = GainAmp;
-            break;
         case GAIN_CH1L:
-            LeftInput1GainAmp = GainAmp;
+            LeftInput1GainPreAmp = GainAmp;
             break;
         case GAIN_CH1R:
-            RightInput1GainAmp = GainAmp;
+            RightInput1GainPreAmp = GainAmp;
             break;
         case GAIN_CH2L:
-            LeftInput2GainAmp = GainAmp;
+            LeftInput2GainPreAmp = GainAmp;
             break;
         case GAIN_CH2R:
-            RightInput2GainAmp = GainAmp;
+            RightInput2GainPreAmp = GainAmp;
+            break;
+        default:
+            break;
+    }
+}
+
+void UpdateFaderGainFromSlider(GainType channel, float GainAmp) {
+    switch(channel) {
+        case GAIN_OUTPUT:
+            OutputFaderGainAmp = GainAmp;
+            break;
+        case GAIN_CH1L:
+            LeftInputFader1GainAmp = GainAmp;
+            break;
+        case GAIN_CH1R:
+            RightInputFader1GainAmp = GainAmp;
+            break;
+        case GAIN_CH2L:
+            LeftInputFader2GainAmp = GainAmp;
+            break;
+        case GAIN_CH2R:
+            RightInputFader2GainAmp = GainAmp;
             break;
         default:
             break;
@@ -102,6 +139,9 @@ void AudioHandling() {
                                   &normalizedBufferADC1[0],
                                   &normalizedBufferADC2[0],
                                   BUFFER_SIZE / 2);
+            PreAmpGain(&normalizedBufferADC1[0],
+                       &normalizedBufferADC2[0],
+                       BUFFER_SIZE / 2);
             BasicMix(&normalizedBufferADC1[0],
                      &normalizedBufferADC2[0],
                      &normalizedExitBuffer[0],
@@ -117,6 +157,9 @@ void AudioHandling() {
                                   &normalizedBufferADC1[BUFFER_SIZE / 2],
                                   &normalizedBufferADC2[BUFFER_SIZE / 2],
                                   BUFFER_SIZE / 2);
+            PreAmpGain(&normalizedBufferADC1[BUFFER_SIZE / 2],
+                       &normalizedBufferADC2[BUFFER_SIZE / 2],
+                       BUFFER_SIZE / 2);
             BasicMix(&normalizedBufferADC1[BUFFER_SIZE / 2],
                      &normalizedBufferADC2[BUFFER_SIZE / 2],
                      &normalizedExitBuffer[BUFFER_SIZE / 2],

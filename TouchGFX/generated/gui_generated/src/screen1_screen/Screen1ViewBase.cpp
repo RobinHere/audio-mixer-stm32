@@ -22,7 +22,7 @@ Screen1ViewBase::Screen1ViewBase() :
     outputSlider.setXY(35, 48);
     outputSlider.setBitmaps(touchgfx::Bitmap(BITMAP_GLASS_THEME_IMAGES_WIDGETS_SLIDER_VERTICAL_THIN_TRACK_SMALL_ID), touchgfx::Bitmap(BITMAP_LIGHT_THEME_IMAGES_WIDGETS_LINEPROGRESS_FILLERS_PLAIN_THIN_SMALL_ACTION_90_ID), touchgfx::Bitmap(BITMAP_CLAY_THEME_IMAGES_WIDGETS_SLIDER_HORIZONTAL_THIN_ROUNDED_ACTIVE_ID));
     outputSlider.setupVerticalSlider(9, 12, 0, 0, 200);
-    outputSlider.setValueRange(-20, 20);
+    outputSlider.setValueRange(-41, 6);
     outputSlider.setValue(0);
     outputSlider.setNewValueCallback(sliderValueChangedCallback);
     add(outputSlider);
@@ -30,7 +30,7 @@ Screen1ViewBase::Screen1ViewBase() :
     inL1Slider.setXY(105, 48);
     inL1Slider.setBitmaps(touchgfx::Bitmap(BITMAP_GLASS_THEME_IMAGES_WIDGETS_SLIDER_VERTICAL_THIN_TRACK_SMALL_ID), touchgfx::Bitmap(BITMAP_LIGHT_THEME_IMAGES_WIDGETS_LINEPROGRESS_FILLERS_PLAIN_THIN_SMALL_ACTION_90_ID), touchgfx::Bitmap(BITMAP_CLAY_THEME_IMAGES_WIDGETS_SLIDER_HORIZONTAL_THIN_ROUNDED_ACTIVE_ID));
     inL1Slider.setupVerticalSlider(9, 12, 0, 0, 200);
-    inL1Slider.setValueRange(-20, 20);
+    inL1Slider.setValueRange(-41, 6);
     inL1Slider.setValue(0);
     inL1Slider.setNewValueCallback(sliderValueChangedCallback);
     add(inL1Slider);
@@ -38,7 +38,7 @@ Screen1ViewBase::Screen1ViewBase() :
     inR1Slider.setXY(175, 48);
     inR1Slider.setBitmaps(touchgfx::Bitmap(BITMAP_GLASS_THEME_IMAGES_WIDGETS_SLIDER_VERTICAL_THIN_TRACK_SMALL_ID), touchgfx::Bitmap(BITMAP_LIGHT_THEME_IMAGES_WIDGETS_LINEPROGRESS_FILLERS_PLAIN_THIN_SMALL_ACTION_90_ID), touchgfx::Bitmap(BITMAP_CLAY_THEME_IMAGES_WIDGETS_SLIDER_VERTICAL_THIN_ROUNDED_ACTIVE_ID));
     inR1Slider.setupVerticalSlider(9, 12, 0, 0, 200);
-    inR1Slider.setValueRange(-20, 20);
+    inR1Slider.setValueRange(-41, 6);
     inR1Slider.setValue(0);
     inR1Slider.setNewValueCallback(sliderValueChangedCallback);
     add(inR1Slider);
@@ -46,7 +46,7 @@ Screen1ViewBase::Screen1ViewBase() :
     inL2Slider.setXY(245, 48);
     inL2Slider.setBitmaps(touchgfx::Bitmap(BITMAP_GLASS_THEME_IMAGES_WIDGETS_SLIDER_VERTICAL_THIN_TRACK_SMALL_ID), touchgfx::Bitmap(BITMAP_LIGHT_THEME_IMAGES_WIDGETS_LINEPROGRESS_FILLERS_PLAIN_THIN_SMALL_ACTION_90_ID), touchgfx::Bitmap(BITMAP_CLAY_THEME_IMAGES_WIDGETS_SLIDER_VERTICAL_THIN_ROUNDED_ACTIVE_ID));
     inL2Slider.setupVerticalSlider(9, 12, 0, 0, 200);
-    inL2Slider.setValueRange(-20, 20);
+    inL2Slider.setValueRange(-41, 6);
     inL2Slider.setValue(0);
     inL2Slider.setNewValueCallback(sliderValueChangedCallback);
     add(inL2Slider);
@@ -54,7 +54,7 @@ Screen1ViewBase::Screen1ViewBase() :
     inR2Slider.setXY(315, 48);
     inR2Slider.setBitmaps(touchgfx::Bitmap(BITMAP_GLASS_THEME_IMAGES_WIDGETS_SLIDER_VERTICAL_THIN_TRACK_SMALL_ID), touchgfx::Bitmap(BITMAP_LIGHT_THEME_IMAGES_WIDGETS_LINEPROGRESS_FILLERS_PLAIN_THIN_SMALL_ACTION_90_ID), touchgfx::Bitmap(BITMAP_CLAY_THEME_IMAGES_WIDGETS_SLIDER_VERTICAL_THIN_ROUNDED_ACTIVE_ID));
     inR2Slider.setupVerticalSlider(9, 12, 0, 0, 200);
-    inR2Slider.setValueRange(-20, 20);
+    inR2Slider.setValueRange(-41, 6);
     inR2Slider.setValue(0);
     inR2Slider.setNewValueCallback(sliderValueChangedCallback);
     add(inR2Slider);
@@ -107,7 +107,7 @@ Screen1ViewBase::Screen1ViewBase() :
     dbText1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_QL88));
     add(dbText1);
 
-    dbText2.setXY(94, 30);
+    dbText2.setXY(95, 30);
     dbText2.setColor(touchgfx::Color::getColorFromRGB(255, 20, 220));
     dbText2.setLinespacing(0);
     dbText2.setTypedText(touchgfx::TypedText(T___SINGLEUSE_YLR0));
@@ -190,7 +190,11 @@ void Screen1ViewBase::sliderValueChangedCallbackHandler(const touchgfx::Slider& 
         //When outputSlider value changed execute C++ code
         //Execute C++ code
         //Convert Db Gain multlplier into amplitude gain mulitplier and update it
-        UpdateGainFromSlider(GAIN_OUTPUT, std::pow(10.f, (float)value / 20.f));
+        if (value == -41) {
+            UpdateFaderGainFromSlider(GAIN_OUTPUT, 0.0f);
+        } else {
+            UpdateFaderGainFromSlider(GAIN_OUTPUT, std::pow(10.0f, (float)value / 20.0f));
+        }
         screen1State.setOutputSliderValue(value);
     }
     if (&src == &inL1Slider)
@@ -198,7 +202,11 @@ void Screen1ViewBase::sliderValueChangedCallbackHandler(const touchgfx::Slider& 
         //AdjustInL1GainVariable
         //When inL1Slider value changed execute C++ code
         //Execute C++ code
-        UpdateGainFromSlider(GAIN_CH1L, std::pow(10.f, (float)value / 20.f));
+        if (value == -41) {
+            UpdateFaderGainFromSlider(GAIN_CH1L, 0.0f);
+        } else {
+            UpdateFaderGainFromSlider(GAIN_CH1L, std::pow(10.0f, (float)value / 20.0f));
+        }
         screen1State.setInL1SliderValue(value);
     }
     if (&src == &inR1Slider)
@@ -206,7 +214,11 @@ void Screen1ViewBase::sliderValueChangedCallbackHandler(const touchgfx::Slider& 
         //AdjustInR1GainVariable
         //When inR1Slider value changed execute C++ code
         //Execute C++ code
-        UpdateGainFromSlider(GAIN_CH1R, std::pow(10.f, (float)value / 20.f));
+        if (value == -41) {
+            UpdateFaderGainFromSlider(GAIN_CH1R, 0.0f);
+        } else {
+            UpdateFaderGainFromSlider(GAIN_CH1R, std::pow(10.0f, (float)value / 20.0f));
+        }
         screen1State.setInR1SliderValue(value);
     }
     if (&src == &inL2Slider)
@@ -214,7 +226,11 @@ void Screen1ViewBase::sliderValueChangedCallbackHandler(const touchgfx::Slider& 
         //AdjustInL2GainVariable
         //When inL2Slider value changed execute C++ code
         //Execute C++ code
-        UpdateGainFromSlider(GAIN_CH2L, std::pow(10.f, (float)value / 20.f));
+        if (value == -41) {
+            UpdateFaderGainFromSlider(GAIN_CH2L, 0.0f);
+        } else {
+            UpdateFaderGainFromSlider(GAIN_CH2L, std::pow(10.0f, (float)value / 20.0f));
+        }
         screen1State.setInL2SliderValue(value);
     }
     if (&src == &inR2Slider)
@@ -222,7 +238,11 @@ void Screen1ViewBase::sliderValueChangedCallbackHandler(const touchgfx::Slider& 
         //AdjustInR2GainVariable
         //When inR2Slider value changed execute C++ code
         //Execute C++ code
-        UpdateGainFromSlider(GAIN_CH2R, std::pow(10.f, (float)value / 20.f));
+        if (value == -41) {
+            UpdateFaderGainFromSlider(GAIN_CH2R, 0.0f);
+        } else {
+            UpdateFaderGainFromSlider(GAIN_CH2R, std::pow(10.0f, (float)value / 20.0f));
+        }
         screen1State.setInR2SliderValue(value);
     }
 }

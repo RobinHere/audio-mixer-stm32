@@ -33,7 +33,8 @@ extern EqualizerFX equalizerFX;
 
 void AudioInit();
 void AudioHandling();
-void UpdateGainFromSlider(GainType channel, float DbGain);
+void UpdatePreAmpGainFromSlider(GainType channel, float GainAmp);
+void UpdateFaderGainFromSlider(GainType channel, float DbGain);
 
 #ifdef __cplusplus
 }

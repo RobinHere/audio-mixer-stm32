@@ -40,7 +40,7 @@
         <Translation Language="GB">Equalizer</Translation>
       </Text>
       <Text Id="__SingleUse_AZSF" Alignment="Left" TypographyId="Default">
-        <Translation Language="GB">Gain Control</Translation>
+        <Translation Language="GB">Faders</Translation>
       </Text>
       <Text Id="__SingleUse_G25F" Alignment="Left" TypographyId="Default">
         <Translation Language="GB">Delay On/Off</Translation>
@@ -58,7 +58,7 @@
         <Translation Language="GB">Audio Effects</Translation>
       </Text>
       <Text Id="__SingleUse_X33N" Alignment="Left" TypographyId="Default">
-        <Translation Language="GB">+20dB</Translation>
+        <Translation Language="GB">+6dB</Translation>
       </Text>
       <Text Id="__SingleUse_I3EC" Alignment="Left" TypographyId="Default">
         <Translation Language="GB">Channel 4 Gain</Translation>
@@ -73,31 +73,31 @@
         <Translation Language="GB">Channel 1 Gain</Translation>
       </Text>
       <Text Id="__SingleUse_T16R" Alignment="Left" TypographyId="Default">
-        <Translation Language="GB">+20dB</Translation>
+        <Translation Language="GB">+6dB</Translation>
       </Text>
       <Text Id="__SingleUse_U0ES" Alignment="Left" TypographyId="Default">
-        <Translation Language="GB">+20dB</Translation>
+        <Translation Language="GB">+6dB</Translation>
       </Text>
       <Text Id="__SingleUse_928V" Alignment="Left" TypographyId="Default">
-        <Translation Language="GB">-20dB</Translation>
+        <Translation Language="GB">-∞dB</Translation>
       </Text>
       <Text Id="__SingleUse_KDPP" Alignment="Left" TypographyId="Default">
-        <Translation Language="GB">-20dB</Translation>
+        <Translation Language="GB">-∞dB</Translation>
       </Text>
       <Text Id="__SingleUse_YMZU" Alignment="Left" TypographyId="Default">
-        <Translation Language="GB">-20dB</Translation>
+        <Translation Language="GB">-∞dB</Translation>
       </Text>
       <Text Id="__SingleUse_99Z1" Alignment="Left" TypographyId="Default">
-        <Translation Language="GB">-20dB</Translation>
+        <Translation Language="GB">-∞dB</Translation>
       </Text>
       <Text Id="__SingleUse_YLR0" Alignment="Left" TypographyId="Default">
-        <Translation Language="GB">+20dB</Translation>
+        <Translation Language="GB">+6dB</Translation>
       </Text>
       <Text Id="__SingleUse_RCIE" Alignment="Left" TypographyId="Default">
-        <Translation Language="GB">-20dB</Translation>
+        <Translation Language="GB">-∞dB</Translation>
       </Text>
       <Text Id="__SingleUse_QL88" Alignment="Left" TypographyId="Default">
-        <Translation Language="GB">+20dB</Translation>
+        <Translation Language="GB">+6dB</Translation>
       </Text>
       <Text Id="__SingleUse_7XPN" Alignment="Left" TypographyId="Default">
         <Translation Language="GB">Out Gain </Translation>
