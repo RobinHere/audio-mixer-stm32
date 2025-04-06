@@ -6,6 +6,51 @@
   <Texts>
     <TextGroup Id="Group1" />
     <TextGroup Id="Unsorted">
+      <Text Id="__SingleUse_3QBY" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">Pre Amp</Translation>
+      </Text>
+      <Text Id="__SingleUse_7CNT" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">Equalizer</Translation>
+      </Text>
+      <Text Id="__SingleUse_XWJ2" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">0dB</Translation>
+      </Text>
+      <Text Id="__SingleUse_EG45" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">0dB</Translation>
+      </Text>
+      <Text Id="__SingleUse_K890" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">0dB</Translation>
+      </Text>
+      <Text Id="__SingleUse_RCPB" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">0dB</Translation>
+      </Text>
+      <Text Id="__SingleUse_DH8Y" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">+40dB</Translation>
+      </Text>
+      <Text Id="__SingleUse_3LTD" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">+40dB</Translation>
+      </Text>
+      <Text Id="__SingleUse_VALZ" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">+40dB</Translation>
+      </Text>
+      <Text Id="__SingleUse_XB3P" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">+40dB</Translation>
+      </Text>
+      <Text Id="__SingleUse_V41M" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">Channel Pan</Translation>
+      </Text>
+      <Text Id="__SingleUse_TYJI" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">Channel 4 Gain</Translation>
+      </Text>
+      <Text Id="__SingleUse_APS6" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">Channel 3 Gain</Translation>
+      </Text>
+      <Text Id="__SingleUse_3E4P" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">Channel 2 Gain</Translation>
+      </Text>
+      <Text Id="__SingleUse_80FP" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">Channel 1 Gain</Translation>
+      </Text>
       <Text Id="__SingleUse_MGJY" Alignment="Left" TypographyId="Default">
         <Translation Language="GB">+12dB</Translation>
       </Text>

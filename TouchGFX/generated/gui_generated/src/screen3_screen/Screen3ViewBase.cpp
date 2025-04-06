@@ -19,7 +19,7 @@ Screen3ViewBase::Screen3ViewBase() :
     scalableImage1.setScalingAlgorithm(touchgfx::ScalableImage::BILINEAR_INTERPOLATION);
     add(scalableImage1);
 
-    midSlider.setXY(228, 48);
+    midSlider.setXY(235, 48);
     midSlider.setBitmaps(touchgfx::Bitmap(BITMAP_GLASS_THEME_IMAGES_WIDGETS_SLIDER_VERTICAL_THIN_TRACK_SMALL_ID), touchgfx::Bitmap(BITMAP_LIGHT_THEME_IMAGES_WIDGETS_LINEPROGRESS_FILLERS_PLAIN_THIN_SMALL_ACTION_90_ID), touchgfx::Bitmap(BITMAP_CLAY_THEME_IMAGES_WIDGETS_SLIDER_VERTICAL_THIN_ROUNDED_ACTIVE_ID));
     midSlider.setupVerticalSlider(9, 12, 0, 0, 200);
     midSlider.setValueRange(-12, 12);
@@ -27,7 +27,7 @@ Screen3ViewBase::Screen3ViewBase() :
     midSlider.setNewValueCallback(sliderValueChangedCallback);
     add(midSlider);
 
-    lowSlider.setXY(128, 48);
+    lowSlider.setXY(135, 48);
     lowSlider.setBitmaps(touchgfx::Bitmap(BITMAP_GLASS_THEME_IMAGES_WIDGETS_SLIDER_VERTICAL_THIN_TRACK_SMALL_ID), touchgfx::Bitmap(BITMAP_LIGHT_THEME_IMAGES_WIDGETS_LINEPROGRESS_FILLERS_PLAIN_THIN_SMALL_ACTION_90_ID), touchgfx::Bitmap(BITMAP_CLAY_THEME_IMAGES_WIDGETS_SLIDER_VERTICAL_THIN_ROUNDED_ACTIVE_ID));
     lowSlider.setupVerticalSlider(9, 12, 0, 0, 200);
     lowSlider.setValueRange(-12, 12);
@@ -35,7 +35,7 @@ Screen3ViewBase::Screen3ViewBase() :
     lowSlider.setNewValueCallback(sliderValueChangedCallback);
     add(lowSlider);
 
-    highSlider.setXY(328, 48);
+    highSlider.setXY(335, 48);
     highSlider.setBitmaps(touchgfx::Bitmap(BITMAP_GLASS_THEME_IMAGES_WIDGETS_SLIDER_VERTICAL_THIN_TRACK_SMALL_ID), touchgfx::Bitmap(BITMAP_LIGHT_THEME_IMAGES_WIDGETS_LINEPROGRESS_FILLERS_PLAIN_THIN_SMALL_ACTION_90_ID), touchgfx::Bitmap(BITMAP_CLAY_THEME_IMAGES_WIDGETS_SLIDER_VERTICAL_THIN_ROUNDED_ACTIVE_ID));
     highSlider.setupVerticalSlider(9, 12, 0, 0, 200);
     highSlider.setValueRange(-12, 12);
@@ -56,58 +56,71 @@ Screen3ViewBase::Screen3ViewBase() :
     previousScreenText.setTypedText(touchgfx::TypedText(T___SINGLEUSE_4X98));
     add(previousScreenText);
 
-    dTimeText.setXY(201, 148);
+    previousScreenText_1.setXY(398, 129);
+    previousScreenText_1.setColor(touchgfx::Color::getColorFromRGB(255, 20, 220));
+    previousScreenText_1.setLinespacing(0);
+    previousScreenText_1.setRotation(touchgfx::TEXT_ROTATE_270);
+    previousScreenText_1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_3QBY));
+    add(previousScreenText_1);
+
+    nextScreenButton.setIconBitmaps(Bitmap(BITMAP_ICON_THEME_IMAGES_NAVIGATION_ARROW_FORWARD_IOS_50_50_FF14DC_SVG_ID), Bitmap(BITMAP_ICON_THEME_IMAGES_NAVIGATION_ARROW_FORWARD_IOS_50_50_FF14DC_SVG_ID));
+    nextScreenButton.setIconXY(-1, 24);
+    nextScreenButton.setAction(flexButtonCallback);
+    nextScreenButton.setPosition(416, 112, 64, 97);
+    add(nextScreenButton);
+
+    dTimeText.setXY(208, 148);
     dTimeText.setColor(touchgfx::Color::getColorFromRGB(255, 20, 220));
     dTimeText.setLinespacing(0);
     dTimeText.setRotation(touchgfx::TEXT_ROTATE_270);
     dTimeText.setTypedText(touchgfx::TypedText(T___SINGLEUSE_CB86));
     add(dTimeText);
 
-    dTimeText_2.setXY(99, 147);
+    dTimeText_2.setXY(106, 147);
     dTimeText_2.setColor(touchgfx::Color::getColorFromRGB(255, 20, 220));
     dTimeText_2.setLinespacing(0);
     dTimeText_2.setRotation(touchgfx::TEXT_ROTATE_270);
     dTimeText_2.setTypedText(touchgfx::TypedText(T___SINGLEUSE_7GDA));
     add(dTimeText_2);
 
-    dTimeText_1.setXY(299, 143);
+    dTimeText_1.setXY(306, 143);
     dTimeText_1.setColor(touchgfx::Color::getColorFromRGB(255, 20, 220));
     dTimeText_1.setLinespacing(0);
     dTimeText_1.setRotation(touchgfx::TEXT_ROTATE_270);
     dTimeText_1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_UZTL));
     add(dTimeText_1);
 
-    dbText1.setXY(117, 30);
+    dbText1.setXY(124, 30);
     dbText1.setColor(touchgfx::Color::getColorFromRGB(255, 20, 220));
     dbText1.setLinespacing(0);
     dbText1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_UJA2));
     add(dbText1);
 
-    dbText1_2.setXY(219, 30);
+    dbText1_2.setXY(226, 30);
     dbText1_2.setColor(touchgfx::Color::getColorFromRGB(255, 20, 220));
     dbText1_2.setLinespacing(0);
     dbText1_2.setTypedText(touchgfx::TypedText(T___SINGLEUSE_J1RN));
     add(dbText1_2);
 
-    dbText1_2_1.setXY(317, 30);
+    dbText1_2_1.setXY(324, 30);
     dbText1_2_1.setColor(touchgfx::Color::getColorFromRGB(255, 20, 220));
     dbText1_2_1.setLinespacing(0);
     dbText1_2_1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_MGJY));
     add(dbText1_2_1);
 
-    dbText1_1.setXY(117, 272);
+    dbText1_1.setXY(124, 272);
     dbText1_1.setColor(touchgfx::Color::getColorFromRGB(255, 20, 220));
     dbText1_1.setLinespacing(0);
     dbText1_1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_NNLG));
     add(dbText1_1);
 
-    dbText1_1_1.setXY(217, 272);
+    dbText1_1_1.setXY(224, 272);
     dbText1_1_1.setColor(touchgfx::Color::getColorFromRGB(255, 20, 220));
     dbText1_1_1.setLinespacing(0);
     dbText1_1_1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_6VBQ));
     add(dbText1_1_1);
 
-    dbText1_1_1_1.setXY(317, 272);
+    dbText1_1_1_1.setXY(324, 272);
     dbText1_1_1_1.setColor(touchgfx::Color::getColorFromRGB(255, 20, 220));
     dbText1_1_1_1.setLinespacing(0);
     dbText1_1_1_1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_UHH8));
@@ -132,8 +145,15 @@ void Screen3ViewBase::flexButtonCallbackHandler(const touchgfx::AbstractButtonCo
     {
         //ChangeToScreen2
         //When previousScreenButton clicked change screen to Screen2
-        //Go to Screen2 with screen transition towards East
-        application().gotoScreen2ScreenWipeTransitionEast();
+        //Go to Screen2 with screen transition towards West
+        application().gotoScreen2ScreenWipeTransitionWest();
+    }
+    if (&src == &nextScreenButton)
+    {
+        //ChangeToScren4
+        //When nextScreenButton clicked change screen to Screen4
+        //Go to Screen4 with screen transition towards East
+        application().gotoScreen4ScreenWipeTransitionEast();
     }
 }
 

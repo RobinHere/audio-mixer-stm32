@@ -289,7 +289,7 @@
           {
             "Type": "TextArea",
             "Name": "dbText7",
-            "X": 94,
+            "X": 95,
             "Y": 272,
             "Width": 41,
             "Height": 18,
@@ -337,7 +337,7 @@
           {
             "Type": "TextArea",
             "Name": "dbText10",
-            "X": 304,
+            "X": 302,
             "Y": 272,
             "Width": 41,
             "Height": 18,
@@ -745,7 +745,7 @@
           {
             "Type": "Slider",
             "Name": "midSlider",
-            "X": 228,
+            "X": 235,
             "Y": 48,
             "Width": 24,
             "Height": 224,
@@ -761,7 +761,7 @@
           {
             "Type": "Slider",
             "Name": "lowSlider",
-            "X": 128,
+            "X": 135,
             "Y": 48,
             "Width": 24,
             "Height": 224,
@@ -777,7 +777,7 @@
           {
             "Type": "Slider",
             "Name": "highSlider",
-            "X": 328,
+            "X": 335,
             "Y": 48,
             "Width": 24,
             "Height": 224,
@@ -827,8 +827,44 @@
           },
           {
             "Type": "TextArea",
+            "Name": "previousScreenText_1",
+            "X": 398,
+            "Y": 129,
+            "Width": 18,
+            "Height": 63,
+            "TextId": "__SingleUse_3QBY",
+            "TextRotation": "270",
+            "Color": {
+              "Red": 255,
+              "Green": 20,
+              "Blue": 220
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "FlexButton",
+            "Name": "nextScreenButton",
+            "X": 416,
+            "Y": 112,
+            "Width": 64,
+            "Height": 97,
+            "ButtonTrigger": {
+              "Type": "ClickButtonTrigger"
+            },
+            "ButtonStyles": [
+              {
+                "Type": "IconButtonStyle",
+                "X": -1,
+                "Y": 24,
+                "IconReleased": "__generated\\icon_theme_images_navigation_arrow_forward_ios_50_50_FF14DC.svg.png",
+                "IconPressed": "__generated\\icon_theme_images_navigation_arrow_forward_ios_50_50_FF14DC.svg.png"
+              }
+            ]
+          },
+          {
+            "Type": "TextArea",
             "Name": "dTimeText",
-            "X": 201,
+            "X": 208,
             "Y": 148,
             "Width": 18,
             "Height": 26,
@@ -844,7 +880,7 @@
           {
             "Type": "TextArea",
             "Name": "dTimeText_2",
-            "X": 99,
+            "X": 106,
             "Y": 147,
             "Width": 18,
             "Height": 29,
@@ -860,7 +896,7 @@
           {
             "Type": "TextArea",
             "Name": "dTimeText_1",
-            "X": 299,
+            "X": 306,
             "Y": 143,
             "Width": 18,
             "Height": 34,
@@ -876,7 +912,7 @@
           {
             "Type": "TextArea",
             "Name": "dbText1",
-            "X": 117,
+            "X": 124,
             "Y": 30,
             "Width": 51,
             "Height": 18,
@@ -892,7 +928,7 @@
           {
             "Type": "TextArea",
             "Name": "dbText1_2",
-            "X": 219,
+            "X": 226,
             "Y": 30,
             "Width": 51,
             "Height": 18,
@@ -908,7 +944,7 @@
           {
             "Type": "TextArea",
             "Name": "dbText1_2_1",
-            "X": 317,
+            "X": 324,
             "Y": 30,
             "Width": 51,
             "Height": 18,
@@ -924,7 +960,7 @@
           {
             "Type": "TextArea",
             "Name": "dbText1_1",
-            "X": 117,
+            "X": 124,
             "Y": 272,
             "Width": 46,
             "Height": 18,
@@ -940,7 +976,7 @@
           {
             "Type": "TextArea",
             "Name": "dbText1_1_1",
-            "X": 217,
+            "X": 224,
             "Y": 272,
             "Width": 46,
             "Height": 18,
@@ -956,7 +992,7 @@
           {
             "Type": "TextArea",
             "Name": "dbText1_1_1_1",
-            "X": 317,
+            "X": 324,
             "Y": 272,
             "Width": 46,
             "Height": 18,
@@ -980,7 +1016,7 @@
             "Action": {
               "Type": "ActionGotoScreen",
               "ScreenTransitionType": "ScreenTransitionWipe",
-              "ScreenTransitionDirection": "East",
+              "ScreenTransitionDirection": "West",
               "ActionComponent": "Screen2"
             }
           },
@@ -1015,6 +1051,433 @@
             "Action": {
               "Type": "ActionExecuteCode",
               "Code": "updateGainHighShelf(&equalizerFX, std::pow(10.f, (float)value / 20.f));\r\nscreen3State.setHighSliderValue(value);"
+            }
+          },
+          {
+            "InteractionName": "ChangeToScren4",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "nextScreenButton"
+            },
+            "Action": {
+              "Type": "ActionGotoScreen",
+              "ScreenTransitionType": "ScreenTransitionWipe",
+              "ScreenTransitionDirection": "East",
+              "ActionComponent": "Screen4"
+            }
+          }
+        ]
+      },
+      {
+        "Name": "Screen4",
+        "Includes": "#include \"Screen4State.hpp\"\r\n#include \"audio_module.h\"",
+        "Components": [
+          {
+            "Type": "ScalableImage",
+            "Name": "scalableImage1",
+            "X": -42,
+            "Width": 522,
+            "Height": 320,
+            "Filename": "__generated\\glass_theme_images_backgrounds_480x480_floating_rings.png",
+            "ScalingAlgorithm": "Bilinear Interpolation"
+          },
+          {
+            "Type": "Slider",
+            "Name": "inL1Slider",
+            "X": 135,
+            "Y": 48,
+            "Width": 24,
+            "Height": 224,
+            "BackgroundUnselected": "__generated\\glass_theme_images_widgets_slider_vertical_thin_track_small.png",
+            "BackgroundSelected": "__generated\\light_theme_images_widgets_lineprogress_fillers_plain_thin_small_action_90.png",
+            "Indicator": "__generated\\clay_theme_images_widgets_slider_horizontal_thin_rounded_active.png",
+            "BackgroundX": 9,
+            "BackgroundY": 12,
+            "IndicatorMax": 200,
+            "ValueMax": 40
+          },
+          {
+            "Type": "Slider",
+            "Name": "inR1Slider",
+            "X": 205,
+            "Y": 48,
+            "Width": 24,
+            "Height": 224,
+            "BackgroundUnselected": "__generated\\glass_theme_images_widgets_slider_vertical_thin_track_small.png",
+            "BackgroundSelected": "__generated\\light_theme_images_widgets_lineprogress_fillers_plain_thin_small_action_90.png",
+            "Indicator": "__generated\\clay_theme_images_widgets_slider_vertical_thin_rounded_active.png",
+            "BackgroundX": 9,
+            "BackgroundY": 12,
+            "IndicatorMax": 200,
+            "ValueMax": 40
+          },
+          {
+            "Type": "Slider",
+            "Name": "inL2Slider",
+            "X": 275,
+            "Y": 48,
+            "Width": 24,
+            "Height": 224,
+            "BackgroundUnselected": "__generated\\glass_theme_images_widgets_slider_vertical_thin_track_small.png",
+            "BackgroundSelected": "__generated\\light_theme_images_widgets_lineprogress_fillers_plain_thin_small_action_90.png",
+            "Indicator": "__generated\\clay_theme_images_widgets_slider_vertical_thin_rounded_active.png",
+            "BackgroundX": 9,
+            "BackgroundY": 12,
+            "IndicatorMax": 200,
+            "ValueMax": 40
+          },
+          {
+            "Type": "Slider",
+            "Name": "inR2Slider",
+            "X": 345,
+            "Y": 48,
+            "Width": 24,
+            "Height": 224,
+            "BackgroundUnselected": "__generated\\glass_theme_images_widgets_slider_vertical_thin_track_small.png",
+            "BackgroundSelected": "__generated\\light_theme_images_widgets_lineprogress_fillers_plain_thin_small_action_90.png",
+            "Indicator": "__generated\\clay_theme_images_widgets_slider_vertical_thin_rounded_active.png",
+            "BackgroundX": 9,
+            "BackgroundY": 12,
+            "IndicatorMax": 200,
+            "ValueMax": 40
+          },
+          {
+            "Type": "TextArea",
+            "Name": "inL1GainText",
+            "X": 106,
+            "Y": 102,
+            "Width": 18,
+            "Height": 117,
+            "TextId": "__SingleUse_80FP",
+            "TextRotation": "270",
+            "Color": {
+              "Red": 255,
+              "Green": 20,
+              "Blue": 220
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "inR1GainText",
+            "X": 176,
+            "Y": 102,
+            "Width": 18,
+            "Height": 117,
+            "TextId": "__SingleUse_3E4P",
+            "TextRotation": "270",
+            "Color": {
+              "Red": 255,
+              "Green": 20,
+              "Blue": 220
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "inL2GainText",
+            "X": 246,
+            "Y": 102,
+            "Width": 18,
+            "Height": 117,
+            "TextId": "__SingleUse_APS6",
+            "TextRotation": "270",
+            "Color": {
+              "Red": 255,
+              "Green": 20,
+              "Blue": 220
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "inR2GainText",
+            "X": 316,
+            "Y": 102,
+            "Width": 18,
+            "Height": 117,
+            "TextId": "__SingleUse_TYJI",
+            "TextRotation": "270",
+            "Color": {
+              "Red": 255,
+              "Green": 20,
+              "Blue": 220
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "nextScreenText",
+            "X": 398,
+            "Y": 113,
+            "Width": 18,
+            "Height": 95,
+            "TextId": "__SingleUse_V41M",
+            "TextRotation": "270",
+            "Color": {
+              "Red": 255,
+              "Green": 20,
+              "Blue": 220
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "previousScreenText",
+            "X": 64,
+            "Y": 126,
+            "Width": 18,
+            "Height": 68,
+            "TextId": "__SingleUse_7CNT",
+            "TextRotation": "90",
+            "Color": {
+              "Red": 255,
+              "Green": 20,
+              "Blue": 220
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "dbText2",
+            "X": 124,
+            "Y": 30,
+            "Width": 51,
+            "Height": 18,
+            "TextId": "__SingleUse_XB3P",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 20,
+              "Blue": 220
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "dbText3",
+            "X": 194,
+            "Y": 30,
+            "Width": 51,
+            "Height": 18,
+            "TextId": "__SingleUse_VALZ",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 20,
+              "Blue": 220
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "dbText4",
+            "X": 264,
+            "Y": 30,
+            "Width": 51,
+            "Height": 18,
+            "TextId": "__SingleUse_3LTD",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 20,
+              "Blue": 220
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "dbText5",
+            "X": 332,
+            "Y": 30,
+            "Width": 51,
+            "Height": 18,
+            "TextId": "__SingleUse_DH8Y",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 20,
+              "Blue": 220
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "dbText7",
+            "X": 130,
+            "Y": 272,
+            "Width": 29,
+            "Height": 18,
+            "TextId": "__SingleUse_RCPB",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 20,
+              "Blue": 220
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "dbText8",
+            "X": 203,
+            "Y": 272,
+            "Width": 29,
+            "Height": 18,
+            "TextId": "__SingleUse_K890",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 20,
+              "Blue": 220
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "dbText9",
+            "X": 273,
+            "Y": 272,
+            "Width": 29,
+            "Height": 18,
+            "TextId": "__SingleUse_EG45",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 20,
+              "Blue": 220
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "dbText10",
+            "X": 343,
+            "Y": 272,
+            "Width": 29,
+            "Height": 18,
+            "TextId": "__SingleUse_XWJ2",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 20,
+              "Blue": 220
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "FlexButton",
+            "Name": "nextScreenButton",
+            "X": 416,
+            "Y": 112,
+            "Width": 64,
+            "Height": 97,
+            "ButtonTrigger": {
+              "Type": "ClickButtonTrigger"
+            },
+            "ButtonStyles": [
+              {
+                "Type": "IconButtonStyle",
+                "X": -1,
+                "Y": 24,
+                "IconReleased": "__generated\\icon_theme_images_navigation_arrow_forward_ios_50_50_FF14DC.svg.png",
+                "IconPressed": "__generated\\icon_theme_images_navigation_arrow_forward_ios_50_50_FF14DC.svg.png"
+              }
+            ]
+          },
+          {
+            "Type": "FlexButton",
+            "Name": "previousScreenButton",
+            "Y": 112,
+            "Width": 64,
+            "Height": 97,
+            "ButtonTrigger": {
+              "Type": "ClickButtonTrigger"
+            },
+            "ButtonStyles": [
+              {
+                "Type": "IconButtonStyle",
+                "X": 17,
+                "Y": 24,
+                "IconReleased": "__generated\\icon_theme_images_navigation_arrow_back_ios_50_50_FF14DC.svg.png",
+                "IconPressed": "__generated\\icon_theme_images_navigation_arrow_back_ios_50_50_FF14DC.svg.png"
+              }
+            ]
+          }
+        ],
+        "Interactions": [
+          {
+            "InteractionName": "AdjustInL1GainVariable",
+            "Trigger": {
+              "Type": "TriggerSliderValueChanged",
+              "TriggerComponent": "inL1Slider"
+            },
+            "Action": {
+              "Type": "ActionExecuteCode",
+              "Includes": "",
+              "Code": "UpdatePreAmpGainFromSlider(GAIN_CH1L, std::pow(10.0f, (float)value / 20.0f));\r\nscreen4State.setInL1SliderValue(value);"
+            }
+          },
+          {
+            "InteractionName": "AdjustInR1GainVariable",
+            "Trigger": {
+              "Type": "TriggerSliderValueChanged",
+              "TriggerComponent": "inR1Slider"
+            },
+            "Action": {
+              "Type": "ActionExecuteCode",
+              "Includes": "",
+              "Code": "UpdatePreAmpGainFromSlider(GAIN_CH1R, std::pow(10.0f, (float)value / 20.0f));\r\nscreen4State.setInR1SliderValue(value);"
+            }
+          },
+          {
+            "InteractionName": "AdjustInL2GainVariable",
+            "Trigger": {
+              "Type": "TriggerSliderValueChanged",
+              "TriggerComponent": "inL2Slider"
+            },
+            "Action": {
+              "Type": "ActionExecuteCode",
+              "Includes": "",
+              "Code": "UpdatePreAmpGainFromSlider(GAIN_CH2L, std::pow(10.0f, (float)value / 20.0f));\r\nscreen4State.setInL2SliderValue(value);"
+            }
+          },
+          {
+            "InteractionName": "AdjustInR2GainVariable",
+            "Trigger": {
+              "Type": "TriggerSliderValueChanged",
+              "TriggerComponent": "inR2Slider"
+            },
+            "Action": {
+              "Type": "ActionExecuteCode",
+              "Includes": "",
+              "Code": "UpdatePreAmpGainFromSlider(GAIN_CH2R, std::pow(10.0f, (float)value / 20.0f));\r\nscreen4State.setInR2SliderValue(value);"
+            }
+          },
+          {
+            "InteractionName": "ChangeToScreen5",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "nextScreenButton"
+            },
+            "Action": {
+              "Type": "ActionGotoScreen",
+              "ScreenTransitionType": "ScreenTransitionWipe",
+              "ScreenTransitionDirection": "East",
+              "ActionComponent": "Screen4"
+            }
+          },
+          {
+            "InteractionName": "ChangeToScreen3",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "previousScreenButton"
+            },
+            "Action": {
+              "Type": "ActionGotoScreen",
+              "ScreenTransitionType": "ScreenTransitionWipe",
+              "ScreenTransitionDirection": "West",
+              "ActionComponent": "Screen3"
             }
           }
         ]

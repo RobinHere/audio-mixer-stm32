@@ -15,6 +15,8 @@
 #include <gui/screen2_screen/Screen2Presenter.hpp>
 #include <gui/screen3_screen/Screen3View.hpp>
 #include <gui/screen3_screen/Screen3Presenter.hpp>
+#include <gui/screen4_screen/Screen4View.hpp>
+#include <gui/screen4_screen/Screen4Presenter.hpp>
 
 using namespace touchgfx;
 
@@ -72,6 +74,17 @@ void FrontendApplicationBase::gotoScreen2ScreenWipeTransitionEastImpl()
     touchgfx::makeTransition<Screen2View, Screen2Presenter, touchgfx::WipeTransition<EAST>, Model >(&currentScreen, &currentPresenter, frontendHeap, &currentTransition, &model);
 }
 
+void FrontendApplicationBase::gotoScreen2ScreenWipeTransitionWest()
+{
+    transitionCallback = touchgfx::Callback<FrontendApplicationBase>(this, &FrontendApplicationBase::gotoScreen2ScreenWipeTransitionWestImpl);
+    pendingScreenTransitionCallback = &transitionCallback;
+}
+
+void FrontendApplicationBase::gotoScreen2ScreenWipeTransitionWestImpl()
+{
+    touchgfx::makeTransition<Screen2View, Screen2Presenter, touchgfx::WipeTransition<WEST>, Model >(&currentScreen, &currentPresenter, frontendHeap, &currentTransition, &model);
+}
+
 // Screen3
 
 void FrontendApplicationBase::gotoScreen3ScreenWipeTransitionEast()
@@ -83,4 +96,28 @@ void FrontendApplicationBase::gotoScreen3ScreenWipeTransitionEast()
 void FrontendApplicationBase::gotoScreen3ScreenWipeTransitionEastImpl()
 {
     touchgfx::makeTransition<Screen3View, Screen3Presenter, touchgfx::WipeTransition<EAST>, Model >(&currentScreen, &currentPresenter, frontendHeap, &currentTransition, &model);
+}
+
+void FrontendApplicationBase::gotoScreen3ScreenWipeTransitionWest()
+{
+    transitionCallback = touchgfx::Callback<FrontendApplicationBase>(this, &FrontendApplicationBase::gotoScreen3ScreenWipeTransitionWestImpl);
+    pendingScreenTransitionCallback = &transitionCallback;
+}
+
+void FrontendApplicationBase::gotoScreen3ScreenWipeTransitionWestImpl()
+{
+    touchgfx::makeTransition<Screen3View, Screen3Presenter, touchgfx::WipeTransition<WEST>, Model >(&currentScreen, &currentPresenter, frontendHeap, &currentTransition, &model);
+}
+
+// Screen4
+
+void FrontendApplicationBase::gotoScreen4ScreenWipeTransitionEast()
+{
+    transitionCallback = touchgfx::Callback<FrontendApplicationBase>(this, &FrontendApplicationBase::gotoScreen4ScreenWipeTransitionEastImpl);
+    pendingScreenTransitionCallback = &transitionCallback;
+}
+
+void FrontendApplicationBase::gotoScreen4ScreenWipeTransitionEastImpl()
+{
+    touchgfx::makeTransition<Screen4View, Screen4Presenter, touchgfx::WipeTransition<EAST>, Model >(&currentScreen, &currentPresenter, frontendHeap, &currentTransition, &model);
 }

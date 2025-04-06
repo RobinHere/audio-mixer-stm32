@@ -37,6 +37,8 @@ protected:
     touchgfx::Slider highSlider;
     touchgfx::IconButtonStyle< touchgfx::ClickButtonTrigger >  previousScreenButton;
     touchgfx::TextArea previousScreenText;
+    touchgfx::TextArea previousScreenText_1;
+    touchgfx::IconButtonStyle< touchgfx::ClickButtonTrigger >  nextScreenButton;
     touchgfx::TextArea dTimeText;
     touchgfx::TextArea dTimeText_2;
     touchgfx::TextArea dTimeText_1;

@@ -48,7 +48,7 @@ static void PreAmpGain(volatile float* sourceBuffer1, volatile float* sourceBuff
             sourceBuffer1[i] *= LeftInput1GainPreAmp;
             sourceBuffer2[i] *= LeftInput2GainPreAmp;
         } else {
-            sourceBuffer1[i] *= RightInput2GainPreAmp;
+            sourceBuffer1[i] *= RightInput1GainPreAmp;
             sourceBuffer2[i] *= RightInput2GainPreAmp;
         }
     }
